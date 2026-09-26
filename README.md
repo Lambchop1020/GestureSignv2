@@ -35,6 +35,10 @@ GestureSign V2 是基于经典开源项目 [TransposonY/GestureSign](https://git
 
 原版 GestureSign 长期未维护，在新系统和高强度使用场景下容易遇到按键粘滞、界面老旧、DPI 适配不足等问题。这个版本的目标很直接：保留原来的手势能力，同时修复 Windows 11 下的体验问题，并用更现代的 WinUI 3 界面重新承载配置流程。
 
+## 客制化软件开发
+
+我也有偿承接客制化软件开发。有需求欢迎通过 [GitHub Issues](https://github.com/Tomclanc/GestureSignv2/issues) 联系，说明希望实现的功能、预算和期望交付时间。具体开发范围、费用与排期沟通后确认。
+
 ## 主要特性
 
 - WinUI 3 重构界面，适配 Windows 11 圆角、Mica 风格、深色 / 亮色模式动态切换。
@@ -176,6 +180,10 @@ winget install --id Tomclanc.GestureSignV2 --source winget
 GestureSign V2 is a Windows 11 focused rebuild of the classic open-source project [TransposonY/GestureSign](https://github.com/TransposonY/GestureSign).
 
 The original GestureSign has not been actively maintained for a long time. On newer Windows systems, users may run into sticky modifier keys, dated UI behavior, DPI issues, and inconsistent gesture capture. GestureSign V2 keeps the original gesture workflow while improving the Windows 11 experience and moving the configuration interface to a modern WinUI 3 design.
+
+## Custom Software Development
+
+I'm available for paid custom software development. To discuss a project, contact me through [GitHub Issues](https://github.com/Tomclanc/GestureSignv2/issues) with the features you need, your budget, and your preferred delivery date. Scope, pricing, and schedule will be agreed upon after discussing the requirements.
 
 ## Features
 
@@ -324,6 +332,10 @@ If GestureSign V2 is useful to you, you can support its continued development vi
 GestureSign V2 は、クラシックなオープンソースプロジェクト [TransposonY/GestureSign](https://github.com/TransposonY/GestureSign) を Windows 11 向けに再構築したバージョンです。
 
 元の GestureSign は長い間積極的にメンテナンスされていません。新しい Windows 環境では、修飾キーが押されたままになる、UI の挙動が古い、高 DPI 環境で表示が崩れる、ジェスチャー入力が安定しない、といった問題が起こることがあります。GestureSign V2 は従来のジェスチャーワークフローを保ちながら、Windows 11 での体験を改善し、設定画面をモダンな WinUI 3 デザインへ移行しています。
+
+## ソフトウェアの受託開発
+
+有償でソフトウェアのカスタム開発を承っています。ご相談は [GitHub Issues](https://github.com/Tomclanc/GestureSignv2/issues) から、実現したい機能、ご予算、ご希望の納期をお知らせください。開発範囲、費用、スケジュールはご相談のうえ決定します。
 
 ## 主な機能
 
