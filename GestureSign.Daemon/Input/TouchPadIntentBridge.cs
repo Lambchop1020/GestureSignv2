@@ -1,4 +1,4 @@
-﻿using GestureSign.Foundation.Intent;
+using GestureSign.Foundation.Intent;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -122,7 +122,8 @@ internal sealed class TouchPadIntentBridge : IDisposable
     private void EnsureBackgroundHost()
     {
         var preferences = Path.Combine(_dataRoot, "preferences.json");
-        if (!File.Exists(preferences) || IntentFiles.Read<IntentPreferences>(preferences)?.BackgroundLearning != true) return;
+        var settings = File.Exists(preferences) ? IntentFiles.Read<IntentPreferences>(preferences) : null;
+        if (settings == null || (!settings.BackgroundLearning && !settings.AiVeto)) return;
         var component = IntentComponentLocation.Resolve(AppContext.BaseDirectory);
         var manifest = Path.Combine(component, "component.json");
         if (!File.Exists(manifest) || IntentFiles.Read<IntentComponentManifest>(manifest)?.Version != IntentComponentPackage.ComponentVersion) return;

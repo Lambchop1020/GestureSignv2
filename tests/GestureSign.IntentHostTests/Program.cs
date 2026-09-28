@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.IO.Pipes;
 using System.Text.Json;
 using GestureSign.Foundation.Intent;
@@ -62,6 +62,7 @@ for (int i = 0; i < 200 && (await Send(new("status"))).Busy; i++) await Task.Del
 var trained = await Send(new("status"));
 Check(File.Exists(Path.Combine(root, "model.json")) && trained.Control.Mode == IntentMode.BackgroundLearn, "Idle training failed to save and resume passive collection: " + trained.Message);
 await Send(new("mode", IntentMode.ExperimentalVeto));
+Check(IntentFiles.Read<IntentPreferences>(Path.Combine(root, "preferences.json"))?.AiVeto == true, "Veto preference was not persisted.");
 var combined = await Send(new("status"));
 Check(combined.BackgroundLearning && combined.Control.Mode == IntentMode.ExperimentalVeto, "Veto disabled background learning.");
 await Send(new("background-off"));
@@ -74,6 +75,7 @@ for (int i = 0; i < 600 && (await Send(new("status"))).Busy; i++) await Task.Del
 var afterCombinedTraining = await Send(new("status"));
 Check(!afterCombinedTraining.Busy && afterCombinedTraining.BackgroundLearning && afterCombinedTraining.Control.Mode == IntentMode.ExperimentalVeto, "Training failed to restore both switches.");
 await Send(new("veto-off"));
+Check(IntentFiles.Read<IntentPreferences>(Path.Combine(root, "preferences.json"))?.AiVeto == false, "Veto off preference was not persisted.");
 var learningOnly = await Send(new("status"));
 Check(learningOnly.BackgroundLearning && learningOnly.Control.Mode == IntentMode.BackgroundLearn, "Disabling veto disabled learning.");
 var modelTime = File.GetLastWriteTimeUtc(Path.Combine(root, "model.json"));
@@ -97,5 +99,19 @@ using (var resumedHost = new IntentHost(root, pipeName, () => false))
     var resumed = await Send(new("status"));
     Check(resumed.BackgroundLearning && resumed.Control.Mode == IntentMode.BackgroundLearn, "Explicit background preference failed to resume after restart.");
     await Send(new("stop")); await resumedRun.WaitAsync(TimeSpan.FromSeconds(3));
+}
+// Simulate engine restart after the user explicitly enabled veto. A valid saved
+// model must be loaded before protection resumes; old preferences default off.
+Check(!new IntentPreferences().AiVeto, "New users must not opt into veto automatically.");
+IntentFiles.Write(Path.Combine(root, "preferences.json"), new IntentPreferences { BackgroundLearning = true, AiVeto = true });
+using (var restarted = new IntentHost(root, pipeName, () => false))
+{
+    var run = restarted.RunAsync(Process.GetCurrentProcess());
+    for (int i = 0; i < 600 && (await Send(new("status"))).Busy; i++) await Task.Delay(100);
+    var state = await Send(new("status"));
+    Check(state.HasModel && state.BackgroundLearning && state.Control.Mode == IntentMode.ExperimentalVeto, "Restart lost persisted veto choice.");
+    await Send(new("mode", IntentMode.Off));
+    Check(IntentFiles.Read<IntentPreferences>(Path.Combine(root, "preferences.json"))?.AiVeto == false, "Explicit stop must clear persisted veto.");
+    await Send(new("stop")); await run.WaitAsync(TimeSpan.FromSeconds(3));
 }
 Console.WriteLine($"PASS: {checks} headless host, integrated settings protocol, lease and lifecycle checks.");

@@ -1005,6 +1005,8 @@ namespace GestureSign.Daemon.Input
             State = captureStartedArgs.ForceCapture ? CaptureState.Capturing : CaptureState.CapturingInvalid;
             if (SourceDevice == Devices.TouchPad && Mode == CaptureMode.Normal && captureStartedArgs.SuppressPointerMotion)
                 _pointerMotionSuppressionActive = _inputProvider.BeginPointerMotionSuppression(_touchPadStartPoint);
+            if (_pointerMotionSuppressionActive && captureStartedArgs.SuppressNativeEdgeClick)
+                _inputProvider.BeginEdgeClickSuppression();
             _requiredContactCount = Math.Max(1, captureStartedArgs.RequiredContactCount);
             _captureSession.Accept(_requiredContactCount);
 

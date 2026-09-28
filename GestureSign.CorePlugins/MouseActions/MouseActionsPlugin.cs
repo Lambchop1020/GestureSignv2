@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using WindowsInput;
 using GestureSign.Common.Localization;
 using GestureSign.Common.Plugins;
+using GestureSign.Common.Log;
 
 namespace GestureSign.CorePlugins.MouseActions
 {
@@ -73,6 +74,8 @@ namespace GestureSign.CorePlugins.MouseActions
                 return false;
 
             InputSimulator simulator = new InputSimulator();
+            var diagnosticId = Guid.NewGuid().ToString("N");
+            EdgeInputDiagnostics.Record("COMMAND_BEGIN", $"Id={diagnosticId} MouseAction={_settings.MouseAction} Value={(int)_settings.MouseAction} Location={_settings.ActionLocation} WaitMs={_settings.WaitMilliseconds}");
             try
             {
                 var waitMilliseconds = Math.Clamp(_settings.WaitMilliseconds, 0, 3_600_000);
@@ -88,6 +91,7 @@ namespace GestureSign.CorePlugins.MouseActions
                         MoveCursor(referencePoint, _settings.MoveDurationMilliseconds);
                 }
 
+                EdgeInputDiagnostics.Record("COMMAND_SEND", $"Id={diagnosticId} MouseAction={_settings.MouseAction} Point={Cursor.Position.X},{Cursor.Position.Y}");
                 switch (_settings.MouseAction)
                 {
                     case MouseActions.HorizontalScroll:
@@ -128,9 +132,14 @@ namespace GestureSign.CorePlugins.MouseActions
                         }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                EdgeInputDiagnostics.Record("COMMAND_ERROR", $"Id={diagnosticId} Error={ex.GetType().Name}: {ex.Message}");
                 return false;
+            }
+            finally
+            {
+                EdgeInputDiagnostics.Record("COMMAND_END", $"Id={diagnosticId}");
             }
             return true;
         }

@@ -1,4 +1,4 @@
-﻿using System.Security.Cryptography;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 
@@ -8,6 +8,7 @@ public enum IntentMode { Off, RecordScroll, RecordGesture, Observe, ProtectSmart
 public sealed class IntentPreferences
 {
     public bool BackgroundLearning { get; set; }
+    public bool AiVeto { get; set; }
 }
 public enum IntentLabel { Unknown, Scroll, Gesture }
 public sealed record IntentPoint(int Contact, double X, double Y);

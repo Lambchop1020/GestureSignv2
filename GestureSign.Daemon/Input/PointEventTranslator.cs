@@ -105,6 +105,7 @@ namespace GestureSign.Daemon.Input
         private void LowLevelMouseHook_MouseUp(LowLevelMouseMessage mouseMessage, ref bool handled)
         {
             _lastMouseHookEventUtc = DateTime.UtcNow;
+            if (_inputProvider.FilterEdgeClick(mouseMessage, false)) { handled = true; return; }
             if (IsInjectedMouseMessage(mouseMessage))
                 return;
 
@@ -170,6 +171,7 @@ namespace GestureSign.Daemon.Input
         private void LowLevelMouseHook_MouseDown(LowLevelMouseMessage mouseMessage, ref bool handled)
         {
             _lastMouseHookEventUtc = DateTime.UtcNow;
+            if (_inputProvider.FilterEdgeClick(mouseMessage, true)) { handled = true; return; }
             if (IsInjectedMouseMessage(mouseMessage))
                 return;
 

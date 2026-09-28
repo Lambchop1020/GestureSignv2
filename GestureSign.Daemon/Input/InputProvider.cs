@@ -23,6 +23,22 @@ namespace GestureSign.Daemon.Input
         private volatile bool _suppressPointerMotion;
         private int _suppressedPointerMoveCount;
         internal bool SuppressPointerMotion => _suppressPointerMotion;
+        private readonly EdgeClickGate _edgeClickGate = new EdgeClickGate();
+
+        internal void BeginEdgeClickSuppression()
+        {
+            _edgeClickGate.Begin((System.Windows.Forms.Control.MouseButtons & System.Windows.Forms.MouseButtons.Left) != 0);
+            EdgeInputDiagnostics.Record("EDGE_CLICK", "Suppression enabled for configured edge tap");
+        }
+
+        internal bool FilterEdgeClick(LowLevelMouseMessage mouse, bool down)
+        {
+            if (mouse.Button != System.Windows.Forms.MouseButtons.Left || _edgeClickGate == null) return false;
+            bool suppressed = _edgeClickGate.Filter(down, (mouse.Flags & 1) != 0);
+            if (suppressed)
+                EdgeInputDiagnostics.Record("EDGE_CLICK", $"Suppressed native Left{(down ? "Down" : "Up")} PointerLock={_suppressPointerMotion}");
+            return suppressed;
+        }
 
         public LowLevelMouseHook LowLevelMouseHook;
         private LowLevelKeyboardHook _keyboardHook;
@@ -35,12 +51,15 @@ namespace GestureSign.Daemon.Input
 
             AppConfig.ConfigChanged += AppConfig_ConfigChanged;
             LowLevelMouseHook = new LowLevelMouseHook();
+            LowLevelMouseHook.MessageIntercepted += CleanupEdgeClickHook;
+            if (EdgeInputDiagnostics.Enabled)
+                LowLevelMouseHook.MessageIntercepted += RecordDiagnosticMouseMessage;
             _hookDrawingButton = AppConfig.DrawingButton;
             _keyboardHook = new LowLevelKeyboardHook();
             _keyboardHook.KeyIntercepted += KeyboardHook_KeyIntercepted;
             _keyboardHook.StartHook();
             Logging.LogMessage("Keyboard hook started.");
-            if (AppConfig.DrawingButton != MouseActions.None)
+            if (AppConfig.DrawingButton != MouseActions.None || EdgeInputDiagnostics.Enabled)
                 Task.Delay(1000).ContinueWith((t) =>
                 {
                     UpdateMouseHookState("InitialDelay");
@@ -52,6 +71,28 @@ namespace GestureSign.Daemon.Input
 
             _deviceStateServer = new CustomNamedPipeServer(Common.Constants.Daemon + "DeviceState", IpcCommands.SynDeviceState,
                 () => HidDevice.EnumerateDevices());
+        }
+
+        private void CleanupEdgeClickHook(LowLevelMessage message, ref bool handled)
+        {
+            if ((message.Message == 0x201 || message.Message == 0x202) &&
+                !_suppressPointerMotion && !(_edgeClickGate?.NeedsHook ?? false) &&
+                _hookDrawingButton == MouseActions.None && !EdgeInputDiagnostics.Enabled)
+                UpdateMouseHookState("EdgeClickPairCompleted");
+        }
+
+        private void RecordDiagnosticMouseMessage(LowLevelMessage message, ref bool handled)
+        {
+            if (message is not LowLevelMouseMessage mouse) return;
+            var name = mouse.Message switch
+            {
+                0x201 => "LeftDown", 0x202 => "LeftUp",
+                0x204 => "RightDown", 0x205 => "RightUp",
+                0x207 => "MiddleDown", 0x208 => "MiddleUp",
+                0x20B => "XDown", 0x20C => "XUp", _ => null
+            };
+            if (name == null) return;
+            EdgeInputDiagnostics.Record("MOUSE", $"Event={name} Injected={(mouse.Flags & 1) != 0} Flags=0x{mouse.Flags:X} HookTime={mouse.Time} Point={mouse.Point.X},{mouse.Point.Y} HookHandled={handled} PointerLock={_suppressPointerMotion}");
         }
 
         private void KeyboardHook_KeyIntercepted(int msg, int vkCode, int scanCode, int flags, int time, IntPtr dwExtraInfo, ref bool handled)
@@ -122,6 +163,7 @@ namespace GestureSign.Daemon.Input
             {
                 _suppressPointerMotion = false;
                 int value = Interlocked.Exchange(ref _suppressedPointerMoveCount, 0);
+                _edgeClickGate?.End();
                 try
                 {
                     UpdateMouseHookState("TouchPadEdgeGestureEnded");
@@ -138,7 +180,7 @@ namespace GestureSign.Daemon.Input
         {
             if (disposedValue)
                 return;
-            bool flag = _hookDrawingButton != MouseActions.None || _suppressPointerMotion;
+            bool flag = _hookDrawingButton != MouseActions.None || _suppressPointerMotion || EdgeInputDiagnostics.Enabled || (_edgeClickGate?.NeedsHook ?? false);
             if (flag && !LowLevelMouseHook.Hooked)
             {
                 LowLevelMouseHook.StartHook();

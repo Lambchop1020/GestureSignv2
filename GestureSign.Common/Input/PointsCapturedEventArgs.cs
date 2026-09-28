@@ -37,6 +37,7 @@ namespace GestureSign.Common.Input
         public bool ForceCapture { get; set; }
         // Only an accepted touchpad edge gesture requests pointer suppression.
         public bool SuppressPointerMotion { get; set; }
+        public bool SuppressNativeEdgeClick { get; set; }
         public int RequiredContactCount { get; set; } = 1;
         public int BlockTouchInputThreshold { get; set; }
 

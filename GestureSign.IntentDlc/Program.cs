@@ -41,7 +41,6 @@ internal sealed class IntentHost : IDisposable
     private IntentControl _control = new();
     private IntentModel? _model;
     private bool _busy;
-    private bool _resumeVetoAfterJob;
     private int? _trainingPercent;
     private string _trainingStage = "";
     private void ReportTraining(int percent, string stage) { lock (_sync) { _trainingPercent = percent; _trainingStage = stage; } }
@@ -98,12 +97,12 @@ internal sealed class IntentHost : IDisposable
     }
     private void StartJob(Func<Task> action, bool training = false)
     {
-        lock (_sync) { if (_busy) throw new InvalidOperationException("正在处理，请稍后。"); _resumeVetoAfterJob = _control.Mode == IntentMode.ExperimentalVeto; SetMode(IntentMode.Off); _busy = true; _trainingPercent = training ? 0 : null; _trainingStage = training ? "读取样本" : ""; _message = "正在处理，请稍候…"; }
+        lock (_sync) { if (_busy) throw new InvalidOperationException("正在处理，请稍后。"); SetMode(IntentMode.Off); _busy = true; _trainingPercent = training ? 0 : null; _trainingStage = training ? "读取样本" : ""; _message = "正在处理，请稍候…"; }
         _ = Task.Run(async () =>
         {
             try { await action(); }
             catch (Exception ex) { lock (_sync) { _message = ex.Message; if (training) _trainingStage = "训练失败：" + ex.Message; } }
-            finally { lock (_sync) { _busy = false; if (!_stop.IsCancellationRequested) { if (_resumeVetoAfterJob && _model != null) SetMode(IntentMode.ExperimentalVeto); else if (_preferences.BackgroundLearning) SetMode(IntentMode.BackgroundLearn); } } }
+            finally { lock (_sync) { _busy = false; if (!_stop.IsCancellationRequested) { if (_preferences.AiVeto && _model != null) SetMode(IntentMode.ExperimentalVeto); else if (_preferences.BackgroundLearning) SetMode(IntentMode.BackgroundLearn); } } }
         });
     }
     [StructLayout(LayoutKind.Sequential)] private struct LastInput { public uint Size; public uint Tick; }
@@ -171,6 +170,8 @@ internal sealed class IntentHost : IDisposable
                         SetMode(_preferences.BackgroundLearning ? IntentMode.BackgroundLearn : IntentMode.Off);
                     break;
                 case "veto-off":
+                    _preferences.AiVeto = false;
+                    IntentFiles.Write(PreferencesPath, _preferences);
                     if (_control.Mode == IntentMode.ExperimentalVeto)
                         SetMode(_preferences.BackgroundLearning ? IntentMode.BackgroundLearn : IntentMode.Off);
                     break;
@@ -178,8 +179,9 @@ internal sealed class IntentHost : IDisposable
                     if (!Enum.IsDefined(request.Mode)) throw new InvalidDataException("Invalid mode.");
                     if (request.Mode == IntentMode.ExperimentalVeto && _model == null) throw new InvalidOperationException("请先完成一次训练，再开启实验性 AI 否决。");
                     if (request.Mode == IntentMode.ProtectSmartClose && _model?.EligibleForProtection != true) throw new InvalidOperationException("请先训练并通过留出验证。");
+                    _preferences.AiVeto = request.Mode == IntentMode.ExperimentalVeto;
                     if (request.Mode == IntentMode.BackgroundLearn) _preferences.BackgroundLearning = true;
-                    else if (request.Mode == IntentMode.Off) { _preferences.BackgroundLearning = false; _resumeVetoAfterJob = false; }
+                    else if (request.Mode == IntentMode.Off) { _preferences.BackgroundLearning = false; _preferences.AiVeto = false; }
                     IntentFiles.Write(PreferencesPath, _preferences);
                     SetMode(request.Mode); break;
                 case "train":
@@ -201,7 +203,7 @@ internal sealed class IntentHost : IDisposable
                     else if (_preferences.BackgroundLearning) SetMode(IntentMode.BackgroundLearn);
                     _message = _preferences.BackgroundLearning ? "已确认。样本充足后，在电脑空闲时自动训练；未确认样本不参与训练。" : "标注已更改，请重新训练。"; break;
                 case "trace": return new IntentHostResponse { Sample = IntentFiles.Read<IntentSample>(SamplePath(request.SampleId ?? "")) };
-                case "stop": _preferences.BackgroundLearning = false; IntentFiles.Write(PreferencesPath, _preferences); SetMode(IntentMode.Off); _ = Task.Delay(100).ContinueWith(_ => _stop.Cancel()); break;
+                case "stop": _preferences.AiVeto = false; _preferences.BackgroundLearning = false; IntentFiles.Write(PreferencesPath, _preferences); SetMode(IntentMode.Off); _ = Task.Delay(100).ContinueWith(_ => _stop.Cancel()); break;
                 default: throw new InvalidDataException("Unsupported command.");
             }
         }

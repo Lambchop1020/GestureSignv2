@@ -1,3 +1,9 @@
+# 18.2.9 可选 AI 组件
+
+18.2.9 重打包版的 MSI 和便携版不再内置本组件。请在选项中下载或导入匹配的 AI ZIP。普通手势无需安装 AI。组件可安装到用户目录或可写的程序目录，个人样本和模型仍保存在用户数据目录。
+
+The repackaged 18.2.9 MSI and portable app exclude this optional AI engine. Download or import the matching ZIP from Options. Ordinary gestures work without AI.
+
 # GestureSign V2 · 开发者预览 0.4
 
 基于 18.2.8 的实验性预览，重点改进本地意图学习与双指智能关闭防误触。此 Pre-release 不替代稳定版。

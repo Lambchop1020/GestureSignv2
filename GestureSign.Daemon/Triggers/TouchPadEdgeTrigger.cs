@@ -103,6 +103,8 @@ namespace GestureSign.Daemon.Triggers
             e.Cancel = false;
             e.ForceCapture = true;
             e.SuppressPointerMotion = _sourceDevice == Devices.TouchPad;
+            e.SuppressNativeEdgeClick = _sourceDevice == Devices.TouchPad &&
+                ApplicationManager.Instance.GetRecognizedDefinedAction(GetTapGestureName(edge.Value))?.Any() == true;
             e.RequiredContactCount = 1;
             e.BlockTouchInputThreshold = 0;
             Logging.LogMessage($"{_logPrefix} edge capture accepted. Edge={edge}, Point={FormatPoint(e.Points[0].First())}");

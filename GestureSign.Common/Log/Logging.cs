@@ -78,6 +78,11 @@ namespace GestureSign.Common.Log
 
         public static void LogMessage(string message)
         {
+            if (EdgeInputDiagnostics.Enabled && (message.Contains("edge", StringComparison.OrdinalIgnoreCase)
+                || message.Contains("capture", StringComparison.OrdinalIgnoreCase)
+                || message.Contains("Gesture action lookup", StringComparison.OrdinalIgnoreCase)
+                || message.Contains("Mouse gesture", StringComparison.OrdinalIgnoreCase)))
+                EdgeInputDiagnostics.Record("TRACE", message);
             Console.WriteLine(message);
             Console.WriteLine();
         }

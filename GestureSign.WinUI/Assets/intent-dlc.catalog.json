@@ -1,18 +1,18 @@
 [
   {
-    "Version": "0.4.0",
-    "FileName": "GestureSign-IntentDlc-0.4.0-win-x64.zip",
-    "Url": "https://github.com/Tomclanc/GestureSignv2/releases/download/intent-dlc-v0.4.0/GestureSign-IntentDlc-0.4.0-win-x64.zip",
+    "Bytes": 61873565,
+    "Sha256": "8B12BC1A0B87CD0CD50C061975BC16846329ACF47BA3F366A3DEA085D745D9A8",
     "Architecture": "x64",
-    "Sha256": "525B00687DA23B1F35B8204BFD46575433AA74A03FED238DCFDF1CCDA146FB3C",
-    "Bytes": 61843331
+    "Url": "https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3/GestureSign-IntentDlc-18.3-win-x64.zip",
+    "FileName": "GestureSign-IntentDlc-18.3-win-x64.zip",
+    "Version": "18.3"
   },
   {
-    "Url": "https://github.com/Tomclanc/GestureSignv2/releases/download/intent-dlc-v0.4.0/GestureSign-IntentDlc-0.4.0-win-arm64.zip",
-    "Sha256": "22394F11516AB9C3AE91C6AA5FD7705537520AE34CF2B9D856863C1C46C05B63",
+    "Bytes": 59817443,
+    "Sha256": "1D5B9FE27AAC2AF37D37DAAC6D82AD12F103690F138BA7CB2F2FBEB8DCDBDFDC",
     "Architecture": "arm64",
-    "Bytes": 59786035,
-    "FileName": "GestureSign-IntentDlc-0.4.0-win-arm64.zip",
-    "Version": "0.4.0"
+    "Url": "https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3/GestureSign-IntentDlc-18.3-win-arm64.zip",
+    "FileName": "GestureSign-IntentDlc-18.3-win-arm64.zip",
+    "Version": "18.3"
   }
 ]
