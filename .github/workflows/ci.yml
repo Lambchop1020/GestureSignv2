@@ -29,6 +29,8 @@ jobs:
         run: dotnet run --project tests/GestureSign.RegressionTests/GestureSign.RegressionTests.csproj -c Release
       - name: Run TipTap state machine tests
         run: dotnet run --project tests/GestureSign.TipTapTests/GestureSign.TipTapTests.csproj -c Release
+      - name: Test native edge-click ownership
+        run: dotnet run --project tests/GestureSign.EdgeClickTests/GestureSign.EdgeClickTests.csproj -c Release
       - name: Test optional local intent learning and daemon bridge
         run: |
           dotnet run --project tests/GestureSign.IntentTests/GestureSign.IntentTests.csproj -c Release
