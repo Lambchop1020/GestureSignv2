@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Tomclanc/GestureSignv2/releases/tag/v18.3.1">
+  <a href="https://github.com/Tomclanc/GestureSignv2/releases/tag/v18.3.2">
     <img alt="Release" src="https://img.shields.io/github/v/release/Tomclanc/GestureSignv2?style=flat-square">
   </a>
   <a href="https://winstall.app/apps/Tomclanc.GestureSignV2">
@@ -70,18 +70,25 @@ GestureSign V2 已发布到 Windows Package Manager，可以直接通过 winget 
 winget install --id Tomclanc.GestureSignV2 --source winget
 ```
 
-也可以前往 [Releases](https://github.com/Tomclanc/GestureSignv2/releases/tag/v18.3.1) 下载最新便携版。
+也可以前往 [Releases](https://github.com/Tomclanc/GestureSignv2/releases/tag/v18.3.2) 下载最新便携版。
 
-GitHub 当前版本为 **18.3.1**；Microsoft Store 和 WinGet 的上架进度可能不同，获取此版本请使用下方 GitHub 附件。
+GitHub 当前版本为 **18.3.2**；Microsoft Store 和 WinGet 的上架进度可能不同，获取此版本请使用下方 GitHub 附件。
 
 当前版本：
 
-- [GestureSign-V2-18.3.1-x64.msi](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.1/GestureSign-V2-18.3.1-x64.msi)
-- [GestureSign-V2-18.3.1-x64-portable.zip](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.1/GestureSign-V2-18.3.1-x64-portable.zip)
+- [GestureSign-V2-18.3.2-x64.msi](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.2/GestureSign-V2-18.3.2-x64.msi)
+- [GestureSign-V2-18.3.2-x64-portable.zip](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.2/GestureSign-V2-18.3.2-x64-portable.zip)
 
 18.3 运行需要 .NET 10 Desktop Runtime 和 Windows App SDK Runtime。NPU 另需兼容硬件、驱动与 Windows ML 官方执行提供程序。
 
 ## 更新内容
+
+### 18.3.2
+
+- AI 组件默认提供轻量 CPU 版，保留本地学习、训练、评分和 AI 否决；x64 下载约 0.78 MiB，解压约 3.15 MiB。
+- 可选 NPU / GPU / CPU 硬件加速版，x64 下载约 24.49 MiB；NPU 厂商提供程序和缓存另计。两版复用对应架构的系统 .NET 10 Runtime。
+- 保持已有 18.3.1 AI 组件的自动恢复兼容性，新增 AMD 旧缓存清理和组件后端校验。
+- 切换 CPU / 硬件加速版前先卸载组件，样本和模型保留。AI 组件仍独立下载，不包含个人数据。
 
 ### 18.3.1
 
@@ -220,16 +227,23 @@ GestureSign V2 is available from Windows Package Manager. Install it with winget
 winget install --id Tomclanc.GestureSignV2 --source winget
 ```
 
-You can also get the latest portable build from [Releases](https://github.com/Tomclanc/GestureSignv2/releases/tag/v18.3.1).
+You can also get the latest portable build from [Releases](https://github.com/Tomclanc/GestureSignv2/releases/tag/v18.3.2).
 
-The current GitHub release is **18.3.1**. Microsoft Store and WinGet availability may differ; use the GitHub assets below for this version.
+The current GitHub release is **18.3.2**. Microsoft Store and WinGet availability may differ; use the GitHub assets below for this version.
 
 Current version:
 
-- [GestureSign-V2-18.3.1-x64.msi](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.1/GestureSign-V2-18.3.1-x64.msi)
-- [GestureSign-V2-18.3.1-x64-portable.zip](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.1/GestureSign-V2-18.3.1-x64-portable.zip)
+- [GestureSign-V2-18.3.2-x64.msi](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.2/GestureSign-V2-18.3.2-x64.msi)
+- [GestureSign-V2-18.3.2-x64-portable.zip](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.2/GestureSign-V2-18.3.2-x64-portable.zip)
 
 18.3 requires .NET 10 Desktop Runtime and Windows App SDK Runtime. NPU use additionally requires compatible hardware, drivers and an official Windows ML execution provider.
+
+### What's new in 18.3.2
+
+- Default to a lightweight CPU AI component with local training, scoring and AI veto: about 0.78 MiB to download and 3.15 MiB unpacked on x64.
+- Offer an optional NPU / GPU / CPU component: about 24.49 MiB to download on x64, excluding additional vendor providers and caches. Both variants use the matching shared .NET 10 Runtime.
+- Preserve automatic resume for installed 18.3.1 AI components; add bounded AMD cache cleanup and package backend validation.
+- Uninstall the component before switching variants. Personal samples and models are preserved, and AI remains a separate optional download.
 
 ### What's new in 18.3.1
 
@@ -374,16 +388,23 @@ GestureSign V2 は Windows Package Manager からインストールできます:
 winget install --id Tomclanc.GestureSignV2 --source winget
 ```
 
-最新のポータブル版は [Releases](https://github.com/Tomclanc/GestureSignv2/releases/tag/v18.3.1) からも入手できます。
+最新のポータブル版は [Releases](https://github.com/Tomclanc/GestureSignv2/releases/tag/v18.3.2) からも入手できます。
 
-GitHub の現在のリリースは **18.3.1** です。Microsoft Store と WinGet では公開時期が異なる場合があるため、このバージョンは以下の GitHub 添付ファイルから入手してください。
+GitHub の現在のリリースは **18.3.2** です。Microsoft Store と WinGet では公開時期が異なる場合があるため、このバージョンは以下の GitHub 添付ファイルから入手してください。
 
 現在のバージョン:
 
-- [GestureSign-V2-18.3.1-x64.msi](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.1/GestureSign-V2-18.3.1-x64.msi)
-- [GestureSign-V2-18.3.1-x64-portable.zip](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.1/GestureSign-V2-18.3.1-x64-portable.zip)
+- [GestureSign-V2-18.3.2-x64.msi](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.2/GestureSign-V2-18.3.2-x64.msi)
+- [GestureSign-V2-18.3.2-x64-portable.zip](https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.2/GestureSign-V2-18.3.2-x64-portable.zip)
 
 18.3 には .NET 10 Desktop Runtime と Windows App SDK Runtime が必要です。NPU の利用には対応ハードウェア、ドライバー、Windows ML 公式実行プロバイダーも必要です。
+
+### 18.3.2 の更新内容
+
+- 軽量 CPU 版 AI を既定にし、ローカル学習、スコアリング、AI 拒否を維持。x64 のダウンロードは約 0.78 MiB、展開後は約 3.15 MiB です。
+- NPU / GPU / CPU 版も選択可能で、x64 のダウンロードは約 24.49 MiB。ベンダーの追加プロバイダーとキャッシュは別途必要です。両版とも対応アーキテクチャの共有 .NET 10 Runtime を使用します。
+- 既存の 18.3.1 AI の自動再開互換性を維持し、AMD の古いキャッシュの整理とパッケージ検証を追加しました。
+- 版の切り替え前に AI コンポーネントをアンインストールしてください。サンプルとモデルは保持されます。
 
 ### 18.3 の更新内容
 
