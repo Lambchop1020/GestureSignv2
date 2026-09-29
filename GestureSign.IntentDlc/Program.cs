@@ -112,13 +112,22 @@ internal sealed class IntentHost : IDisposable
         var input = new LastInput { Size = 8 };
         return GetLastInputInfo(ref input) && unchecked((uint)Environment.TickCount - input.Tick) >= 120000;
     }
+    [StructLayout(LayoutKind.Sequential)]
+    private struct PowerStatus { public byte Ac, Battery, Percent, Reserved; public uint Lifetime, FullLifetime; }
+    [DllImport("kernel32.dll")] private static extern bool GetSystemPowerStatus(out PowerStatus status);
+    private bool CanAutomaticallyTrain()
+    {
+        // Synthetic tests inject their own clock. Battery pauses training, never inference or user preferences.
+        if (_root != IntentFiles.Root) return true;
+        return !GetSystemPowerStatus(out var status) || status.Ac != 0;
+    }
     internal void TryAutomaticTraining()
     {
         lock (_sync)
         {
             if (!_preferences.BackgroundLearning || _busy || _now() < _nextTrainingCheck) return;
             _nextTrainingCheck = _now().AddMinutes(1);
-            if (!_isIdle()) return;
+            if (!_isIdle() || !CanAutomaticallyTrain()) return;
             var library = ReadLibrary();
             if (!BackgroundLearningPolicy.HasEnoughLabels(library)) return;
             var fingerprint = BackgroundLearningPolicy.Fingerprint(library);
@@ -136,7 +145,7 @@ internal sealed class IntentHost : IDisposable
         IntentFiles.Write(ModelPath, model); File.WriteAllBytes(Path.Combine(_root, "model.onnx"), IntentOnnx.Export(model));
         _attemptedLabels = BackgroundLearningPolicy.Fingerprint(library);
         File.WriteAllText(TrainingFingerprintPath, _attemptedLabels);
-        ReportTraining(100, model.EligibleForProtection ? "训练完成 · 已达到保护门槛" : "训练完成 · 尚未达到保护门槛");
+        ReportTraining(100, "训练完成");
     }
     private async Task LoadAsync(IntentModel model, bool install)
     {
@@ -211,7 +220,7 @@ internal sealed class IntentHost : IDisposable
         lock (_sync) return new IntentHostResponse
         {
             TrainingPercent = _trainingPercent, TrainingStage = _trainingStage,
-            HasModel = _model != null, BackgroundLearning = _preferences.BackgroundLearning, Busy = _busy, Eligible = !_busy && _model?.EligibleForProtection == true, Message = _message, HardwarePreview = _inference.HardwarePreview, Backend = _backend, Control = _control,
+            HasModel = _model != null, BackgroundLearning = _preferences.BackgroundLearning, Busy = _busy, Eligible = !_busy && _model?.EligibleForProtection == true, Message = _message, HardwarePreview = _inference.HardwarePreview, Backend = _backend + (_model == null ? "" : "；已训练指数量：" + string.Join(" / ", _model.SupportedContacts)), Control = _control,
             Scrolls = library.Count(s => s.Label == IntentLabel.Scroll), Gestures = library.Count(s => s.Label == IntentLabel.Gesture), Unknown = library.Count(s => s.Label == IntentLabel.Unknown),
             Samples = library.OrderByDescending(s => s.AiVeto && s.Label == IntentLabel.Unknown).ThenByDescending(s => _preferences.BackgroundLearning && s.Label == IntentLabel.Unknown && !string.IsNullOrEmpty(s.Candidate)).ThenByDescending(s => s.CreatedUtc).Take(100).Select(s => new IntentSampleSummary(s.Id, s.CreatedUtc, s.Label, s.Candidate, s.Prediction?.GestureScore, s.Prediction?.Backend, s.Blocked, s.AiVeto, s.Prediction?.Error)).ToArray()
         };
@@ -236,8 +245,11 @@ internal sealed class IntentHost : IDisposable
                 else
                 {
                     var request = JsonSerializer.Deserialize<IntentRequest>(line); if (request?.Features == null) continue;
-                    var prediction = _inference.Predict(request.Features); result = JsonSerializer.Serialize(prediction);
-                    lock (_sync) _backend = prediction.Backend;
+                    var prediction = _model?.Supports(request.Contacts) == true
+                        ? _inference.Predict(request.Features)
+                        : new IntentPrediction(0, "Not trained", $"No trained coverage for {request.Contacts} contacts");
+                    result = JsonSerializer.Serialize(prediction with { ReviewProtocol = 3 });
+                    if (prediction.Error == null) { lock (_sync) _backend = prediction.Backend; }
                 }
                 await writer.WriteLineAsync(result.AsMemory(), deadline.Token);
             }

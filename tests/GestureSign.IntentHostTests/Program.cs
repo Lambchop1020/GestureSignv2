@@ -58,7 +58,9 @@ for (int session = 0; session < 4; session++) for (int i = 0; i < 10; i++) forea
 now = now.AddMinutes(2); host.TryAutomaticTraining();
 Check(!File.Exists(Path.Combine(root, "model.json")), "Training started while user was active.");
 idle = true; now = now.AddMinutes(2); host.TryAutomaticTraining();
-for (int i = 0; i < 200 && (await Send(new("status"))).Busy; i++) await Task.Delay(50);
+// Cold hardware initialization can exceed 10 seconds; use the same bounded
+    // 60-second budget as the veto restart check below.
+    for (int i = 0; i < 600 && (await Send(new("status"))).Busy; i++) await Task.Delay(100);
 var trained = await Send(new("status"));
 Check(File.Exists(Path.Combine(root, "model.json")) && trained.Control.Mode == IntentMode.BackgroundLearn, "Idle training failed to save and resume passive collection: " + trained.Message);
 await Send(new("mode", IntentMode.ExperimentalVeto));
@@ -95,9 +97,11 @@ IntentFiles.Write(Path.Combine(root, "preferences.json"), new IntentPreferences 
 using (var resumedHost = new IntentHost(root, pipeName, () => false))
 {
     var resumedRun = resumedHost.RunAsync(Process.GetCurrentProcess());
-    for (int i = 0; i < 200 && (await Send(new("status"))).Busy; i++) await Task.Delay(50);
+    // Cold hardware initialization can exceed 10 seconds; use the same bounded
+    // 60-second budget as the veto restart check below.
+    for (int i = 0; i < 600 && (await Send(new("status"))).Busy; i++) await Task.Delay(100);
     var resumed = await Send(new("status"));
-    Check(resumed.BackgroundLearning && resumed.Control.Mode == IntentMode.BackgroundLearn, "Explicit background preference failed to resume after restart.");
+    Check(!resumed.Busy && resumed.BackgroundLearning && resumed.Control.Mode == IntentMode.BackgroundLearn, $"Explicit background preference failed to resume after restart. Busy={resumed.Busy}, mode={resumed.Control.Mode}, message={resumed.Message}");
     await Send(new("stop")); await resumedRun.WaitAsync(TimeSpan.FromSeconds(3));
 }
 // Simulate engine restart after the user explicitly enabled veto. A valid saved

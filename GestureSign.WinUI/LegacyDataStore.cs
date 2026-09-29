@@ -1079,7 +1079,7 @@ internal sealed class LegacyDataStore
     }
 
     private static int NormalizeDrawingButton(int value)
-        => value is 2097152 or 4194304 or 8388608 or 16777216 ? value : 0;
+        => value & 32505856;
 
     private static int NormalizeConfiguredDrawingButton(IReadOnlyDictionary<string, string> settings)
         => settings.TryGetValue("DrawingButton", out var value) && int.TryParse(value, out var result)

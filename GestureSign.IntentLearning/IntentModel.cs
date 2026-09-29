@@ -1,4 +1,4 @@
-﻿using GestureSign.Foundation.Intent;
+using GestureSign.Foundation.Intent;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -7,6 +7,9 @@ namespace GestureSign.IntentLearning;
 public sealed class IntentModel
 {
     public int FeatureVersion { get; set; } = IntentFeatures.Version;
+    // Old models were trained exclusively on two-finger traces.
+    public int[] SupportedContacts { get; set; } = [2];
+    public bool Supports(int contacts) => SupportedContacts?.Contains(contacts) == true;
     public float[] Weights { get; set; } = [];
     public float Bias { get; set; }
     public float[] Mean { get; set; } = [];
@@ -47,7 +50,7 @@ public sealed class IntentModel
         if (samples.Any(s => string.IsNullOrWhiteSpace(s.Session))) throw new InvalidDataException("Samples must belong to recording sessions.");
         foreach (var label in new[] { IntentLabel.Scroll, IntentLabel.Gesture })
             if (samples.Count(s => s.Label == label) < 40 || samples.Where(s => s.Label == label).Select(s => s.Session).Distinct().Count() < 4)
-                throw new InvalidOperationException("每类至少 40 条样本、4 次独立采样；每次建议录制 10–20 条。请先收集正常滚动和有意绘制的双指 L。");
+                throw new InvalidOperationException("每类至少 40 条样本、4 次独立采样；每次建议录制 10–20 条。请收集正常操作和有意绘制的手势；不同指数量都需要独立样本。");
         var sessions = samples.Select(s => s.Session).Distinct().OrderBy(s => Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(s)))).ToArray();
         var heldOut = new HashSet<string>();
         foreach (var label in new[] { IntentLabel.Scroll, IntentLabel.Gesture })
@@ -67,7 +70,12 @@ public sealed class IntentModel
         var model = new IntentModel
         {
             Weights = new float[IntentFeatures.Count], Mean = new float[IntentFeatures.Count], Scale = new float[IntentFeatures.Count],
-            TrainingSessions = train.Select(s => s.Session).Distinct().ToArray(), ValidationSessions = heldOut.ToArray()
+            TrainingSessions = train.Select(s => s.Session).Distinct().ToArray(), ValidationSessions = heldOut.ToArray(),
+            SupportedContacts = Enumerable.Range(1, 4).Where(count => new[] { IntentLabel.Scroll, IntentLabel.Gesture }.All(label =>
+                samples.Count(s => s.Label == label && s.Frames.FirstOrDefault()?.Points.Length == count) >= 40 &&
+                samples.Where(s => s.Label == label && s.Frames.FirstOrDefault()?.Points.Length == count).Select(s => s.Session).Distinct().Count() >= 4 &&
+                train.Count(s => s.Label == label && s.Frames.FirstOrDefault()?.Points.Length == count) >= 20 &&
+                validation.Count(s => s.Label == label && s.Frames.FirstOrDefault()?.Points.Length == count) >= 10)).ToArray()
         };
         for (int j = 0; j < IntentFeatures.Count; j++)
         {

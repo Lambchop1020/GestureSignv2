@@ -1,0 +1,3938 @@
+[
+  {
+    "locale": "af-ZA",
+    "key": "Train / retrain",
+    "before": "Trein / heroplei",
+    "after": "Model oplei / heroplei"
+  },
+  {
+    "locale": "af-ZA",
+    "key": "Left",
+    "before": "Links",
+    "after": "Linkerknoppie"
+  },
+  {
+    "locale": "af-ZA",
+    "key": "Middle",
+    "before": "Middel",
+    "after": "Middelknoppie"
+  },
+  {
+    "locale": "af-ZA",
+    "key": "Right",
+    "before": "Reg",
+    "after": "Regterknoppie"
+  },
+  {
+    "locale": "am-ET",
+    "key": "Left",
+    "before": "ግራ",
+    "after": "የግራ አዝራር"
+  },
+  {
+    "locale": "am-ET",
+    "key": "Middle",
+    "before": "መካከለኛ",
+    "after": "የመሃል አዝራር"
+  },
+  {
+    "locale": "am-ET",
+    "key": "Right",
+    "before": "ትክክል",
+    "after": "የቀኝ አዝራር"
+  },
+  {
+    "locale": "ar-SA",
+    "key": "AI scoring",
+    "before": "تسجيل الذكاء الاصطناعي",
+    "after": "تقييم الذكاء الاصطناعي"
+  },
+  {
+    "locale": "ar-SA",
+    "key": "Left",
+    "before": "غادر",
+    "after": "الزر الأيسر"
+  },
+  {
+    "locale": "ar-SA",
+    "key": "Middle",
+    "before": "وسط",
+    "after": "الزر الأوسط"
+  },
+  {
+    "locale": "ar-SA",
+    "key": "Right",
+    "before": "يمين",
+    "after": "الزر الأيمن"
+  },
+  {
+    "locale": "ar-SA",
+    "key": "AI veto",
+    "before": "حق النقض",
+    "after": "حظر بالذكاء الاصطناعي"
+  },
+  {
+    "locale": "as-IN",
+    "key": "Left",
+    "before": "বাওঁফালে",
+    "after": "বাওঁ বুটাম"
+  },
+  {
+    "locale": "as-IN",
+    "key": "Middle",
+    "before": "মধ্যম",
+    "after": "মাজৰ বুটাম"
+  },
+  {
+    "locale": "as-IN",
+    "key": "Right",
+    "before": "ঠিকেই আছে",
+    "after": "সোঁ বুটাম"
+  },
+  {
+    "locale": "az-Latn-AZ",
+    "key": "Left",
+    "before": "Sol",
+    "after": "Sol düymə"
+  },
+  {
+    "locale": "az-Latn-AZ",
+    "key": "Middle",
+    "before": "Orta",
+    "after": "Orta düymə"
+  },
+  {
+    "locale": "az-Latn-AZ",
+    "key": "Right",
+    "before": "Sağ",
+    "after": "Sağ düymə"
+  },
+  {
+    "locale": "be-BY",
+    "key": "Scroll",
+    "before": "Скрутак",
+    "after": "Пракрутка"
+  },
+  {
+    "locale": "be-BY",
+    "key": "Left",
+    "before": "налева",
+    "after": "Левая кнопка"
+  },
+  {
+    "locale": "be-BY",
+    "key": "Middle",
+    "before": "Сярэдні",
+    "after": "Сярэдняя кнопка"
+  },
+  {
+    "locale": "be-BY",
+    "key": "Right",
+    "before": "правільна",
+    "after": "Правая кнопка"
+  },
+  {
+    "locale": "bg-BG",
+    "key": "Train / retrain",
+    "before": "Обучете / преквалифицирайте",
+    "after": "Обучаване / повторно обучаване на модела"
+  },
+  {
+    "locale": "bg-BG",
+    "key": "Left",
+    "before": "наляво",
+    "after": "Ляв бутон"
+  },
+  {
+    "locale": "bg-BG",
+    "key": "Middle",
+    "before": "Среден",
+    "after": "Среден бутон"
+  },
+  {
+    "locale": "bg-BG",
+    "key": "Right",
+    "before": "вярно",
+    "after": "Десен бутон"
+  },
+  {
+    "locale": "bn-BD",
+    "key": "Train / retrain",
+    "before": "ট্রেন / পুনরায় ট্রেন",
+    "after": "মডেল প্রশিক্ষণ / পুনঃপ্রশিক্ষণ"
+  },
+  {
+    "locale": "bn-BD",
+    "key": "Left",
+    "before": "বাম",
+    "after": "বাম বোতাম"
+  },
+  {
+    "locale": "bn-BD",
+    "key": "Middle",
+    "before": "মধ্য",
+    "after": "মাঝের বোতাম"
+  },
+  {
+    "locale": "bn-BD",
+    "key": "Right",
+    "before": "ঠিক",
+    "after": "ডান বোতাম"
+  },
+  {
+    "locale": "bn-IN",
+    "key": "Train / retrain",
+    "before": "ট্রেন / পুনরায় ট্রেন",
+    "after": "মডেল প্রশিক্ষণ / পুনঃপ্রশিক্ষণ"
+  },
+  {
+    "locale": "bn-IN",
+    "key": "Left",
+    "before": "বাম",
+    "after": "বাম বোতাম"
+  },
+  {
+    "locale": "bn-IN",
+    "key": "Middle",
+    "before": "মধ্য",
+    "after": "মাঝের বোতাম"
+  },
+  {
+    "locale": "bn-IN",
+    "key": "Right",
+    "before": "ঠিক",
+    "after": "ডান বোতাম"
+  },
+  {
+    "locale": "bs-Latn-BA",
+    "key": "Scroll",
+    "before": "Scroll",
+    "after": "Pomicanje"
+  },
+  {
+    "locale": "bs-Latn-BA",
+    "key": "Unlabeled",
+    "before": "Unlabeled",
+    "after": "Neoznačeno"
+  },
+  {
+    "locale": "bs-Latn-BA",
+    "key": "Left",
+    "before": "lijevo",
+    "after": "Lijeva tipka"
+  },
+  {
+    "locale": "bs-Latn-BA",
+    "key": "Middle",
+    "before": "Srednji",
+    "after": "Srednja tipka"
+  },
+  {
+    "locale": "bs-Latn-BA",
+    "key": "Right",
+    "before": "U redu",
+    "after": "Desna tipka"
+  },
+  {
+    "locale": "ca-ES-valencia",
+    "key": "Train / retrain",
+    "before": "Entrenar / reciclar",
+    "after": "Entrena / torna a entrenar el model"
+  },
+  {
+    "locale": "ca-ES-valencia",
+    "key": "Left",
+    "before": "Esquerra",
+    "after": "Botó esquerre"
+  },
+  {
+    "locale": "ca-ES-valencia",
+    "key": "Middle",
+    "before": "Mitjà",
+    "after": "Botó central"
+  },
+  {
+    "locale": "ca-ES-valencia",
+    "key": "Right",
+    "before": "D'acord",
+    "after": "Botó dret"
+  },
+  {
+    "locale": "ca-ES",
+    "key": "Train / retrain",
+    "before": "Entrenar / reciclar",
+    "after": "Entrena / torna a entrenar el model"
+  },
+  {
+    "locale": "ca-ES",
+    "key": "Left",
+    "before": "Esquerra",
+    "after": "Botó esquerre"
+  },
+  {
+    "locale": "ca-ES",
+    "key": "Middle",
+    "before": "Mitjà",
+    "after": "Botó central"
+  },
+  {
+    "locale": "ca-ES",
+    "key": "Right",
+    "before": "D'acord",
+    "after": "Botó dret"
+  },
+  {
+    "locale": "cs-CZ",
+    "key": "Train / retrain",
+    "before": "Trénovat / rekvalifikovat",
+    "after": "Natrénovat / znovu natrénovat model"
+  },
+  {
+    "locale": "cs-CZ",
+    "key": "Left",
+    "before": "Vlevo",
+    "after": "Levé tlačítko"
+  },
+  {
+    "locale": "cs-CZ",
+    "key": "Middle",
+    "before": "Střední",
+    "after": "Prostřední tlačítko"
+  },
+  {
+    "locale": "cs-CZ",
+    "key": "Right",
+    "before": "Správně",
+    "after": "Pravé tlačítko"
+  },
+  {
+    "locale": "cy-GB",
+    "key": "Left",
+    "before": "Chwith",
+    "after": "Botwm chwith"
+  },
+  {
+    "locale": "cy-GB",
+    "key": "Middle",
+    "before": "Canol",
+    "after": "Botwm canol"
+  },
+  {
+    "locale": "cy-GB",
+    "key": "Right",
+    "before": "Iawn",
+    "after": "Botwm de"
+  },
+  {
+    "locale": "da-DK",
+    "key": "Train / retrain",
+    "before": "Træn / genoptræne",
+    "after": "Træn / genoplær modellen"
+  },
+  {
+    "locale": "da-DK",
+    "key": "Left",
+    "before": "venstre",
+    "after": "Venstre knap"
+  },
+  {
+    "locale": "da-DK",
+    "key": "Middle",
+    "before": "Midten",
+    "after": "Midterste knap"
+  },
+  {
+    "locale": "da-DK",
+    "key": "Right",
+    "before": "Højre",
+    "after": "Højre knap"
+  },
+  {
+    "locale": "de-DE",
+    "key": "Train / retrain",
+    "before": "Ausbilden / umschulen",
+    "after": "Modell trainieren / neu trainieren"
+  },
+  {
+    "locale": "de-DE",
+    "key": "Clear label",
+    "before": "Klares Etikett",
+    "after": "Markierung entfernen"
+  },
+  {
+    "locale": "de-DE",
+    "key": "Finger count not trained",
+    "before": "Fingerzählen nicht trainiert",
+    "after": "Modell für diese Fingeranzahl nicht trainiert"
+  },
+  {
+    "locale": "de-DE",
+    "key": "Clear labels",
+    "before": "Klare Etiketten",
+    "after": "Markierungen entfernen"
+  },
+  {
+    "locale": "de-DE",
+    "key": "Left",
+    "before": "Links",
+    "after": "Linke Maustaste"
+  },
+  {
+    "locale": "de-DE",
+    "key": "Middle",
+    "before": "Mitte",
+    "after": "Mittlere Maustaste"
+  },
+  {
+    "locale": "de-DE",
+    "key": "Right",
+    "before": "Richtig",
+    "after": "Rechte Maustaste"
+  },
+  {
+    "locale": "el-GR",
+    "key": "Left",
+    "before": "Αριστερά",
+    "after": "Αριστερό κουμπί"
+  },
+  {
+    "locale": "el-GR",
+    "key": "Middle",
+    "before": "Μέση",
+    "after": "Μεσαίο κουμπί"
+  },
+  {
+    "locale": "el-GR",
+    "key": "Right",
+    "before": "Σωστά",
+    "after": "Δεξί κουμπί"
+  },
+  {
+    "locale": "en-GB",
+    "key": "Left",
+    "before": "Left",
+    "after": "Left button"
+  },
+  {
+    "locale": "en-GB",
+    "key": "Middle",
+    "before": "Middle",
+    "after": "Middle button"
+  },
+  {
+    "locale": "en-GB",
+    "key": "Right",
+    "before": "Right",
+    "after": "Right button"
+  },
+  {
+    "locale": "en-US",
+    "key": "Left",
+    "before": "Left",
+    "after": "Left button"
+  },
+  {
+    "locale": "en-US",
+    "key": "Middle",
+    "before": "Middle",
+    "after": "Middle button"
+  },
+  {
+    "locale": "en-US",
+    "key": "Right",
+    "before": "Right",
+    "after": "Right button"
+  },
+  {
+    "locale": "es-ES",
+    "key": "Left",
+    "before": "Izquierda",
+    "after": "Botón izquierdo"
+  },
+  {
+    "locale": "es-ES",
+    "key": "Middle",
+    "before": "Medio",
+    "after": "Botón central"
+  },
+  {
+    "locale": "es-ES",
+    "key": "Right",
+    "before": "Derecha",
+    "after": "Botón derecho"
+  },
+  {
+    "locale": "es-MX",
+    "key": "Left",
+    "before": "Izquierda",
+    "after": "Botón izquierdo"
+  },
+  {
+    "locale": "es-MX",
+    "key": "Middle",
+    "before": "Medio",
+    "after": "Botón central"
+  },
+  {
+    "locale": "es-MX",
+    "key": "Right",
+    "before": "Derecha",
+    "after": "Botón derecho"
+  },
+  {
+    "locale": "et-EE",
+    "key": "Left",
+    "before": "Vasakule",
+    "after": "Vasak nupp"
+  },
+  {
+    "locale": "et-EE",
+    "key": "Middle",
+    "before": "Keskmine",
+    "after": "Keskmine nupp"
+  },
+  {
+    "locale": "et-EE",
+    "key": "Right",
+    "before": "Õige",
+    "after": "Parem nupp"
+  },
+  {
+    "locale": "eu-ES",
+    "key": "Train / retrain",
+    "before": "Entrenatu / birziklatu",
+    "after": "Eredua entrenatu / berriro entrenatu"
+  },
+  {
+    "locale": "eu-ES",
+    "key": "Left",
+    "before": "Ezkerra",
+    "after": "Ezkerreko botoia"
+  },
+  {
+    "locale": "eu-ES",
+    "key": "Middle",
+    "before": "Erdikoa",
+    "after": "Erdiko botoia"
+  },
+  {
+    "locale": "eu-ES",
+    "key": "Right",
+    "before": "Eskuin",
+    "after": "Eskuineko botoia"
+  },
+  {
+    "locale": "fa-IR",
+    "key": "Left",
+    "before": "سمت چپ",
+    "after": "دکمهٔ چپ"
+  },
+  {
+    "locale": "fa-IR",
+    "key": "Middle",
+    "before": "وسط",
+    "after": "دکمهٔ میانی"
+  },
+  {
+    "locale": "fa-IR",
+    "key": "Right",
+    "before": "درسته",
+    "after": "دکمهٔ راست"
+  },
+  {
+    "locale": "fi-FI",
+    "key": "Train / retrain",
+    "before": "Kouluta / kouluttaa uudelleen",
+    "after": "Kouluta / kouluta malli uudelleen"
+  },
+  {
+    "locale": "fi-FI",
+    "key": "Left",
+    "before": "Vasen",
+    "after": "Vasen painike"
+  },
+  {
+    "locale": "fi-FI",
+    "key": "Middle",
+    "before": "Keski",
+    "after": "Keskipainike"
+  },
+  {
+    "locale": "fi-FI",
+    "key": "Right",
+    "before": "Oikein",
+    "after": "Oikea painike"
+  },
+  {
+    "locale": "fil-PH",
+    "key": "Left",
+    "before": "Kaliwa",
+    "after": "Kaliwang button"
+  },
+  {
+    "locale": "fil-PH",
+    "key": "Middle",
+    "before": "Gitna",
+    "after": "Gitnang button"
+  },
+  {
+    "locale": "fil-PH",
+    "key": "Right",
+    "before": "Tama",
+    "after": "Kanang button"
+  },
+  {
+    "locale": "fr-CA",
+    "key": "Train / retrain",
+    "before": "Former / recycler",
+    "after": "Entraîner / réentraîner le modèle"
+  },
+  {
+    "locale": "fr-CA",
+    "key": "Left",
+    "before": "Gauche",
+    "after": "Bouton gauche"
+  },
+  {
+    "locale": "fr-CA",
+    "key": "Middle",
+    "before": "Milieu",
+    "after": "Bouton central"
+  },
+  {
+    "locale": "fr-CA",
+    "key": "Right",
+    "before": "À droite",
+    "after": "Bouton droit"
+  },
+  {
+    "locale": "fr-FR",
+    "key": "Train / retrain",
+    "before": "Former / recycler",
+    "after": "Entraîner / réentraîner le modèle"
+  },
+  {
+    "locale": "fr-FR",
+    "key": "Left",
+    "before": "Gauche",
+    "after": "Bouton gauche"
+  },
+  {
+    "locale": "fr-FR",
+    "key": "Middle",
+    "before": "Milieu",
+    "after": "Bouton central"
+  },
+  {
+    "locale": "fr-FR",
+    "key": "Right",
+    "before": "À droite",
+    "after": "Bouton droit"
+  },
+  {
+    "locale": "ga-IE",
+    "key": "Left",
+    "before": "Ar chlé",
+    "after": "Cnaipe clé"
+  },
+  {
+    "locale": "ga-IE",
+    "key": "Middle",
+    "before": "Meánach",
+    "after": "Cnaipe láir"
+  },
+  {
+    "locale": "ga-IE",
+    "key": "Right",
+    "before": "Ceart",
+    "after": "Cnaipe deas"
+  },
+  {
+    "locale": "gd-GB",
+    "key": "Left",
+    "before": "Dh'fhalbh",
+    "after": "Putan clì"
+  },
+  {
+    "locale": "gd-GB",
+    "key": "Middle",
+    "before": "Meadhanach",
+    "after": "Putan meadhanach"
+  },
+  {
+    "locale": "gd-GB",
+    "key": "Right",
+    "before": "Ceart",
+    "after": "Putan deas"
+  },
+  {
+    "locale": "gl-ES",
+    "key": "Train / retrain",
+    "before": "Adestrar / reciclar",
+    "after": "Adestrar / volver adestrar o modelo"
+  },
+  {
+    "locale": "gl-ES",
+    "key": "Left",
+    "before": "Esquerda",
+    "after": "Botón esquerdo"
+  },
+  {
+    "locale": "gl-ES",
+    "key": "Middle",
+    "before": "Medio",
+    "after": "Botón central"
+  },
+  {
+    "locale": "gl-ES",
+    "key": "Right",
+    "before": "Certo",
+    "after": "Botón dereito"
+  },
+  {
+    "locale": "gu-IN",
+    "key": "Train / retrain",
+    "before": "ટ્રેન / ફરીથી ટ્રેન",
+    "after": "મોડેલને તાલીમ / ફરીથી તાલીમ"
+  },
+  {
+    "locale": "gu-IN",
+    "key": "Left",
+    "before": "ડાબી",
+    "after": "ડાબું બટન"
+  },
+  {
+    "locale": "gu-IN",
+    "key": "Middle",
+    "before": "મધ્ય",
+    "after": "વચ્ચેનું બટન"
+  },
+  {
+    "locale": "gu-IN",
+    "key": "Right",
+    "before": "અધિકાર",
+    "after": "જમણું બટન"
+  },
+  {
+    "locale": "ha-Latn-NG",
+    "key": "Left",
+    "before": "Hagu",
+    "after": "Maɓallin hagu"
+  },
+  {
+    "locale": "ha-Latn-NG",
+    "key": "Middle",
+    "before": "Tsakiya",
+    "after": "Maɓallin tsakiya"
+  },
+  {
+    "locale": "ha-Latn-NG",
+    "key": "Right",
+    "before": "Dama",
+    "after": "Maɓallin dama"
+  },
+  {
+    "locale": "he-IL",
+    "key": "Train / retrain",
+    "before": "הרכבת / הסבה מחדש",
+    "after": "אימון / אימון מחדש של המודל"
+  },
+  {
+    "locale": "he-IL",
+    "key": "Left",
+    "before": "שמאל",
+    "after": "הלחצן השמאלי"
+  },
+  {
+    "locale": "he-IL",
+    "key": "Middle",
+    "before": "אמצעי",
+    "after": "הלחצן האמצעי"
+  },
+  {
+    "locale": "he-IL",
+    "key": "Right",
+    "before": "נכון",
+    "after": "הלחצן הימני"
+  },
+  {
+    "locale": "hi-IN",
+    "key": "Left",
+    "before": "वाम",
+    "after": "बायाँ बटन"
+  },
+  {
+    "locale": "hi-IN",
+    "key": "Middle",
+    "before": "मध्य",
+    "after": "बीच वाला बटन"
+  },
+  {
+    "locale": "hi-IN",
+    "key": "Right",
+    "before": "ठीक है",
+    "after": "दायाँ बटन"
+  },
+  {
+    "locale": "hr-HR",
+    "key": "Train / retrain",
+    "before": "Obučiti / prekvalificirati",
+    "after": "Treniraj / ponovno treniraj model"
+  },
+  {
+    "locale": "hr-HR",
+    "key": "Scroll",
+    "before": "Svitak",
+    "after": "Pomicanje"
+  },
+  {
+    "locale": "hr-HR",
+    "key": "Left",
+    "before": "lijevo",
+    "after": "Lijeva tipka"
+  },
+  {
+    "locale": "hr-HR",
+    "key": "Middle",
+    "before": "sredina",
+    "after": "Srednja tipka"
+  },
+  {
+    "locale": "hr-HR",
+    "key": "Right",
+    "before": "točno",
+    "after": "Desna tipka"
+  },
+  {
+    "locale": "hu-HU",
+    "key": "Left",
+    "before": "Balra",
+    "after": "Bal gomb"
+  },
+  {
+    "locale": "hu-HU",
+    "key": "Middle",
+    "before": "Középső",
+    "after": "Középső gomb"
+  },
+  {
+    "locale": "hu-HU",
+    "key": "Right",
+    "before": "Igaz",
+    "after": "Jobb gomb"
+  },
+  {
+    "locale": "hy-AM",
+    "key": "Train / retrain",
+    "before": "Գնացք / վերապատրաստում",
+    "after": "Մոդելի ուսուցում / վերաուսուցում"
+  },
+  {
+    "locale": "hy-AM",
+    "key": "Left",
+    "before": "Ձախ",
+    "after": "Ձախ կոճակ"
+  },
+  {
+    "locale": "hy-AM",
+    "key": "Middle",
+    "before": "Միջին",
+    "after": "Միջին կոճակ"
+  },
+  {
+    "locale": "hy-AM",
+    "key": "Right",
+    "before": "Ճիշտ է",
+    "after": "Աջ կոճակ"
+  },
+  {
+    "locale": "id-ID",
+    "key": "Left",
+    "before": "Kiri",
+    "after": "Tombol kiri"
+  },
+  {
+    "locale": "id-ID",
+    "key": "Middle",
+    "before": "Tengah",
+    "after": "Tombol tengah"
+  },
+  {
+    "locale": "id-ID",
+    "key": "Right",
+    "before": "Benar",
+    "after": "Tombol kanan"
+  },
+  {
+    "locale": "is-IS",
+    "key": "Left",
+    "before": "Vinstri",
+    "after": "Vinstri hnappur"
+  },
+  {
+    "locale": "is-IS",
+    "key": "Middle",
+    "before": "Miðja",
+    "after": "Miðhnappur"
+  },
+  {
+    "locale": "is-IS",
+    "key": "Right",
+    "before": "Rétt",
+    "after": "Hægri hnappur"
+  },
+  {
+    "locale": "it-IT",
+    "key": "Train / retrain",
+    "before": "Formare/riqualificare",
+    "after": "Addestra / riaddestra il modello"
+  },
+  {
+    "locale": "it-IT",
+    "key": "Left",
+    "before": "A sinistra",
+    "after": "Pulsante sinistro"
+  },
+  {
+    "locale": "it-IT",
+    "key": "Middle",
+    "before": "Medio",
+    "after": "Pulsante centrale"
+  },
+  {
+    "locale": "it-IT",
+    "key": "Right",
+    "before": "Giusto",
+    "after": "Pulsante destro"
+  },
+  {
+    "locale": "ka-GE",
+    "key": "Train / retrain",
+    "before": "მატარებელი / გადამზადება",
+    "after": "მოდელის სწავლება / ხელახალი სწავლება"
+  },
+  {
+    "locale": "ka-GE",
+    "key": "Left",
+    "before": "მარცხენა",
+    "after": "მარცხენა ღილაკი"
+  },
+  {
+    "locale": "ka-GE",
+    "key": "Middle",
+    "before": "შუა",
+    "after": "შუა ღილაკი"
+  },
+  {
+    "locale": "ka-GE",
+    "key": "Right",
+    "before": "უფლება",
+    "after": "მარჯვენა ღილაკი"
+  },
+  {
+    "locale": "kk-KZ",
+    "key": "Left",
+    "before": "Солға",
+    "after": "Сол жақ түйме"
+  },
+  {
+    "locale": "kk-KZ",
+    "key": "Middle",
+    "before": "Орташа",
+    "after": "Ортаңғы түйме"
+  },
+  {
+    "locale": "kk-KZ",
+    "key": "Right",
+    "before": "Дұрыс",
+    "after": "Оң жақ түйме"
+  },
+  {
+    "locale": "km-KH",
+    "key": "Train / retrain",
+    "before": "រថភ្លើង / ហ្វឹកហាត់ឡើងវិញ",
+    "after": "បណ្តុះបណ្តាល / បណ្តុះបណ្តាលម៉ូដែលឡើងវិញ"
+  },
+  {
+    "locale": "km-KH",
+    "key": "Left",
+    "before": "ឆ្វេង",
+    "after": "ប៊ូតុងឆ្វេង"
+  },
+  {
+    "locale": "km-KH",
+    "key": "Middle",
+    "before": "កណ្តាល",
+    "after": "ប៊ូតុងកណ្តាល"
+  },
+  {
+    "locale": "km-KH",
+    "key": "Right",
+    "before": "ត្រូវហើយ។",
+    "after": "ប៊ូតុងស្តាំ"
+  },
+  {
+    "locale": "kn-IN",
+    "key": "Train / retrain",
+    "before": "ರೈಲು / ಮರುತರಬೇತಿ",
+    "after": "ಮಾದರಿಗೆ ತರಬೇತಿ / ಮರುತರಬೇತಿ"
+  },
+  {
+    "locale": "kn-IN",
+    "key": "Left",
+    "before": "ಎಡಕ್ಕೆ",
+    "after": "ಎಡ ಬಟನ್"
+  },
+  {
+    "locale": "kn-IN",
+    "key": "Middle",
+    "before": "ಮಧ್ಯಮ",
+    "after": "ಮಧ್ಯದ ಬಟನ್"
+  },
+  {
+    "locale": "kn-IN",
+    "key": "Right",
+    "before": "ಸರಿ",
+    "after": "ಬಲ ಬಟನ್"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Number traces in gesture previews",
+    "before": "हें नांव\nहावभाव पूर्वावलोकनांत संख्या ट्रेस",
+    "after": "हावभाव पूर्वावलोकनांत संख्या ट्रेस"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Touchpad edge width (% per edge)",
+    "before": "हें नांव\nटचपॅड धार रुंदाय (% दर धार)",
+    "after": "टचपॅड धार रुंदाय (% दर धार)"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Touchpad edge width percent",
+    "before": "हें नांव\nटचपॅड धार रुंदाय टक्के",
+    "after": "टचपॅड धार रुंदाय टक्के"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Large controls enlarge navigation, control text and hit targets immediately; Windows scaling applies on top. Follows Windows text size and contrast themes. Tab moves focus, Space toggles options, arrows adjust sliders. Trace numbers update when reopening previews. Wider edges reduce the central drawing area.",
+    "before": "हें नांव\nव्हड नियंत्रण नेव्हिगेशन वाडयतात, मजकूर नियंत्रीत करतात आनी लक्ष्य रोखडेंच मारतात; Windows स्केलिंग वयल्यान लागू जाता. Windows मजकूर आकार आनी विपरीत थीम पाळटा. टॅब फोकस हालयता, जागो पर्याय टॉगल करता, बाण स्लायडर समायोजीत करता. पूर्वावलोकनां परतून उगडटना ट्रेस क्रमांक अद्ययावत करतात. रूंद कांठां मध्यवर्ती रेखांकन क्षेत्र उणें करतात.",
+    "after": "व्हड नियंत्रण नेव्हिगेशन वाडयतात, मजकूर नियंत्रीत करतात आनी लक्ष्य रोखडेंच मारतात; Windows स्केलिंग वयल्यान लागू जाता. Windows मजकूर आकार आनी विपरीत थीम पाळटा. टॅब फोकस हालयता, जागो पर्याय टॉगल करता, बाण स्लायडर समायोजीत करता. पूर्वावलोकनां परतून उगडटना ट्रेस क्रमांक अद्ययावत करतात. रूंद कांठां मध्यवर्ती रेखांकन क्षेत्र उणें करतात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Open Windows accessibility settings",
+    "before": "हें नांव\nWindows सुलभताय मांडावळी उगडात",
+    "after": "Windows सुलभताय मांडावळी उगडात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Accessibility: display and interaction",
+    "before": "हें नांव\nसुलभताय: प्रदर्शन आनी संवाद",
+    "after": "सुलभताय: प्रदर्शन आनी संवाद"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Two-finger drawings: always reviewed",
+    "before": "हें नांव\nदोन बोटांचे रेखाटन: सदांच नियाळ करतात",
+    "after": "दोन बोटांचे रेखाटन: सदांच नियाळ करतात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Custom drawn paths (including one finger): always reviewed",
+    "before": "हें नांव\nसानुकूल काडिल्ले मार्ग (एक बोट सयत): सदांच नियाळ केल्लो",
+    "after": "सानुकूल काडिल्ले मार्ग (एक बोट सयत): सदांच नियाळ केल्लो"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "AI scoring and AI veto cover every action bound to these drawings, not just Smart Close. Scoring never blocks; veto can prevent an action.",
+    "before": "हें नांव\nएआय स्कोरिंग आनी एआय व्हीटो फकत स्मार्ट क्लोज न्हय तर ह्या रेखाटनांक बांदून दवरिल्ल्या दरेक कृतीचो आस्पाव करता. गोल करप केन्नाच आडायना; व्हीटो वरवीं कृती आडावंक मेळटा.",
+    "after": "एआय स्कोरिंग आनी एआय व्हीटो फकत स्मार्ट क्लोज न्हय तर ह्या रेखाटनांक बांदून दवरिल्ल्या दरेक कृतीचो आस्पाव करता. गोल करप केन्नाच आडायना; व्हीटो वरवीं कृती आडावंक मेळटा."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "AI review scope",
+    "before": "हें नांव\nएआय पुनरावलोकन व्याप्ती",
+    "after": "एआय पुनरावलोकन व्याप्ती"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Install the optional learning engine. Record, train and correct labels here; personal traces and models stay on this PC.",
+    "before": "हें नांव\nपर्यायी शिकपाचें इंजिन स्थापन करचें. हांगा लेबलां रेकॉर्ड, प्रशिक्षण आनी दुरुस्त करप; वैयक्तीक ट्रेस आनी मॉडेल ह्या पीसीचेर रावतात.",
+    "after": "पर्यायी शिकपाचें इंजिन स्थापन करचें. हांगा लेबलां रेकॉर्ड, प्रशिक्षण आनी दुरुस्त करप; वैयक्तीक ट्रेस आनी मॉडेल ह्या पीसीचेर रावतात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "AI component location",
+    "before": "हें नांव\nएआय घटक स्थान",
+    "after": "एआय घटक स्थान"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "User data folder (recommended)",
+    "before": "हें नांव\nवापरपी डेटा फोल्डर (शिफारस केला)",
+    "after": "वापरपी डेटा फोल्डर (शिफारस केला)"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Application folder (portable / MSI)",
+    "before": "हें नांव\nऍप्लिकेशन फोल्डर (पोर्टेबल / MSI) 1.1.",
+    "after": "ऍप्लिकेशन फोल्डर (पोर्टेबल / MSI) 1.1."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Download learning component",
+    "before": "हें नांव\nशिकपाचो घटक डावनलोड करचो",
+    "after": "शिकपाचो घटक डावनलोड करचो"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Import component package",
+    "before": "हें नांव\nघटक पॅकेज आयात करचें",
+    "after": "घटक पॅकेज आयात करचें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Uninstall component",
+    "before": "हें नांव\nघटक अनइन्स्टॉल करात",
+    "after": "घटक अनइन्स्टॉल करात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Cancel download",
+    "before": "हें नांव\nडाउनलोड रद्द करचें",
+    "after": "डाउनलोड रद्द करचें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Enable background learning",
+    "before": "हें नांव\nपार्श्वभूंय शिकप सक्षम करचें",
+    "after": "पार्श्वभूंय शिकप सक्षम करचें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Once enabled, collection resumes with the gesture daemon. Confirm samples when convenient; automatic training requires AC power, 2 minutes of idle time and enough confirmed labels. Predictions never become training labels. Background learning and AI veto can run together with independent switches.",
+    "before": "हें नांव\nएकदां सक्षम केल्या उपरांत, हावभाव डिमनासयत संग्रह परतून सुरू जाता. सोयीस्कर आसतना नमुन्यांची खात्री करप; स्वयंचलीत प्रशिक्षणांत एसी पॉवर, 2 मिनटां निश्क्रीय वेळ आनी फावो तीं पुष्टी केल्लीं लेबलां जाय पडटात. अदमास केन्नाच प्रशिक्षण लेबल जायनात. पार्श्वभूंय शिकप आनी एआय व्हीटो स्वतंत्र स्वीचां वांगडा एकठांय चलूंक शकता.",
+    "after": "एकदां सक्षम केल्या उपरांत, हावभाव डिमनासयत संग्रह परतून सुरू जाता. सोयीस्कर आसतना नमुन्यांची खात्री करप; स्वयंचलीत प्रशिक्षणांत एसी पॉवर, 2 मिनटां निश्क्रीय वेळ आनी फावो तीं पुष्टी केल्लीं लेबलां जाय पडटात. अदमास केन्नाच प्रशिक्षण लेबल जायनात. पार्श्वभूंय शिकप आनी एआय व्हीटो स्वतंत्र स्वीचां वांगडा एकठांय चलूंक शकता."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Stop / disable classification",
+    "before": "हें नांव\nवर्गीकरण थांबवप / अक्षम करप",
+    "after": "वर्गीकरण थांबवप / अक्षम करप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Current mode: connecting to the learning engine…",
+    "before": "हें नांव\nसद्याचो मोड: शिकपाच्या इंजिनाक जोडप...",
+    "after": "सद्याचो मोड: शिकपाच्या इंजिनाक जोडप..."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Train / retrain",
+    "before": "हें नांव\nप्रशिक्षण / पुनर्प्रशिक्षण",
+    "after": "प्रशिक्षण / पुनर्प्रशिक्षण"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "AI scoring",
+    "before": "हें नांव\nएआय स्कोरिंग",
+    "after": "एआय स्कोरिंग"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Protect two-finger Smart Close",
+    "before": "हें नांव\nदोन बोटांच्या स्मार्ट क्लोजाची राखण करात",
+    "after": "दोन बोटांच्या स्मार्ट क्लोजाची राखण करात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Enable AI veto",
+    "before": "हें नांव\nएआय व्हीटो सक्षम करचो",
+    "after": "एआय व्हीटो सक्षम करचो"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Notify when AI vetoes an action",
+    "before": "हें नांव\nएआय जेन्ना कृतीक व्हीटो करता तेन्ना कळोवचें",
+    "after": "एआय जेन्ना कृतीक व्हीटो करता तेन्ना कळोवचें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "On",
+    "before": "हें नांव\nचालू",
+    "after": "चालू"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Could not save notification setting: ",
+    "before": "हें नांव\nअधिसुचोवणी मांडावळ जतनाय घेवंक शकली ना: ",
+    "after": "अधिसुचोवणी मांडावळ जतनाय घेवंक शकली ना: "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Turning this off only silences notifications; AI veto and sample recording continue. Notifications include a sound and are grouped, at most once every 30 seconds.",
+    "before": "हें नांव\nहें बंद केल्यार फकत अधिसुचोवण्यो निश्क्रीय जातात; एआय व्हीटो आनी नमुनो रेकॉर्डिंग चालू आसा. अधिसुचोवण्यांनी आवाजाचो आस्पाव जाता आनी गट केल्लो आसता, चडांत चड दर 30 सेकंदाक एक फावट.",
+    "after": "हें बंद केल्यार फकत अधिसुचोवण्यो निश्क्रीय जातात; एआय व्हीटो आनी नमुनो रेकॉर्डिंग चालू आसा. अधिसुचोवण्यांनी आवाजाचो आस्पाव जाता आनी गट केल्लो आसता, चडांत चड दर 30 सेकंदाक एक फावट."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Inference devices: waiting for hardware detection…",
+    "before": "हें नांव\nअनुमान साधनां: हार्डवेअर सोदून काडपाची वाट पळयतात...",
+    "after": "अनुमान साधनां: हार्डवेअर सोदून काडपाची वाट पळयतात..."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Prepare NPU / GPU providers",
+    "before": "हें नांव\nएनपीयू / जीपीयू पुरवणदार तयार करात",
+    "after": "एनपीयू / जीपीयू पुरवणदार तयार करात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hardware providers download on demand. Training uses CPU; inference prefers NPU → GPU → CPU. AI scoring still executes original actions. Two-, three/four-finger and custom drawings are always reviewed; each finger count needs training coverage.",
+    "before": "हें नांव\nहार्डवेअर पुरवणदार मागणी प्रमाण डाउनलोड करतात. प्रशिक्षणांत सीपीयू वापरतात; अनुमान NPU → GPU → CPU पसंत करता. एआय स्कोरिंग अजूनय मूळ कृती चालीक लायता. दोन, तीन/चार बोटांच्या आनी कसटम रेखाटनांचें सदांच नियाळ घेतात; दरेक बोटांच्या गणनेक प्रशिक्षण कव्हरेजाची गरज आसता.",
+    "after": "हार्डवेअर पुरवणदार मागणी प्रमाण डाउनलोड करतात. प्रशिक्षणांत सीपीयू वापरतात; अनुमान NPU → GPU → CPU पसंत करता. एआय स्कोरिंग अजूनय मूळ कृती चालीक लायता. दोन, तीन/चार बोटांच्या आनी कसटम रेखाटनांचें सदांच नियाळ घेतात; दरेक बोटांच्या गणनेक प्रशिक्षण कव्हरेजाची गरज आसता."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Review samples and corrections",
+    "before": "हें नांव\nनमुन्यांची पुनरावलोकन आनी दुरुस्त्यो",
+    "after": "नमुन्यांची पुनरावलोकन आनी दुरुस्त्यो"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Refresh sample list",
+    "before": "हें नांव\nनमुन्याची वळेरी ताजी करची",
+    "after": "नमुन्याची वळेरी ताजी करची"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Labels and scores explained",
+    "before": "हें नांव\nलेबलां आनी गूण स्पश्ट केल्यात",
+    "after": "लेबलां आनी गूण स्पश्ट केल्यात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Label: scrolling / intentional labels come from guided recording or human corrections. Unlabeled samples are not training answers.\nCandidate: the original recognizer's match, not proof of intent or execution.\nIntent score: 0–1; higher means more gesture-like, lower more scroll-like. It is neither template similarity nor measured accuracy. 0.000 can also be a rounded small value.\nNot scored (formerly —): no stored prediction, for example a guided recording. Timeout / failure means no valid score, not zero.\nAI veto: the action was blocked. Confirm or correct it below. Relabeling does not change historical scores.",
+    "before": "हें नांव\nलेबल: स्क्रोलिंग / हेतून लेबल मार्गदर्शीत रेकॉर्डिंग वा मनशाच्या दुरुस्तींतल्यान येतात. लेबल नाशिल्ले नमुने प्रशिक्षण जापो न्हय.\nउमेदवार: मूळ वळखप्याचो जुळोवणी, हेतू वा फांशीचो पुरावो न्हय.\nहेतू गूण: 0-1; उच्च म्हळ्यार चड हावभाव-सारको, सकयल चड स्क्रोल-सारको. तो साच्याचें सारकेंपण वा मेजपाची अचूकताय न्हय. ०.००० हें वाटकुळें ल्हान मोलूय आसूं येता.\nगूण मेळूंक ना (पयलीं —): सांठयल्लो अदमास ना, देखीक मार्गदर्शीत रेकॉर्डिंग. कालबाह्य / अपेस म्हणल्यार वैध गूण ना, शून्य न्हय.\nएआय व्हीटो: कृती आडायली. सकयल ताची पुष्टी करात वा दुरुस्त करात. रिलेबल केल्यार इतिहासीक गूण बदलना.",
+    "after": "लेबल: स्क्रोलिंग / हेतून लेबल मार्गदर्शीत रेकॉर्डिंग वा मनशाच्या दुरुस्तींतल्यान येतात. लेबल नाशिल्ले नमुने प्रशिक्षण जापो न्हय.\nउमेदवार: मूळ वळखप्याचो जुळोवणी, हेतू वा फांशीचो पुरावो न्हय.\nहेतू गूण: 0-1; उच्च म्हळ्यार चड हावभाव-सारको, सकयल चड स्क्रोल-सारको. तो साच्याचें सारकेंपण वा मेजपाची अचूकताय न्हय. ०.००० हें वाटकुळें ल्हान मोलूय आसूं येता.\nगूण मेळूंक ना (पयलीं —): सांठयल्लो अदमास ना, देखीक मार्गदर्शीत रेकॉर्डिंग. कालबाह्य / अपेस म्हणल्यार वैध गूण ना, शून्य न्हय.\nएआय व्हीटो: कृती आडायली. सकयल ताची पुष्टी करात वा दुरुस्त करात. रिलेबल केल्यार इतिहासीक गूण बदलना."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "View",
+    "before": "हें नांव\nपळोवप",
+    "after": "पळोवप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "List",
+    "before": "हें नांव\nवळेरी",
+    "after": "वळेरी"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Grid",
+    "before": "हें नांव\nजाळी",
+    "after": "जाळी"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Tiles",
+    "before": "हें नांव\nटायल्स",
+    "after": "टायल्स"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Select all shown",
+    "before": "हें नांव\nदाखयल्ले सगळे निवडात",
+    "after": "दाखयल्ले सगळे निवडात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "This was scrolling",
+    "before": "हें नांव\nहें स्क्रोल करपाचें आशिल्लें",
+    "after": "हें स्क्रोल करपाचें आशिल्लें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Clear label",
+    "before": "हें नांव\nलेबल निवळ करचें",
+    "after": "लेबल निवळ करचें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Delete sample",
+    "before": "हें नांव\nनमुनो काडून उडोवप",
+    "after": "नमुनो काडून उडोवप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Correct to gesture…",
+    "before": "हें नांव\nहावभावाक बरोबर...",
+    "after": "हावभावाक बरोबर..."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Correct labels and retrain. Keeps up to 2,000 traces; shows the latest 100. Scores are not measured accuracy. The engine continues when settings close, and stops with the gesture daemon.",
+    "before": "हें नांव\nलेबलां दुरुस्त करप आनी परतून प्रशिक्षण दिवप. 2,000 मेरेन ट्रेस दवरता; ताजें 100 दाखयता.स्कोर मेजपाची अचूकता ना. सेटिंग्ज बंद जातकच इंजिन चालू उरता, आनी हावभाव डिमना वांगडा थांबता.",
+    "after": "लेबलां दुरुस्त करप आनी परतून प्रशिक्षण दिवप. 2,000 मेरेन ट्रेस दवरता; ताजें 100 दाखयता.स्कोर मेजपाची अचूकता ना. सेटिंग्ज बंद जातकच इंजिन चालू उरता, आनी हावभाव डिमना वांगडा थांबता."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Open local learning data",
+    "before": "हें नांव\nथळावो शिकपाचो डेटा उगडचो",
+    "after": "थळावो शिकपाचो डेटा उगडचो"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Finger count not trained",
+    "before": "हें नांव\nबोटांची संख्या प्रशिक्षीत ना",
+    "after": "बोटांची संख्या प्रशिक्षीत ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Inference timed out",
+    "before": "हें नांव\nअनुमान वेळ सोंपलो",
+    "after": "अनुमान वेळ सोंपलो"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Inference failed",
+    "before": "हें नांव\nअनुमान अपेशी थारलें",
+    "after": "अनुमान अपेशी थारलें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Inference unavailable",
+    "before": "हें नांव\nअनुमान उपलब्ध ना",
+    "after": "अनुमान उपलब्ध ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Not scored",
+    "before": "हें नांव\nगोल जावंक ना",
+    "after": "गोल जावंक ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Corrected to: ",
+    "before": "हें नांव\nहें दुरुस्त केलां: १. ",
+    "after": "हें दुरुस्त केलां: १. "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Scroll",
+    "before": "हें नांव\nस्क्रोल करात",
+    "after": "स्क्रोल करात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Unlabeled",
+    "before": "हें नांव\nलेबल नाशिल्लें",
+    "after": "लेबल नाशिल्लें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Label",
+    "before": "हें नांव\nलेबल लावप",
+    "after": "लेबल लावप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Candidate",
+    "before": "हें नांव\nउमेदवार",
+    "after": "उमेदवार"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "None",
+    "before": "हें नांव\nकोणूच ना",
+    "after": "कोणूच ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Intent score",
+    "before": "हें नांव\nहेतू गूण",
+    "after": "हेतू गूण"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Backend",
+    "before": "हें नांव\nबॅकएंड",
+    "after": "बॅकएंड"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Not recorded",
+    "before": "हें नांव\nनोंद जावंक ना",
+    "after": "नोंद जावंक ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "{0} selected / {1} shown. Click to select multiple samples; the preview shows the last selected item.",
+    "before": "हें नांव\n{0} निवडला / {1} दाखयला. जायते नमुने निवडपाक क्लिक करात; पूर्वावलोकन निमाणी निवडिल्ली आयटम दाखयता.",
+    "after": "{0} निवडला / {1} दाखयला. जायते नमुने निवडपाक क्लिक करात; पूर्वावलोकन निमाणी निवडिल्ली आयटम दाखयता."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Learning component installed · updated separately, disabled by default",
+    "before": "हें नांव\nशिकपाचो घटक प्रतिष्ठापीत केला · वेगळो अद्ययावत केला, पूर्वनिर्धारीतपणान अक्षम केला",
+    "after": "शिकपाचो घटक प्रतिष्ठापीत केला · वेगळो अद्ययावत केला, पूर्वनिर्धारीतपणान अक्षम केला"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Not installed. Download only if you want to use learning.",
+    "before": "हें नांव\nस्थापन करूंक ना. तुमकां शिकप वापरपाक जाय जाल्यारूच डावनलोड करात.",
+    "after": "स्थापन करूंक ना. तुमकां शिकप वापरपाक जाय जाल्यारूच डावनलोड करात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Learning component installed · background engine connected",
+    "before": "हें नांव\nशिकपाचो घटक स्थापन केला · पार्श्वभूंय इंजिन जोडला",
+    "after": "शिकपाचो घटक स्थापन केला · पार्श्वभूंय इंजिन जोडला"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hardware not detected yet. Update the learning component or wait for the engine.",
+    "before": "हें नांव\nहार्डवेअर अजून मेळूंक ना. शिकपाचो घटक अद्ययावत करचो वा इंजिनाची वाट पळोवची.",
+    "after": "हार्डवेअर अजून मेळूंक ना. शिकपाचो घटक अद्ययावत करचो वा इंजिनाची वाट पळोवची."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Actual inference backend: ",
+    "before": "हें नांव\nप्रत्यक्ष अनुमान बॅकएंड: ",
+    "after": "प्रत्यक्ष अनुमान बॅकएंड: "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Gesture samples: labeled scrolling {0} · labeled intentional gestures {1} · unlabeled {2}",
+    "before": "हें नांव\nहावभावाचे नमुने: लेबल केल्ले स्क्रोलिंग {0} · लेबल केल्ले हेतून केल्ले हावभाव {1} · लेबल नाशिल्ले {2}",
+    "after": "हावभावाचे नमुने: लेबल केल्ले स्क्रोलिंग {0} · लेबल केल्ले हेतून केल्ले हावभाव {1} · लेबल नाशिल्ले {2}"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "AI veto enabled · Click to turn off",
+    "before": "हें नांव\nएआय व्हीटो सक्षम केला · बंद करपाक क्लिक करात",
+    "after": "एआय व्हीटो सक्षम केला · बंद करपाक क्लिक करात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Current mode: off",
+    "before": "हें नांव\nसद्याचो मोड: बंद",
+    "after": "सद्याचो मोड: बंद"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Starting in: ",
+    "before": "हें नांव\nपासून सुरू जावपी: ",
+    "after": "पासून सुरू जावपी: "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Current mode: background learning · no blocking · confirmed labels only",
+    "before": "हें नांव\nसद्याचो मोड: पार्श्वभूंय शिकप · आडावप ना · फकत पुष्टी केल्लीं लेबलां",
+    "after": "सद्याचो मोड: पार्श्वभूंय शिकप · आडावप ना · फकत पुष्टी केल्लीं लेबलां"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Current mode: AI veto · drawing review",
+    "before": "हें नांव\nसद्याचो मोड: एआय व्हीटो · रेखांकन पुनरावलोकन",
+    "after": "सद्याचो मोड: एआय व्हीटो · रेखांकन पुनरावलोकन"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Current mode: AI scoring · all drawing actions · no blocking",
+    "before": "हें नांव\nसद्याचो मोड: एआय स्कोरिंग · सगळ्यो रेखांकन कृती · आडावप ना",
+    "after": "सद्याचो मोड: एआय स्कोरिंग · सगळ्यो रेखांकन कृती · आडावप ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Current mode: protecting two-finger Smart Close",
+    "before": "हें नांव\nसद्याचो मोड: दोन बोटांच्या स्मार्ट क्लोजाची राखण करप",
+    "after": "सद्याचो मोड: दोन बोटांच्या स्मार्ट क्लोजाची राखण करप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Refresh sample list ({0} new)",
+    "before": "हें नांव\nनमुन्याची वळेरी ताजी करची ({0} नवी)",
+    "after": "नमुन्याची वळेरी ताजी करची ({0} नवी)"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The learning engine is responding slowly. Retrying; displayed data has not refreshed.",
+    "before": "हें नांव\nशिकपाचें इंजिन ल्हवू ल्हवू प्रतिसाद दिता. परतून यत्न करप; दाखयल्लो डेटा रिफ्रेश जावंक ना.",
+    "after": "शिकपाचें इंजिन ल्हवू ल्हवू प्रतिसाद दिता. परतून यत्न करप; दाखयल्लो डेटा रिफ्रेश जावंक ना."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Training did not start: ",
+    "before": "हें नांव\nप्रशिक्षण सुरू जालें ना: १. ",
+    "after": "प्रशिक्षण सुरू जालें ना: १. "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "0% · Starting training",
+    "before": "हें नांव\n०% · प्रशिक्षण सुरू करप",
+    "after": "०% · प्रशिक्षण सुरू करप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Processing {0}/{1}…",
+    "before": "हें नांव\n{0}/{1} प्रक्रिया करप...",
+    "after": "{0}/{1} प्रक्रिया करप..."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Delete",
+    "before": "हें नांव\nकाडून उडोवप",
+    "after": "काडून उडोवप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Mark as scrolling",
+    "before": "हें नांव\nस्क्रोल करता अशें चिन्न करचें",
+    "after": "स्क्रोल करता अशें चिन्न करचें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Clear labels",
+    "before": "हें नांव\nलेबलां निवळ करात",
+    "after": "लेबलां निवळ करात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "{0}: {1} succeeded, {2} failed.",
+    "before": "हें नांव\n{0}: {1} यशस्वी जालें, {2} अपयशी जालें.",
+    "after": "{0}: {1} यशस्वी जालें, {2} अपयशी जालें."
+  },
+  {
+    "locale": "kok-IN",
+    "key": " {0} saved but failed to refresh.",
+    "before": " हें नांव\n {0} जतनाय केला पूण ताजें करपाक अपेस आयलें.",
+    "after": "  {0} जतनाय केला पूण ताजें करपाक अपेस आयलें."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Corrections apply to the next training run; scores do not change immediately.",
+    "before": "हें नांव\nफुडल्या प्रशिक्षण धांवपट्टेक दुरुस्त्यो लागू जातात; गूण रोखडेंच बदलनात.",
+    "after": "फुडल्या प्रशिक्षण धांवपट्टेक दुरुस्त्यो लागू जातात; गूण रोखडेंच बदलनात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": " Backend disconnected; templates apply on next launch.",
+    "before": " हें नांव\n बॅकएंड काडून उडयला; फुडल्या लाँचिंगाचेर टेम्पलेट लागू जातात.",
+    "after": "  बॅकएंड काडून उडयला; फुडल्या लाँचिंगाचेर टेम्पलेट लागू जातात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": " Added recognition examples for '{0}'.",
+    "before": " हें नांव\n '{0}' खातीर वळख उदाहरणां जोडल्यात.",
+    "after": "  '{0}' खातीर वळख उदाहरणां जोडल्यात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Correct gesture",
+    "before": "हें नांव\nयोग्य हावभाव",
+    "after": "योग्य हावभाव"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Add {0} traces as recognition examples, preserving existing templates and original recognition records. Label as intentional for the next training run.",
+    "before": "हें नांव\n{0} ट्रेस वळख उदाहरणां म्हणून जोडात, सद्याचे साचे आनी मूळ वळख रेकॉर्ड सांबाळून. फुडल्या प्रशिक्षण धांवपट्टे खातीर हेतून अशें लेबल लावप.",
+    "after": "{0} ट्रेस वळख उदाहरणां म्हणून जोडात, सद्याचे साचे आनी मूळ वळख रेकॉर्ड सांबाळून. फुडल्या प्रशिक्षण धांवपट्टे खातीर हेतून अशें लेबल लावप."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Correct to gesture",
+    "before": "हें नांव\nहावभावाक बरोबर",
+    "after": "हावभावाक बरोबर"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Save correction",
+    "before": "हें नांव\nदुरुस्ती जतनाय घेयात",
+    "after": "दुरुस्ती जतनाय घेयात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Cancel",
+    "before": "हें नांव\nरद्द करचें",
+    "after": "रद्द करचें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Downloading and installing: ",
+    "before": "हें नांव\nडाउनलोड करप आनी स्थापीत करप: ",
+    "after": "डाउनलोड करप आनी स्थापीत करप: "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Canceled.",
+    "before": "हें नांव\nरद्द केलां.",
+    "after": "रद्द केलां."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "AI: local intent learning (optional)",
+    "before": "हें नांव\nएआय: थळावो हेतू शिकप (पर्यायी)",
+    "after": "एआय: थळावो हेतू शिकप (पर्यायी)"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Left",
+    "before": "उजवे वटेन",
+    "after": "दावो बटण"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Middle",
+    "before": "हें नांव\nमदीं",
+    "after": "मदलो बटण"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Right",
+    "before": "हें नांव\nबरोबर",
+    "after": "उजवो बटण"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Enable mouse gestures",
+    "before": "हें नांव\nमाऊस हावभाव सक्षम करात",
+    "after": "माऊस हावभाव सक्षम करात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Mouse gesture start buttons",
+    "before": "हें नांव\nमाऊस हावभाव सुरू बटण",
+    "after": "माऊस हावभाव सुरू बटण"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Enable multiple buttons; the first pressed start button controls the drawing.",
+    "before": "हें नांव\nएका परस चड बटणां सक्षम करात; पयलें दामिल्लें सुरू करपाचें बटण रेखाटनाचेर नियंत्रण दवरता.",
+    "after": "एका परस चड बटणां सक्षम करात; पयलें दामिल्लें सुरू करपाचें बटण रेखाटनाचेर नियंत्रण दवरता."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "finger gesture preview",
+    "before": "हें नांव\nबोटांच्या हावभावाची पूर्वावलोकन",
+    "after": "बोटांच्या हावभावाची पूर्वावलोकन"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Choose samples with the same finger count",
+    "before": "हें नांव\nबोटांची संख्या समान आशिल्ले नमुने निवडात",
+    "after": "बोटांची संख्या समान आशिल्ले नमुने निवडात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "No matching gestures",
+    "before": "हें नांव\nजुळपी हावभाव ना",
+    "after": "जुळपी हावभाव ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Create a drawing gesture with the same finger count in the gesture library first.",
+    "before": "हें नांव\nपयलीं हावभाव लायब्ररींत त्याच बोटांची संख्या आशिल्लो रेखांकन हावभाव तयार करचो.",
+    "after": "पयलीं हावभाव लायब्ररींत त्याच बोटांची संख्या आशिल्लो रेखांकन हावभाव तयार करचो."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "AI blocked one drawing gesture. Click to review or correct the decision.",
+    "before": "हें नांव\nएआयन एक रेखांकन हावभाव आडायलो. निर्णयाचो नियाळ घेवपाक वा दुरुस्त करपाक क्लिक करात.",
+    "after": "एआयन एक रेखांकन हावभाव आडायलो. निर्णयाचो नियाळ घेवपाक वा दुरुस्त करपाक क्लिक करात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "AI blocked {1} drawing gestures in the last {0} seconds. Click to review or correct the decisions.",
+    "before": "हें नांव\nAI हांणी निमाण्या {0} सेकंदां मदीं {1} रेखांकन हावभाव आडायले. निर्णयांचो नियाळ घेवपाक वा दुरुस्त करपाक क्लिक करात.",
+    "after": "AI हांणी निमाण्या {0} सेकंदां मदीं {1} रेखांकन हावभाव आडायले. निर्णयांचो नियाळ घेवपाक वा दुरुस्त करपाक क्लिक करात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The operation was canceled.",
+    "before": "हें नांव\nऑपरेशन रद्द केलें.",
+    "after": "ऑपरेशन रद्द केलें."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "{0}-finger tap",
+    "before": "हें नांव\n{0}-बोट टॅप",
+    "after": "{0}-बोट टॅप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "{0}-finger double tap",
+    "before": "हें नांव\n{0}-बोट डबल टॅप",
+    "after": "{0}-बोट डबल टॅप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hold one finger; other finger combined paths",
+    "before": "हें नांव\nएक बोट धरून घेवप; हेर बोटांनी जोडिल्ले मार्ग",
+    "after": "एक बोट धरून घेवप; हेर बोटांनी जोडिल्ले मार्ग"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "{0}-finger swipe left",
+    "before": "हें नांव\n{0}-बोट स्वाइप डावें",
+    "after": "{0}-बोट स्वाइप डावें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hold one finger; other finger swipe left",
+    "before": "हें नांव\nएक बोट धरून घेवप; हेर बोटांनी डावें स्वाइप करचें",
+    "after": "एक बोट धरून घेवप; हेर बोटांनी डावें स्वाइप करचें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "{0}-finger swipe right",
+    "before": "हें नांव\n{0}-बोट उजवे वटेन स्वाइप करचें",
+    "after": "{0}-बोट उजवे वटेन स्वाइप करचें"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hold one finger; other finger swipe right",
+    "before": "हें नांव\nएक बोट धरून घेवप; हेर बोट उजवे वटेन स्वाइप करतात",
+    "after": "एक बोट धरून घेवप; हेर बोट उजवे वटेन स्वाइप करतात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "{0}-finger swipe up",
+    "before": "हें नांव\n{0}-बोट स्वाइप वयर",
+    "after": "{0}-बोट स्वाइप वयर"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hold one finger; other finger swipe up",
+    "before": "हें नांव\nएक बोट धरून घेवप; हेर बोटांनी वयर स्वाइप करतात",
+    "after": "एक बोट धरून घेवप; हेर बोटांनी वयर स्वाइप करतात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hold one finger; other finger swipe down",
+    "before": "हें नांव\nएक बोट धरून घेवप; हेर बोटांनी सकयल स्वाइप करतात",
+    "after": "एक बोट धरून घेवप; हेर बोटांनी सकयल स्वाइप करतात"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "{0}-finger draw S",
+    "before": "हें नांव\n{0}-बोट काडप एस",
+    "after": "{0}-बोट काडप एस"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hold one finger; other finger draw S",
+    "before": "हें नांव\nएक बोट धरून घेवप; हेर बोट काडप एस",
+    "after": "एक बोट धरून घेवप; हेर बोट काडप एस"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "{0}-finger turn ({1})",
+    "before": "हें नांव\n{0}-बोट घुंवडावप ({1})",
+    "after": "{0}-बोट घुंवडावप ({1})"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hold one finger; other finger turn ({0})",
+    "before": "हें नांव\nएक बोट धरून घेवप; हेर बोट घुंवडावप ({0})",
+    "after": "एक बोट धरून घेवप; हेर बोट घुंवडावप ({0})"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "{0}-finger curved path",
+    "before": "हें नांव\n{0}-बोट वक्र मार्ग",
+    "after": "{0}-बोट वक्र मार्ग"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hold one finger; other finger curved path",
+    "before": "हें नांव\nएक बोट धरून घेवप; हेर बोटांचो वक्र मार्ग",
+    "after": "एक बोट धरून घेवप; हेर बोटांचो वक्र मार्ग"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Detecting inference devices on this PC…",
+    "before": "हें नांव\nह्या पीसीचेर अनुमान साधनां सोदून काडप...",
+    "after": "ह्या पीसीचेर अनुमान साधनां सोदून काडप..."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hardware detection failed; acceleration devices could not be confirmed: ",
+    "before": "हें नांव\nहार्डवेअर सोदून काडप अपेस आयलें; प्रवेग साधनां पुष्टी करूंक शकले नात: ",
+    "after": "हार्डवेअर सोदून काडप अपेस आयलें; प्रवेग साधनां पुष्टी करूंक शकले नात: "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Expected device priority: ",
+    "before": "हें नांव\nअपेक्षीत डिव्हायस प्राधान्य: ",
+    "after": "अपेक्षीत डिव्हायस प्राधान्य: "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "NPU inference devices detected: ",
+    "before": "हें नांव\nएनपीयू अनुमान साधनां सोदून काडलीं: ",
+    "after": "एनपीयू अनुमान साधनां सोदून काडलीं: "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The current inference runtime found no available NPU. This does not mean the PC has no NPU. Prepare NPU / GPU providers and check again.",
+    "before": "हें नांव\nसद्याच्या अनुमान रनटायमाक उपलब्ध एनपीयू मेळूंक ना. हाचो अर्थ पीसीक एनपीयू ना असो न्हय. NPU / GPU पुरवणदार तयार करात आनी परतून तपासात.",
+    "after": "सद्याच्या अनुमान रनटायमाक उपलब्ध एनपीयू मेळूंक ना. हाचो अर्थ पीसीक एनपीयू ना असो न्हय. NPU / GPU पुरवणदार तयार करात आनी परतून तपासात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "\nDetecting a device does not confirm model compatibility. See the actual backend below. Initialization or validation failures fall back to the next device.",
+    "before": "\nहें नांव\n\nसाधन सोदून काडल्यार मॉडेल सुसंगतीची खात्री जायना. सकयल दिल्लो प्रत्यक्ष बॅकएंड पळयात. आरंभ वा प्रमाणीकरण अपयशी परत फुडल्या डिव्हायसाचेर पडटात.",
+    "after": "\nसाधन सोदून काडल्यार मॉडेल सुसंगतीची खात्री जायना. सकयल दिल्लो प्रत्यक्ष बॅकएंड पळयात. आरंभ वा प्रमाणीकरण अपयशी परत फुडल्या डिव्हायसाचेर पडटात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hardware detection failed: ",
+    "before": "हें नांव\nहार्डवेअर सोदून काडप अपयशी: ",
+    "after": "हार्डवेअर सोदून काडप अपयशी: "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Skipping unconfirmed GPU: vendor=0x{0} {1}",
+    "before": "हें नांव\nअपुष्ट GPU वगडावप: विक्रेतो=0x{0} {1}",
+    "after": "अपुष्ट GPU वगडावप: विक्रेतो=0x{0} {1}"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "NPU · AMD VitisAI (linear computation) + CPU (normalization / Sigmoid / accuracy checks)",
+    "before": "हें नांव\nएनपीयू · एएमडी विटिसएआय (रेखीय गणना) + सीपीयू (सामान्यीकरण / सिग्मोइड / अचूकता तपासणी)",
+    "after": "एनपीयू · एएमडी विटिसएआय (रेखीय गणना) + सीपीयू (सामान्यीकरण / सिग्मोइड / अचूकता तपासणी)"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Hardware device enumeration failed: ",
+    "before": "हें नांव\nहार्डवेअर डिव्हायस गणना अपयशी: ",
+    "after": "हार्डवेअर डिव्हायस गणना अपयशी: "
+  },
+  {
+    "locale": "kok-IN",
+    "key": " unavailable: ",
+    "before": " हें नांव\n उपलब्ध ना: १. ",
+    "after": "  उपलब्ध ना: १. "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "CPU · local classifier",
+    "before": "हें नांव\nसीपीयू · थळावो वर्गीकरण करपी",
+    "after": "सीपीयू · थळावो वर्गीकरण करपी"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Runtime backend failed: ",
+    "before": "हें नांव\nरनटायम बॅकएंड अपयशी: ",
+    "after": "रनटायम बॅकएंड अपयशी: "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Enable background learning to collect traces during daily use. Label samples as scrolling or intentional gestures when convenient; confirmed samples are used for automatic training when idle.",
+    "before": "हें नांव\nदिसपट्ट्या वापरांत ट्रेस एकठांय करपाक पार्श्वभूंय शिकप सक्षम करात. सोयीस्कर आसतना नमुन्यांचेर स्क्रोलिंग वा हेतून केल्ले हावभाव अशें लेबल लावप; निश्क्रीय आसतना आपोआप प्रशिक्षण दिवपाखातीर पुष्टी केल्ले नमुने वापरतात.",
+    "after": "दिसपट्ट्या वापरांत ट्रेस एकठांय करपाक पार्श्वभूंय शिकप सक्षम करात. सोयीस्कर आसतना नमुन्यांचेर स्क्रोलिंग वा हेतून केल्ले हावभाव अशें लेबल लावप; निश्क्रीय आसतना आपोआप प्रशिक्षण दिवपाखातीर पुष्टी केल्ले नमुने वापरतात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Processing. Please wait.",
+    "before": "हें नांव\nप्रक्रिया करप. कृपा करून वाट पळयात.",
+    "after": "प्रक्रिया करप. कृपा करून वाट पळयात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Reading samples",
+    "before": "हें नांव\nनमुने वाचप",
+    "after": "नमुने वाचप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Processing. Please wait…",
+    "before": "हें नांव\nप्रक्रिया करप. कृपया वाट पळयात...",
+    "after": "प्रक्रिया करप. कृपया वाट पळयात..."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Training failed: ",
+    "before": "हें नांव\nप्रशिक्षण अपेशी थारलें: १. ",
+    "after": "प्रशिक्षण अपेशी थारलें: १. "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Initializing inference backend",
+    "before": "हें नांव\nअनुमान बॅकएंड आरंभ करप",
+    "after": "अनुमान बॅकएंड आरंभ करप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Saving model",
+    "before": "हें नांव\nबचतीचें मॉडेल",
+    "after": "बचतीचें मॉडेल"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Training or hardware initialization is in progress. Please wait.",
+    "before": "हें नांव\nप्रशिक्षण वा हार्डवेअर आरंभ करप चालू आसा. कृपा करून वाट पळयात.",
+    "after": "प्रशिक्षण वा हार्डवेअर आरंभ करप चालू आसा. कृपा करून वाट पळयात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Train the model and pass held-out validation first.",
+    "before": "हें नांव\nमॉडेल प्रशिक्षण दिवचें आनी पयलीं होल्ड-आउट सत्यापन पास करचें.",
+    "after": "मॉडेल प्रशिक्षण दिवचें आनी पयलीं होल्ड-आउट सत्यापन पास करचें."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Collect samples and train a model before preparing hardware backends.",
+    "before": "हें नांव\nहार्डवेअर बॅकएंड तयार करचे पयलीं नमुने एकठांय करात आनी मॉडेल प्रशिक्षण दिवचें.",
+    "after": "हार्डवेअर बॅकएंड तयार करचे पयलीं नमुने एकठांय करात आनी मॉडेल प्रशिक्षण दिवचें."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Sample not found.",
+    "before": "हें नांव\nनमुनो मेळूंक ना.",
+    "after": "नमुनो मेळूंक ना."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Confirmed. Training starts automatically when idle and enough samples are available. Unconfirmed samples are excluded.",
+    "before": "हें नांव\nपुष्टी केल्या. निश्क्रीय आसतना आनी फावो ते नमुने मेळ्ळ्यार प्रशिक्षण आपोआप सुरू जाता. पुष्टी नाशिल्ले नमुने वगळटात.",
+    "after": "पुष्टी केल्या. निश्क्रीय आसतना आनी फावो ते नमुने मेळ्ळ्यार प्रशिक्षण आपोआप सुरू जाता. पुष्टी नाशिल्ले नमुने वगळटात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Labels changed. Please retrain.",
+    "before": "हें नांव\nलेबलां बदललीं. कृपया परतून प्रशिक्षण घेयात.",
+    "after": "लेबलां बदललीं. कृपया परतून प्रशिक्षण घेयात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "; trained finger counts: ",
+    "before": "हें नांव\n; प्रशिक्षीत बोटांची संख्या: १. ",
+    "after": "; प्रशिक्षीत बोटांची संख्या: १. "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The Store version installs AI components in the user data folder.",
+    "before": "हें नांव\nस्टोर आवृत्ती वापरपी डेटा फोल्डरांत AI घटक प्रतिष्ठापीत करता.",
+    "after": "स्टोर आवृत्ती वापरपी डेटा फोल्डरांत AI घटक प्रतिष्ठापीत करता."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Incompatible learning component version.",
+    "before": "हें नांव\nअसंगत शिकप घटक आवृत्ती.",
+    "after": "असंगत शिकप घटक आवृत्ती."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Component verification failed. Download again or choose a matching offline package.",
+    "before": "हें नांव\nघटक सत्यापन अपयशी थारलें. परतून डाउनलोड करात वा जुळपी ऑफलायन पॅकेज निवडात.",
+    "after": "घटक सत्यापन अपयशी थारलें. परतून डाउनलोड करात वा जुळपी ऑफलायन पॅकेज निवडात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Unexpected unpacked component size.",
+    "before": "हें नांव\nअनपेक्षीत अनपॅक केल्लो घटक आकार.",
+    "after": "अनपेक्षीत अनपॅक केल्लो घटक आकार."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The component contains an unsafe path.",
+    "before": "हें नांव\nघटकांत असुरक्षित मार्ग आसता.",
+    "after": "घटकांत असुरक्षित मार्ग आसता."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Component protocol or architecture mismatch.",
+    "before": "हें नांव\nघटक प्रोटोकॉल वा आर्किटेक्चर बेजोडपण.",
+    "after": "घटक प्रोटोकॉल वा आर्किटेक्चर बेजोडपण."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The component is missing a valid background engine.",
+    "before": "हें नांव\nघटकाक वैध पार्श्वभूंय इंजिन ना.",
+    "after": "घटकाक वैध पार्श्वभूंय इंजिन ना."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Component processor architecture mismatch.",
+    "before": "हें नांव\nघटक प्रोसेसर आर्किटेक्चर बेजोड.",
+    "after": "घटक प्रोसेसर आर्किटेक्चर बेजोड."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Trace contacts are inconsistent and cannot be used as a gesture template.",
+    "before": "हें नांव\nट्रेस संपर्क विसंगत आसतात आनी हावभाव साचा म्हणून वापरूंक मेळनात.",
+    "after": "ट्रेस संपर्क विसंगत आसतात आनी हावभाव साचा म्हणून वापरूंक मेळनात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "No matching component download catalog is available for this version.",
+    "before": "हें नांव\nह्या आवृत्ती खातीर जुळपी घटक डाउनलोड कॅटलॉग उपलब्ध ना.",
+    "after": "ह्या आवृत्ती खातीर जुळपी घटक डाउनलोड कॅटलॉग उपलब्ध ना."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Invalid component download address.",
+    "before": "हें नांव\nअवैध घटक डाउनलोड पत्तो.",
+    "after": "अवैध घटक डाउनलोड पत्तो."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "This component version is not available on GitHub Releases yet. Import the matching offline component package instead.",
+    "before": "हें नांव\nही घटक आवृत्ती अजून GitHub प्रकाशनांचेर उपलब्ध ना. ताचे बदला जुळपी ऑफलायन घटक पॅकेज आयात करात.",
+    "after": "ही घटक आवृत्ती अजून GitHub प्रकाशनांचेर उपलब्ध ना. ताचे बदला जुळपी ऑफलायन घटक पॅकेज आयात करात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Unexpected component download size.",
+    "before": "हें नांव\nअनपेक्षीत घटक डाउनलोड आकार.",
+    "after": "अनपेक्षीत घटक डाउनलोड आकार."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Download or import the learning component first.",
+    "before": "हें नांव\nपयलीं शिकपाचो घटक डावनलोड करचो वा आयात करचो.",
+    "after": "पयलीं शिकपाचो घटक डावनलोड करचो वा आयात करचो."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Start the GestureSign gesture daemon first.",
+    "before": "हें नांव\nपयलीं GestureSign हावभाव डेमन सुरू करात.",
+    "after": "पयलीं GestureSign हावभाव डेमन सुरू करात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The learning component returned no status.",
+    "before": "हें नांव\nशिकपाच्या घटकान कसलोच दर्जो परतलो ना.",
+    "after": "शिकपाच्या घटकान कसलोच दर्जो परतलो ना."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Update the learning component.",
+    "before": "हें नांव\nशिकपाचो घटक अद्ययावत करचो.",
+    "after": "शिकपाचो घटक अद्ययावत करचो."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The learning engine is disconnected.",
+    "before": "हें नांव\nशिकपाचें इंजिन काडून उडयलां.",
+    "after": "शिकपाचें इंजिन काडून उडयलां."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The learning component is exiting. Please try again shortly.",
+    "before": "हें नांव\nशिकपाचो घटक भायर सरता. उपकार करून थोड्याच वेळान परतून यत्न करात.",
+    "after": "शिकपाचो घटक भायर सरता. उपकार करून थोड्याच वेळान परतून यत्न करात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Select samples and choose the correct gesture. Bulk corrections are supported. Added examples participate in later recognition; intent labels apply to the next training run. Past actions are never replayed.",
+    "before": "हें नांव\nनमुने वेंचून काडात आनी योग्य हावभाव निवडात. बल्क दुरुस्त्यांक तेंको आसा. जोडिल्लीं उदाहरणां उपरांतच्या मान्यतायेंत वांटो घेतात; फुडल्या प्रशिक्षण धांवपट्टेक हेतू लेबल लागू जातात. फाटली कृती केन्नाच परतून खेळनात.",
+    "after": "नमुने वेंचून काडात आनी योग्य हावभाव निवडात. बल्क दुरुस्त्यांक तेंको आसा. जोडिल्लीं उदाहरणां उपरांतच्या मान्यतायेंत वांटो घेतात; फुडल्या प्रशिक्षण धांवपट्टेक हेतू लेबल लागू जातात. फाटली कृती केन्नाच परतून खेळनात."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "AI veto",
+    "before": "हें नांव\nएआय व्हीटो",
+    "after": "एआय व्हीटो"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Held-out validation: {0} scrolling samples, {1} incorrectly allowed; {2} gesture samples, {3} incorrectly blocked.\n",
+    "before": "हें नांव\nहोल्ड-आउट प्रमाणीकरण: {0} स्क्रोलिंग नमुने, {1} चुकीची परवानगी; {2} हावभाव नमुने, {3} चुकीन आडायले.\n",
+    "after": "होल्ड-आउट प्रमाणीकरण: {0} स्क्रोलिंग नमुने, {1} चुकीची परवानगी; {2} हावभाव नमुने, {3} चुकीन आडायले.\n"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The blocking threshold has not been met. Collect samples in separate sessions. AI scoring is still available.",
+    "before": "हें नांव\nआडावपाची कूंड पुराय जावंक ना. वेगवेगळ्या सत्रांनी नमुने एकठांय करप. एआय स्कोरिंग अजूनय उपलब्ध आसा.",
+    "after": "आडावपाची कूंड पुराय जावंक ना. वेगवेगळ्या सत्रांनी नमुने एकठांय करप. एआय स्कोरिंग अजूनय उपलब्ध आसा."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "\nModel scores are not calibrated probabilities. The allow threshold of 0.85 does not mean 85% accuracy.",
+    "before": "\nहें नांव\n\nमॉडेल गूण हे मापांकीत संभाव्यताय न्हय. 0.85 इतली परवानगी कूंड म्हणल्यार 85% अचूकतायेचो अर्थ जायना.",
+    "after": "\nमॉडेल गूण हे मापांकीत संभाव्यताय न्हय. 0.85 इतली परवानगी कूंड म्हणल्यार 85% अचूकतायेचो अर्थ जायना."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Preparing training samples",
+    "before": "हें नांव\nप्रशिक्षणाचे नमुने तयार करप",
+    "after": "प्रशिक्षणाचे नमुने तयार करप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Each class needs at least 40 samples across 4 independent sessions; 10–20 samples per session are recommended. Collect normal input and intentional gestures, with separate samples for each finger count.",
+    "before": "हें नांव\nदरेका वर्गाक 4 स्वतंत्र सत्रांत उण्यांत उणे 40 नमुन्यांची गरज आसता; दर सत्रांत १०-२० नमुने घेवपाची शिफारस करतात. सामान्य इनपुट आनी हेतून केल्ले हावभाव एकठांय करात, दरेक बोटांच्या गणने खातीर वेगवेगळे नमुने आसतले.",
+    "after": "दरेका वर्गाक 4 स्वतंत्र सत्रांत उण्यांत उणे 40 नमुन्यांची गरज आसता; दर सत्रांत १०-२० नमुने घेवपाची शिफारस करतात. सामान्य इनपुट आनी हेतून केल्ले हावभाव एकठांय करात, दरेक बोटांच्या गणने खातीर वेगवेगळे नमुने आसतले."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Not enough training samples after holding out complete sessions. Add independent sessions instead of collecting all samples in one recording.",
+    "before": "हें नांव\nपुराय सत्रां काडल्या उपरांत फावो ते प्रशिक्षण नमुने नात. सगळे नमुने एकाच रेकॉर्डिंगांत एकठांय करचे परस स्वतंत्र सत्रां जोडचीं.",
+    "after": "पुराय सत्रां काडल्या उपरांत फावो ते प्रशिक्षण नमुने नात. सगळे नमुने एकाच रेकॉर्डिंगांत एकठांय करचे परस स्वतंत्र सत्रां जोडचीं."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Extracting trace features",
+    "before": "हें नांव\nट्रेस वैशिश्ट्यां काडप",
+    "after": "ट्रेस वैशिश्ट्यां काडप"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Training iteration {0}/1000",
+    "before": "हें नांव\nप्रशिक्षण पुनरावृत्ती {0}/1000",
+    "after": "प्रशिक्षण पुनरावृत्ती {0}/1000"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Training complete · protection threshold met",
+    "before": "हें नांव\nप्रशिक्षण पुराय · संरक्षण कूंड पुराय",
+    "after": "प्रशिक्षण पुराय · संरक्षण कूंड पुराय"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Training complete · protection threshold not met",
+    "before": "हें नांव\nप्रशिक्षण पुराय · संरक्षणाची कूंड पुराय जावंक ना",
+    "after": "प्रशिक्षण पुराय · संरक्षणाची कूंड पुराय जावंक ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The gesture was deleted or the finger count does not match.",
+    "before": "हें नांव\nहावभाव काडून उडयलो वा बोटांची संख्या जुळना.",
+    "after": "हावभाव काडून उडयलो वा बोटांची संख्या जुळना."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Target application: {0}; ",
+    "before": "हें नांव\nलक्ष्य अर्ज: {0}; ",
+    "after": "लक्ष्य अर्ज: {0}; "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Continuous scrolling input was detected before the gesture; this does not confirm the page actually moved.",
+    "before": "हें नांव\nहावभाव करचे पयलीं सतत स्क्रोलिंग इनपुट मेळ्ळें; हाका लागून पान प्रत्यक्षांत हालयल्लें पुष्टी जायना.",
+    "after": "हावभाव करचे पयलीं सतत स्क्रोलिंग इनपुट मेळ्ळें; हाका लागून पान प्रत्यक्षांत हालयल्लें पुष्टी जायना."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "No recent continuous scrolling input was detected. The decision also uses the two-finger trace.",
+    "before": "हें नांव\nहालींच्या काळांत कसलोच सतत स्क्रोलिंग इनपुट मेळूंक ना. ह्या निर्णयांत दोन बोटांच्या ट्रेसाचोय उपेग केला.",
+    "after": "हालींच्या काळांत कसलोच सतत स्क्रोलिंग इनपुट मेळूंक ना. ह्या निर्णयांत दोन बोटांच्या ट्रेसाचोय उपेग केला."
+  },
+  {
+    "locale": "kok-IN",
+    "key": " AI veto: ",
+    "before": " हें नांव\n एआय व्हीटो: १. ",
+    "after": "  एआय व्हीटो: १. "
+  },
+  {
+    "locale": "kok-IN",
+    "key": " The trace lacks the sustained turn required by the template.",
+    "before": " हें नांव\n ट्रेसांत साच्याक जाय आशिल्लो टिकावू वळण ना.",
+    "after": "  ट्रेसांत साच्याक जाय आशिल्लो टिकावू वळण ना."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "The trace lacks the sustained turn required by the candidate template",
+    "before": "हें नांव\nउमेदवार साच्याक जाय आशिल्लो टिकावू वळण ट्रेसांत ना",
+    "after": "उमेदवार साच्याक जाय आशिल्लो टिकावू वळण ट्रेसांत ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": " Suspected accidental Smart Close during continuous scrolling.",
+    "before": " हें नांव\n सतत स्क्रोल करतना अपघाती स्मार्ट बंद करपाचो दुबाव.",
+    "after": "  सतत स्क्रोल करतना अपघाती स्मार्ट बंद करपाचो दुबाव."
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Suspected accidental Smart Close during rapid continuous scrolling",
+    "before": "हें नांव\nवेगान सतत स्क्रोलिंग करतना अपघाती स्मार्ट बंद करपाचो दुबाव",
+    "after": "वेगान सतत स्क्रोलिंग करतना अपघाती स्मार्ट बंद करपाचो दुबाव"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Incomplete trace; Smart Close was not executed",
+    "before": "हें नांव\nअपूर्ण ट्रेस; स्मार्ट क्लोज कार्यान्वीत जावंक ना",
+    "after": "अपूर्ण ट्रेस; स्मार्ट क्लोज कार्यान्वीत जावंक ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": " Model review did not finish: ",
+    "before": " हें नांव\n मॉडेल नियाळ सोंपलो ना: ",
+    "after": "  मॉडेल नियाळ सोंपलो ना: "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Inference unavailable; Smart Close was not executed",
+    "before": "हें नांव\nअनुमान उपलब्ध ना; स्मार्ट क्लोज कार्यान्वीत जावंक ना",
+    "after": "अनुमान उपलब्ध ना; स्मार्ट क्लोज कार्यान्वीत जावंक ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Template match score ",
+    "before": "हें नांव\nसाचा जुळोवणी स्कोर ",
+    "after": "साचा जुळोवणी स्कोर "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "; other candidate ",
+    "before": "हें नांव\n; हेर उमेदवार ",
+    "after": "; हेर उमेदवार "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "; template turn ",
+    "before": "हें नांव\n; साचा वळण ",
+    "after": "; साचा वळण "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "°; captured ",
+    "before": "हें नांव\n°; पकडले ",
+    "after": "°; पकडले "
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Template information unavailable",
+    "before": "हें नांव\nसाचाची म्हायती उपलब्ध ना",
+    "after": "साचाची म्हायती उपलब्ध ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "Candidate template unavailable",
+    "before": "हें नांव\nउमेदवार साचा उपलब्ध ना",
+    "after": "उमेदवार साचा उपलब्ध ना"
+  },
+  {
+    "locale": "kok-IN",
+    "key": "{0} fingers",
+    "before": "हें नांव\n{0} बोटां",
+    "after": "{0} बोटां"
+  },
+  {
+    "locale": "lb-LU",
+    "key": "Left",
+    "before": "Lénks",
+    "after": "Lénk Maustast"
+  },
+  {
+    "locale": "lb-LU",
+    "key": "Middle",
+    "before": "Mëtt",
+    "after": "Mëttelst Maustast"
+  },
+  {
+    "locale": "lb-LU",
+    "key": "Right",
+    "before": "Richteg",
+    "after": "Riets Maustast"
+  },
+  {
+    "locale": "lo-LA",
+    "key": "Left",
+    "before": "ຊ້າຍ",
+    "after": "ປຸ່ມຊ້າຍ"
+  },
+  {
+    "locale": "lo-LA",
+    "key": "Middle",
+    "before": "ກາງ",
+    "after": "ປຸ່ມກາງ"
+  },
+  {
+    "locale": "lo-LA",
+    "key": "Right",
+    "before": "ສິດ",
+    "after": "ປຸ່ມຂວາ"
+  },
+  {
+    "locale": "lt-LT",
+    "key": "Left",
+    "before": "Kairė",
+    "after": "Kairysis mygtukas"
+  },
+  {
+    "locale": "lt-LT",
+    "key": "Middle",
+    "before": "Vidurio",
+    "after": "Vidurinis mygtukas"
+  },
+  {
+    "locale": "lt-LT",
+    "key": "Right",
+    "before": "Teisingai",
+    "after": "Dešinysis mygtukas"
+  },
+  {
+    "locale": "lv-LV",
+    "key": "Left",
+    "before": "Pa kreisi",
+    "after": "Kreisā poga"
+  },
+  {
+    "locale": "lv-LV",
+    "key": "Middle",
+    "before": "Vidus",
+    "after": "Vidējā poga"
+  },
+  {
+    "locale": "lv-LV",
+    "key": "Right",
+    "before": "Pareizi",
+    "after": "Labā poga"
+  },
+  {
+    "locale": "mi-NZ",
+    "key": "Left",
+    "before": "Mauī",
+    "after": "Pātene mauī"
+  },
+  {
+    "locale": "mi-NZ",
+    "key": "Middle",
+    "before": "Waenganui",
+    "after": "Pātene waenganui"
+  },
+  {
+    "locale": "mi-NZ",
+    "key": "Right",
+    "before": "Matau",
+    "after": "Pātene matau"
+  },
+  {
+    "locale": "mk-MK",
+    "key": "Train / retrain",
+    "before": "Воз / преквалификација",
+    "after": "Обучување / повторно обучување на моделот"
+  },
+  {
+    "locale": "mk-MK",
+    "key": "Left",
+    "before": "Лево",
+    "after": "Лево копче"
+  },
+  {
+    "locale": "mk-MK",
+    "key": "Middle",
+    "before": "Среден",
+    "after": "Средно копче"
+  },
+  {
+    "locale": "mk-MK",
+    "key": "Right",
+    "before": "Во право",
+    "after": "Десно копче"
+  },
+  {
+    "locale": "ml-IN",
+    "key": "Train / retrain",
+    "before": "ട്രെയിൻ / വീണ്ടും പരിശീലിപ്പിക്കുക",
+    "after": "മോഡൽ പരിശീലനം / വീണ്ടും പരിശീലനം"
+  },
+  {
+    "locale": "ml-IN",
+    "key": "Left",
+    "before": "ഇടത്",
+    "after": "ഇടത് ബട്ടൺ"
+  },
+  {
+    "locale": "ml-IN",
+    "key": "Middle",
+    "before": "മധ്യഭാഗം",
+    "after": "നടുവിലെ ബട്ടൺ"
+  },
+  {
+    "locale": "ml-IN",
+    "key": "Right",
+    "before": "ശരിയാണ്",
+    "after": "വലത് ബട്ടൺ"
+  },
+  {
+    "locale": "mr-IN",
+    "key": "Train / retrain",
+    "before": "ट्रेन / पुन्हा ट्रेन",
+    "after": "मॉडेल प्रशिक्षण / पुन्हा प्रशिक्षण"
+  },
+  {
+    "locale": "mr-IN",
+    "key": "Left",
+    "before": "बाकी",
+    "after": "डावे बटण"
+  },
+  {
+    "locale": "mr-IN",
+    "key": "Middle",
+    "before": "मधला",
+    "after": "मधले बटण"
+  },
+  {
+    "locale": "mr-IN",
+    "key": "Right",
+    "before": "बरोबर",
+    "after": "उजवे बटण"
+  },
+  {
+    "locale": "ms-MY",
+    "key": "Left",
+    "before": "kiri",
+    "after": "Butang kiri"
+  },
+  {
+    "locale": "ms-MY",
+    "key": "Middle",
+    "before": "Tengah",
+    "after": "Butang tengah"
+  },
+  {
+    "locale": "ms-MY",
+    "key": "Right",
+    "before": "Betul",
+    "after": "Butang kanan"
+  },
+  {
+    "locale": "mt-MT",
+    "key": "Train / retrain",
+    "before": "Ferrovija / taħriġ mill-ġdid",
+    "after": "Ħarreġ / erġa’ ħarreġ il-mudell"
+  },
+  {
+    "locale": "mt-MT",
+    "key": "Left",
+    "before": "Xellug",
+    "after": "Buttuna tax-xellug"
+  },
+  {
+    "locale": "mt-MT",
+    "key": "Middle",
+    "before": "Nofsani",
+    "after": "Buttuna tan-nofs"
+  },
+  {
+    "locale": "mt-MT",
+    "key": "Right",
+    "before": "Dritt",
+    "after": "Buttuna tal-lemin"
+  },
+  {
+    "locale": "nb-NO",
+    "key": "Train / retrain",
+    "before": "Trene / omskolere",
+    "after": "Tren / tren modellen på nytt"
+  },
+  {
+    "locale": "nb-NO",
+    "key": "Left",
+    "before": "venstre",
+    "after": "Venstre knapp"
+  },
+  {
+    "locale": "nb-NO",
+    "key": "Middle",
+    "before": "Midt",
+    "after": "Midtknapp"
+  },
+  {
+    "locale": "nb-NO",
+    "key": "Right",
+    "before": "Høyre",
+    "after": "Høyre knapp"
+  },
+  {
+    "locale": "ne-NP",
+    "key": "Train / retrain",
+    "before": "ट्रेन / पुन: ट्रेन",
+    "after": "मोडेल प्रशिक्षण / पुनः प्रशिक्षण"
+  },
+  {
+    "locale": "ne-NP",
+    "key": "Unlabeled",
+    "before": "लेबल हटाइयो",
+    "after": "लेबल नगरिएको"
+  },
+  {
+    "locale": "ne-NP",
+    "key": "Left",
+    "before": "बायाँ",
+    "after": "बायाँ बटन"
+  },
+  {
+    "locale": "ne-NP",
+    "key": "Middle",
+    "before": "मध्य",
+    "after": "बीचको बटन"
+  },
+  {
+    "locale": "ne-NP",
+    "key": "Right",
+    "before": "सहि",
+    "after": "दायाँ बटन"
+  },
+  {
+    "locale": "nl-NL",
+    "key": "Train / retrain",
+    "before": "Trainen/omscholen",
+    "after": "Model trainen / opnieuw trainen"
+  },
+  {
+    "locale": "nl-NL",
+    "key": "Left",
+    "before": "Links",
+    "after": "Linkermuisknop"
+  },
+  {
+    "locale": "nl-NL",
+    "key": "Middle",
+    "before": "Midden",
+    "after": "Middelste muisknop"
+  },
+  {
+    "locale": "nl-NL",
+    "key": "Right",
+    "before": "Juist",
+    "after": "Rechtermuisknop"
+  },
+  {
+    "locale": "nn-NO",
+    "key": "Train / retrain",
+    "before": "Trene / omskolere",
+    "after": "Tren / tren modellen på nytt"
+  },
+  {
+    "locale": "or-IN",
+    "key": "Train / retrain",
+    "before": "ଟ୍ରେନ୍ / ପୁନ rain ତାଲିମ |",
+    "after": "ମଡେଲ୍ ତାଲିମ / ପୁନଃ ତାଲିମ"
+  },
+  {
+    "locale": "or-IN",
+    "key": "Unlabeled",
+    "before": "ଅନାବଶ୍ୟକ",
+    "after": "ଲେବଲ୍ ହୋଇନାହିଁ"
+  },
+  {
+    "locale": "or-IN",
+    "key": "Left",
+    "before": "ବାମ",
+    "after": "ବାମ ବଟନ୍"
+  },
+  {
+    "locale": "or-IN",
+    "key": "Middle",
+    "before": "ମଧ୍ୟମ",
+    "after": "ମଝି ବଟନ୍"
+  },
+  {
+    "locale": "or-IN",
+    "key": "Right",
+    "before": "ଠିକ୍ |",
+    "after": "ଡାହାଣ ବଟନ୍"
+  },
+  {
+    "locale": "pa-IN",
+    "key": "Train / retrain",
+    "before": "ਰੇਲਗੱਡੀ / ਮੁੜ ਸਿਖਲਾਈ",
+    "after": "ਮਾਡਲ ਸਿਖਲਾਈ / ਮੁੜ ਸਿਖਲਾਈ"
+  },
+  {
+    "locale": "pa-IN",
+    "key": "Left",
+    "before": "ਖੱਬੇ",
+    "after": "ਖੱਬਾ ਬਟਨ"
+  },
+  {
+    "locale": "pa-IN",
+    "key": "Middle",
+    "before": "ਮਿਡਲ",
+    "after": "ਵਿਚਕਾਰਲਾ ਬਟਨ"
+  },
+  {
+    "locale": "pa-IN",
+    "key": "Right",
+    "before": "ਸੱਜਾ",
+    "after": "ਸੱਜਾ ਬਟਨ"
+  },
+  {
+    "locale": "pl-PL",
+    "key": "Train / retrain",
+    "before": "Trenuj / przekwalifikuj się",
+    "after": "Trenuj / ponownie trenuj model"
+  },
+  {
+    "locale": "pl-PL",
+    "key": "Left",
+    "before": "Lewy",
+    "after": "Lewy przycisk"
+  },
+  {
+    "locale": "pl-PL",
+    "key": "Middle",
+    "before": "Środkowy",
+    "after": "Środkowy przycisk"
+  },
+  {
+    "locale": "pl-PL",
+    "key": "Right",
+    "before": "Jasne",
+    "after": "Prawy przycisk"
+  },
+  {
+    "locale": "pt-BR",
+    "key": "Train / retrain",
+    "before": "Treinar / reciclar",
+    "after": "Treinar / treinar novamente"
+  },
+  {
+    "locale": "pt-BR",
+    "key": "Left",
+    "before": "Esquerda",
+    "after": "Botão esquerdo"
+  },
+  {
+    "locale": "pt-BR",
+    "key": "Middle",
+    "before": "Meio",
+    "after": "Botão do meio"
+  },
+  {
+    "locale": "pt-BR",
+    "key": "Right",
+    "before": "Certo",
+    "after": "Botão direito"
+  },
+  {
+    "locale": "pt-PT",
+    "key": "Train / retrain",
+    "before": "Formar / reciclar",
+    "after": "Treinar / treinar novamente"
+  },
+  {
+    "locale": "pt-PT",
+    "key": "Left",
+    "before": "Esquerda",
+    "after": "Botão esquerdo"
+  },
+  {
+    "locale": "pt-PT",
+    "key": "Middle",
+    "before": "Meio",
+    "after": "Botão do meio"
+  },
+  {
+    "locale": "pt-PT",
+    "key": "Right",
+    "before": "Certo",
+    "after": "Botão direito"
+  },
+  {
+    "locale": "quz-PE",
+    "key": "Left",
+    "before": "Lloq’e",
+    "after": "Lluq'i ñit'ina"
+  },
+  {
+    "locale": "quz-PE",
+    "key": "Middle",
+    "before": "Chawpi",
+    "after": "Chawpi ñit'ina"
+  },
+  {
+    "locale": "quz-PE",
+    "key": "Right",
+    "before": "Chiqan",
+    "after": "Paña ñit'ina"
+  },
+  {
+    "locale": "ro-RO",
+    "key": "Train / retrain",
+    "before": "Antrenează/recalifică",
+    "after": "Antrenează / reantrenează modelul"
+  },
+  {
+    "locale": "ro-RO",
+    "key": "Left",
+    "before": "Stânga",
+    "after": "Butonul stâng"
+  },
+  {
+    "locale": "ro-RO",
+    "key": "Middle",
+    "before": "Mijloc",
+    "after": "Butonul din mijloc"
+  },
+  {
+    "locale": "ro-RO",
+    "key": "Right",
+    "before": "Corect",
+    "after": "Butonul drept"
+  },
+  {
+    "locale": "ru-RU",
+    "key": "Left",
+    "before": "Левый",
+    "after": "Левая кнопка"
+  },
+  {
+    "locale": "ru-RU",
+    "key": "Middle",
+    "before": "Средний",
+    "after": "Средняя кнопка"
+  },
+  {
+    "locale": "ru-RU",
+    "key": "Right",
+    "before": "Правильно",
+    "after": "Правая кнопка"
+  },
+  {
+    "locale": "sk-SK",
+    "key": "Train / retrain",
+    "before": "Trénovať / rekvalifikovať",
+    "after": "Natrénovať / znovu natrénovať model"
+  },
+  {
+    "locale": "sk-SK",
+    "key": "Left",
+    "before": "Vľavo",
+    "after": "Ľavé tlačidlo"
+  },
+  {
+    "locale": "sk-SK",
+    "key": "Middle",
+    "before": "Stredný",
+    "after": "Stredné tlačidlo"
+  },
+  {
+    "locale": "sk-SK",
+    "key": "Right",
+    "before": "Správne",
+    "after": "Pravé tlačidlo"
+  },
+  {
+    "locale": "sl-SI",
+    "key": "Train / retrain",
+    "before": "Usposobiti / prekvalificirati",
+    "after": "Učenje / ponovno učenje modela"
+  },
+  {
+    "locale": "sl-SI",
+    "key": "Left",
+    "before": "levo",
+    "after": "Levi gumb"
+  },
+  {
+    "locale": "sl-SI",
+    "key": "Middle",
+    "before": "Sredina",
+    "after": "Srednji gumb"
+  },
+  {
+    "locale": "sl-SI",
+    "key": "Right",
+    "before": "prav",
+    "after": "Desni gumb"
+  },
+  {
+    "locale": "sq-AL",
+    "key": "Left",
+    "before": "Majtas",
+    "after": "Butoni i majtë"
+  },
+  {
+    "locale": "sq-AL",
+    "key": "Middle",
+    "before": "E mesme",
+    "after": "Butoni i mesit"
+  },
+  {
+    "locale": "sq-AL",
+    "key": "Right",
+    "before": "E drejta",
+    "after": "Butoni i djathtë"
+  },
+  {
+    "locale": "sr-Cyrl-BA",
+    "key": "Scroll",
+    "before": "Сцролл",
+    "after": "Померање"
+  },
+  {
+    "locale": "sr-Cyrl-BA",
+    "key": "Unlabeled",
+    "before": "Унлабелед",
+    "after": "Неозначено"
+  },
+  {
+    "locale": "sr-Cyrl-BA",
+    "key": "Left",
+    "before": "Лево",
+    "after": "Лево дугме"
+  },
+  {
+    "locale": "sr-Cyrl-BA",
+    "key": "Middle",
+    "before": "Средњи",
+    "after": "Средње дугме"
+  },
+  {
+    "locale": "sr-Cyrl-BA",
+    "key": "Right",
+    "before": "Тачно",
+    "after": "Десно дугме"
+  },
+  {
+    "locale": "sr-Cyrl-RS",
+    "key": "Scroll",
+    "before": "Сцролл",
+    "after": "Померање"
+  },
+  {
+    "locale": "sr-Cyrl-RS",
+    "key": "Unlabeled",
+    "before": "Унлабелед",
+    "after": "Неозначено"
+  },
+  {
+    "locale": "sr-Cyrl-RS",
+    "key": "Left",
+    "before": "Лево",
+    "after": "Лево дугме"
+  },
+  {
+    "locale": "sr-Cyrl-RS",
+    "key": "Middle",
+    "before": "Средњи",
+    "after": "Средње дугме"
+  },
+  {
+    "locale": "sr-Cyrl-RS",
+    "key": "Right",
+    "before": "Тачно",
+    "after": "Десно дугме"
+  },
+  {
+    "locale": "sr-Latn-RS",
+    "key": "Scroll",
+    "before": "Scroll",
+    "after": "Pomeranje"
+  },
+  {
+    "locale": "sr-Latn-RS",
+    "key": "Unlabeled",
+    "before": "Unlabeled",
+    "after": "Neoznačeno"
+  },
+  {
+    "locale": "sr-Latn-RS",
+    "key": "Left",
+    "before": "Levo",
+    "after": "Levo dugme"
+  },
+  {
+    "locale": "sr-Latn-RS",
+    "key": "Middle",
+    "before": "Srednji",
+    "after": "Srednje dugme"
+  },
+  {
+    "locale": "sr-Latn-RS",
+    "key": "Right",
+    "before": "Tačno",
+    "after": "Desno dugme"
+  },
+  {
+    "locale": "sv-SE",
+    "key": "Train / retrain",
+    "before": "Träna / omskola",
+    "after": "Träna / träna om modellen"
+  },
+  {
+    "locale": "sv-SE",
+    "key": "Left",
+    "before": "Vänster",
+    "after": "Vänster knapp"
+  },
+  {
+    "locale": "sv-SE",
+    "key": "Middle",
+    "before": "Mitten",
+    "after": "Mittenknapp"
+  },
+  {
+    "locale": "sv-SE",
+    "key": "Right",
+    "before": "Rätt",
+    "after": "Höger knapp"
+  },
+  {
+    "locale": "sw-KE",
+    "key": "Train / retrain",
+    "before": "Treni / fanya upya",
+    "after": "Funza / funza tena modeli"
+  },
+  {
+    "locale": "sw-KE",
+    "key": "AI scoring",
+    "before": "AI kufunga",
+    "after": "Tathmini ya AI"
+  },
+  {
+    "locale": "sw-KE",
+    "key": "Left",
+    "before": "Kushoto",
+    "after": "Kitufe cha kushoto"
+  },
+  {
+    "locale": "sw-KE",
+    "key": "Middle",
+    "before": "Kati",
+    "after": "Kitufe cha kati"
+  },
+  {
+    "locale": "sw-KE",
+    "key": "Right",
+    "before": "Sawa",
+    "after": "Kitufe cha kulia"
+  },
+  {
+    "locale": "ta-IN",
+    "key": "Train / retrain",
+    "before": "ரயில் / மீண்டும் பயிற்சி",
+    "after": "மாதிரிப் பயிற்சி / மறுபயிற்சி"
+  },
+  {
+    "locale": "ta-IN",
+    "key": "Left",
+    "before": "விட்டு",
+    "after": "இடது பொத்தான்"
+  },
+  {
+    "locale": "ta-IN",
+    "key": "Middle",
+    "before": "நடுத்தர",
+    "after": "நடுப் பொத்தான்"
+  },
+  {
+    "locale": "ta-IN",
+    "key": "Right",
+    "before": "சரி",
+    "after": "வலது பொத்தான்"
+  },
+  {
+    "locale": "te-IN",
+    "key": "Train / retrain",
+    "before": "రైలు / తిరిగి శిక్షణ",
+    "after": "మోడల్ శిక్షణ / మళ్లీ శిక్షణ"
+  },
+  {
+    "locale": "te-IN",
+    "key": "Left",
+    "before": "ఎడమ",
+    "after": "ఎడమ బటన్"
+  },
+  {
+    "locale": "te-IN",
+    "key": "Middle",
+    "before": "మధ్య",
+    "after": "మధ్య బటన్"
+  },
+  {
+    "locale": "te-IN",
+    "key": "Right",
+    "before": "కుడి",
+    "after": "కుడి బటన్"
+  },
+  {
+    "locale": "th-TH",
+    "key": "Left",
+    "before": "ซ้าย",
+    "after": "ปุ่มซ้าย"
+  },
+  {
+    "locale": "th-TH",
+    "key": "Middle",
+    "before": "กลาง",
+    "after": "ปุ่มกลาง"
+  },
+  {
+    "locale": "th-TH",
+    "key": "Right",
+    "before": "ถูกต้อง",
+    "after": "ปุ่มขวา"
+  },
+  {
+    "locale": "tr-TR",
+    "key": "Left",
+    "before": "Sol",
+    "after": "Sol düğme"
+  },
+  {
+    "locale": "tr-TR",
+    "key": "Middle",
+    "before": "Orta",
+    "after": "Orta düğme"
+  },
+  {
+    "locale": "tr-TR",
+    "key": "Right",
+    "before": "Sağ",
+    "after": "Sağ düğme"
+  },
+  {
+    "locale": "tt-RU",
+    "key": "Train / retrain",
+    "before": "Поезд / яңадан әзерләү",
+    "after": "Модельне өйрәтү / яңадан өйрәтү"
+  },
+  {
+    "locale": "tt-RU",
+    "key": "Left",
+    "before": "Сулда",
+    "after": "Сул төймә"
+  },
+  {
+    "locale": "tt-RU",
+    "key": "Middle",
+    "before": "Урта",
+    "after": "Урта төймә"
+  },
+  {
+    "locale": "tt-RU",
+    "key": "Right",
+    "before": "Дөрес",
+    "after": "Уң төймә"
+  },
+  {
+    "locale": "ug-CN",
+    "key": "Train / retrain",
+    "before": "پويىز / قايتا تەربىيىلەش",
+    "after": "مودېلنى مەشىقلەندۈرۈش / قايتا مەشىقلەندۈرۈش"
+  },
+  {
+    "locale": "ug-CN",
+    "key": "Left",
+    "before": "سول",
+    "after": "سول كۇنۇپكا"
+  },
+  {
+    "locale": "ug-CN",
+    "key": "Middle",
+    "before": "ئوتتۇرا",
+    "after": "ئوتتۇرا كۇنۇپكا"
+  },
+  {
+    "locale": "ug-CN",
+    "key": "Right",
+    "before": "توغرا",
+    "after": "ئوڭ كۇنۇپكا"
+  },
+  {
+    "locale": "uk-UA",
+    "key": "Left",
+    "before": "Ліворуч",
+    "after": "Ліва кнопка"
+  },
+  {
+    "locale": "uk-UA",
+    "key": "Middle",
+    "before": "Середній",
+    "after": "Середня кнопка"
+  },
+  {
+    "locale": "uk-UA",
+    "key": "Right",
+    "before": "правильно",
+    "after": "Права кнопка"
+  },
+  {
+    "locale": "ur-PK",
+    "key": "Train / retrain",
+    "before": "ٹرین / دوبارہ ٹرین",
+    "after": "ماڈل کی تربیت / دوبارہ تربیت"
+  },
+  {
+    "locale": "ur-PK",
+    "key": "Unlabeled",
+    "before": "لیبل لگا ہوا",
+    "after": "بغیر لیبل"
+  },
+  {
+    "locale": "ur-PK",
+    "key": "Left",
+    "before": "بائیں",
+    "after": "بایاں بٹن"
+  },
+  {
+    "locale": "ur-PK",
+    "key": "Middle",
+    "before": "درمیانی",
+    "after": "درمیانی بٹن"
+  },
+  {
+    "locale": "ur-PK",
+    "key": "Right",
+    "before": "ٹھیک ہے۔",
+    "after": "دایاں بٹن"
+  },
+  {
+    "locale": "uz-Latn-UZ",
+    "key": "Train / retrain",
+    "before": "Poezd / qayta tayyorlash",
+    "after": "Modelni o‘qitish / qayta o‘qitish"
+  },
+  {
+    "locale": "uz-Latn-UZ",
+    "key": "Left",
+    "before": "Chapga",
+    "after": "Chap tugma"
+  },
+  {
+    "locale": "uz-Latn-UZ",
+    "key": "Middle",
+    "before": "O'rta",
+    "after": "O‘rta tugma"
+  },
+  {
+    "locale": "uz-Latn-UZ",
+    "key": "Right",
+    "before": "To'g'ri",
+    "after": "O‘ng tugma"
+  },
+  {
+    "locale": "vi-VN",
+    "key": "Train / retrain",
+    "before": "Đào tạo lại/đào tạo lại",
+    "after": "Huấn luyện / huấn luyện lại"
+  },
+  {
+    "locale": "vi-VN",
+    "key": "Left",
+    "before": "trái",
+    "after": "Nút trái"
+  },
+  {
+    "locale": "vi-VN",
+    "key": "Middle",
+    "before": "giữa",
+    "after": "Nút giữa"
+  },
+  {
+    "locale": "vi-VN",
+    "key": "Right",
+    "before": "Đúng",
+    "after": "Nút phải"
+  },
+  {
+    "locale": "af-ZA",
+    "key": "Clear label",
+    "before": "Duidelike etiket",
+    "after": "Verwyder etiket"
+  },
+  {
+    "locale": "af-ZA",
+    "key": "Clear labels",
+    "before": "Duidelike etikette",
+    "after": "Verwyder etikette"
+  },
+  {
+    "locale": "ar-SA",
+    "key": "Clear label",
+    "before": "تسمية واضحة",
+    "after": "إزالة التصنيف"
+  },
+  {
+    "locale": "ar-SA",
+    "key": "Clear labels",
+    "before": "تسميات واضحة",
+    "after": "إزالة التصنيفات"
+  },
+  {
+    "locale": "be-BY",
+    "key": "Clear label",
+    "before": "Ачысціць ярлык",
+    "after": "Зняць пазнаку"
+  },
+  {
+    "locale": "be-BY",
+    "key": "Clear labels",
+    "before": "Выразныя этыкеткі",
+    "after": "Зняць пазнакі"
+  },
+  {
+    "locale": "bg-BG",
+    "key": "Clear label",
+    "before": "Ясен етикет",
+    "after": "Премахване на етикет"
+  },
+  {
+    "locale": "bg-BG",
+    "key": "Clear labels",
+    "before": "Ясни етикети",
+    "after": "Премахване на етикети"
+  },
+  {
+    "locale": "ca-ES-valencia",
+    "key": "Clear label",
+    "before": "Etiqueta clara",
+    "after": "Elimina l'etiqueta"
+  },
+  {
+    "locale": "ca-ES-valencia",
+    "key": "Clear labels",
+    "before": "Etiquetes clares",
+    "after": "Elimina les etiquetes"
+  },
+  {
+    "locale": "ca-ES",
+    "key": "Clear label",
+    "before": "Etiqueta clara",
+    "after": "Elimina l'etiqueta"
+  },
+  {
+    "locale": "ca-ES",
+    "key": "Clear labels",
+    "before": "Etiquetes clares",
+    "after": "Elimina les etiquetes"
+  },
+  {
+    "locale": "cs-CZ",
+    "key": "Clear label",
+    "before": "Jasný štítek",
+    "after": "Odstranit označení"
+  },
+  {
+    "locale": "cs-CZ",
+    "key": "Clear labels",
+    "before": "Jasné štítky",
+    "after": "Odstranit označení"
+  },
+  {
+    "locale": "cy-GB",
+    "key": "Clear label",
+    "before": "Label clir",
+    "after": "Dileu label"
+  },
+  {
+    "locale": "cy-GB",
+    "key": "Clear labels",
+    "before": "Clirio labeli",
+    "after": "Dileu labeli"
+  },
+  {
+    "locale": "da-DK",
+    "key": "Clear label",
+    "before": "Klar etiket",
+    "after": "Fjern mærkning"
+  },
+  {
+    "locale": "da-DK",
+    "key": "Clear labels",
+    "before": "Tydelige etiketter",
+    "after": "Fjern mærkninger"
+  },
+  {
+    "locale": "el-GR",
+    "key": "Clear label",
+    "before": "Καθαρή ετικέτα",
+    "after": "Αφαίρεση ετικέτας"
+  },
+  {
+    "locale": "el-GR",
+    "key": "Clear labels",
+    "before": "Καθαρίστε τις ετικέτες",
+    "after": "Αφαίρεση ετικετών"
+  },
+  {
+    "locale": "es-ES",
+    "key": "{0}-finger swipe left",
+    "before": "{0}: deslizar el dedo hacia la izquierda",
+    "after": "Deslizar a la izquierda con {0} dedos"
+  },
+  {
+    "locale": "es-ES",
+    "key": "{0}-finger swipe right",
+    "before": "{0}-deslizar el dedo hacia la derecha",
+    "after": "Deslizar a la derecha con {0} dedos"
+  },
+  {
+    "locale": "es-ES",
+    "key": "{0}-finger swipe up",
+    "before": "{0}-deslizar el dedo hacia arriba",
+    "after": "Deslizar hacia arriba con {0} dedos"
+  },
+  {
+    "locale": "es-ES",
+    "key": "{0}-finger swipe down",
+    "before": "{0}: deslizar el dedo hacia abajo",
+    "after": "Deslizar hacia abajo con {0} dedos"
+  },
+  {
+    "locale": "es-MX",
+    "key": "Off",
+    "before": "apagada",
+    "after": "Apagado"
+  },
+  {
+    "locale": "es-MX",
+    "key": "{0}-finger swipe left",
+    "before": "{0}: deslizar el dedo hacia la izquierda",
+    "after": "Deslizar a la izquierda con {0} dedos"
+  },
+  {
+    "locale": "es-MX",
+    "key": "{0}-finger swipe right",
+    "before": "{0}-deslizar el dedo hacia la derecha",
+    "after": "Deslizar a la derecha con {0} dedos"
+  },
+  {
+    "locale": "es-MX",
+    "key": "{0}-finger swipe up",
+    "before": "{0}-deslizar el dedo hacia arriba",
+    "after": "Deslizar hacia arriba con {0} dedos"
+  },
+  {
+    "locale": "es-MX",
+    "key": "{0}-finger swipe down",
+    "before": "{0}: deslizar el dedo hacia abajo",
+    "after": "Deslizar hacia abajo con {0} dedos"
+  },
+  {
+    "locale": "et-EE",
+    "key": "On",
+    "before": "Peal",
+    "after": "Sees"
+  },
+  {
+    "locale": "et-EE",
+    "key": "Clear label",
+    "before": "Selge silt",
+    "after": "Eemalda märgend"
+  },
+  {
+    "locale": "et-EE",
+    "key": "Clear labels",
+    "before": "Selge sildid",
+    "after": "Eemalda märgendid"
+  },
+  {
+    "locale": "fi-FI",
+    "key": "Clear label",
+    "before": "Selkeä etiketti",
+    "after": "Poista merkintä"
+  },
+  {
+    "locale": "fi-FI",
+    "key": "Clear labels",
+    "before": "Tyhjennä etiketit",
+    "after": "Poista merkinnät"
+  },
+  {
+    "locale": "fr-CA",
+    "key": "{0}-finger swipe left",
+    "before": "{0} - balayage du doigt vers la gauche",
+    "after": "Balayer vers la gauche avec {0} doigts"
+  },
+  {
+    "locale": "fr-CA",
+    "key": "{0}-finger swipe right",
+    "before": "{0} - balayage du doigt vers la droite",
+    "after": "Balayer vers la droite avec {0} doigts"
+  },
+  {
+    "locale": "fr-CA",
+    "key": "{0}-finger swipe up",
+    "before": "{0} - balayage du doigt vers le haut",
+    "after": "Balayer vers le haut avec {0} doigts"
+  },
+  {
+    "locale": "fr-CA",
+    "key": "{0}-finger swipe down",
+    "before": "{0} - balayage du doigt vers le bas",
+    "after": "Balayer vers le bas avec {0} doigts"
+  },
+  {
+    "locale": "fr-FR",
+    "key": "{0}-finger swipe left",
+    "before": "{0} - balayage du doigt vers la gauche",
+    "after": "Balayer vers la gauche avec {0} doigts"
+  },
+  {
+    "locale": "fr-FR",
+    "key": "{0}-finger swipe right",
+    "before": "{0} - balayage du doigt vers la droite",
+    "after": "Balayer vers la droite avec {0} doigts"
+  },
+  {
+    "locale": "fr-FR",
+    "key": "{0}-finger swipe up",
+    "before": "{0} - balayage du doigt vers le haut",
+    "after": "Balayer vers le haut avec {0} doigts"
+  },
+  {
+    "locale": "fr-FR",
+    "key": "{0}-finger swipe down",
+    "before": "{0} - balayage du doigt vers le bas",
+    "after": "Balayer vers le bas avec {0} doigts"
+  },
+  {
+    "locale": "ga-IE",
+    "key": "Clear label",
+    "before": "Lipéad soiléir",
+    "after": "Bain an lipéad"
+  },
+  {
+    "locale": "ga-IE",
+    "key": "Clear labels",
+    "before": "Lipéid soiléir",
+    "after": "Bain na lipéid"
+  },
+  {
+    "locale": "gd-GB",
+    "key": "Clear label",
+    "before": "Leubail soilleir",
+    "after": "Thoir air falbh an leubail"
+  },
+  {
+    "locale": "gd-GB",
+    "key": "Clear labels",
+    "before": "Leubailean soilleir",
+    "after": "Thoir air falbh na leubailean"
+  },
+  {
+    "locale": "gl-ES",
+    "key": "Clear label",
+    "before": "Etiqueta clara",
+    "after": "Eliminar etiqueta"
+  },
+  {
+    "locale": "gl-ES",
+    "key": "Clear labels",
+    "before": "Etiquetas claras",
+    "after": "Eliminar etiquetas"
+  },
+  {
+    "locale": "ha-Latn-NG",
+    "key": "Clear label",
+    "before": "Share lakabin",
+    "after": "Cire lakabi"
+  },
+  {
+    "locale": "ha-Latn-NG",
+    "key": "Clear labels",
+    "before": "Share lambobi",
+    "after": "Cire lakabi"
+  },
+  {
+    "locale": "hr-HR",
+    "key": "Clear label",
+    "before": "Jasna oznaka",
+    "after": "Ukloni oznaku"
+  },
+  {
+    "locale": "hr-HR",
+    "key": "Clear labels",
+    "before": "Jasne oznake",
+    "after": "Ukloni oznake"
+  },
+  {
+    "locale": "hu-HU",
+    "key": "Clear label",
+    "before": "Tiszta címke",
+    "after": "Címke eltávolítása"
+  },
+  {
+    "locale": "hu-HU",
+    "key": "Clear labels",
+    "before": "Tisztítsa meg a címkéket",
+    "after": "Címkék eltávolítása"
+  },
+  {
+    "locale": "hy-AM",
+    "key": "On",
+    "before": "Նստած վիճակ",
+    "after": "Միացված"
+  },
+  {
+    "locale": "hy-AM",
+    "key": "Off",
+    "before": "Թույլ չտրված վիճակ",
+    "after": "Անջատված"
+  },
+  {
+    "locale": "id-ID",
+    "key": "Clear label",
+    "before": "Label yang jelas",
+    "after": "Hapus label"
+  },
+  {
+    "locale": "is-IS",
+    "key": "Clear label",
+    "before": "Tær merkimiði",
+    "after": "Fjarlægja merkingu"
+  },
+  {
+    "locale": "is-IS",
+    "key": "Clear labels",
+    "before": "Hreinsa merkimiða",
+    "after": "Fjarlægja merkingar"
+  },
+  {
+    "locale": "it-IT",
+    "key": "Clear label",
+    "before": "Etichetta chiara",
+    "after": "Rimuovi etichetta"
+  },
+  {
+    "locale": "it-IT",
+    "key": "Clear labels",
+    "before": "Etichette chiare",
+    "after": "Rimuovi etichette"
+  },
+  {
+    "locale": "it-IT",
+    "key": "{0}-finger swipe left",
+    "before": "{0} scorri con il dito verso sinistra",
+    "after": "Scorri a sinistra con {0} dita"
+  },
+  {
+    "locale": "it-IT",
+    "key": "{0}-finger swipe right",
+    "before": "{0} scorri verso destra con il dito",
+    "after": "Scorri a destra con {0} dita"
+  },
+  {
+    "locale": "it-IT",
+    "key": "{0}-finger swipe up",
+    "before": "{0} scorri verso l'alto con il dito",
+    "after": "Scorri verso l’alto con {0} dita"
+  },
+  {
+    "locale": "it-IT",
+    "key": "{0}-finger swipe down",
+    "before": "{0} scorri verso il basso con il dito",
+    "after": "Scorri verso il basso con {0} dita"
+  },
+  {
+    "locale": "ja-JP",
+    "key": "Train / retrain",
+    "before": "トレーニング/再トレーニング",
+    "after": "学習 / 再学習"
+  },
+  {
+    "locale": "ja-JP",
+    "key": "Clear label",
+    "before": "クリアラベル",
+    "after": "ラベルを解除"
+  },
+  {
+    "locale": "ja-JP",
+    "key": "Finger count not trained",
+    "before": "指のカウントが訓練されていない",
+    "after": "この指の本数は未学習"
+  },
+  {
+    "locale": "ja-JP",
+    "key": "Clear labels",
+    "before": "クリアラベル",
+    "after": "ラベルを解除"
+  },
+  {
+    "locale": "ja-JP",
+    "key": "{0}-finger swipe left",
+    "before": "{0} - 指で左にスワイプ",
+    "after": "{0}本指で左にスワイプ"
+  },
+  {
+    "locale": "ja-JP",
+    "key": "{0}-finger swipe right",
+    "before": "{0} - 指で右にスワイプ",
+    "after": "{0}本指で右にスワイプ"
+  },
+  {
+    "locale": "ja-JP",
+    "key": "{0}-finger swipe up",
+    "before": "{0} - 指で上にスワイプ",
+    "after": "{0}本指で上にスワイプ"
+  },
+  {
+    "locale": "ja-JP",
+    "key": "{0}-finger swipe down",
+    "before": "{0}-指で下にスワイプ",
+    "after": "{0}本指で下にスワイプ"
+  },
+  {
+    "locale": "ko-KR",
+    "key": "{0}-finger swipe left",
+    "before": "{0}-손가락을 왼쪽으로 스와이프",
+    "after": "손가락 {0}개로 왼쪽 스와이프"
+  },
+  {
+    "locale": "ko-KR",
+    "key": "{0}-finger swipe right",
+    "before": "{0}-손가락을 오른쪽으로 스와이프",
+    "after": "손가락 {0}개로 오른쪽 스와이프"
+  },
+  {
+    "locale": "ko-KR",
+    "key": "{0}-finger swipe up",
+    "before": "{0}-손가락을 위로 스와이프",
+    "after": "손가락 {0}개로 위로 스와이프"
+  },
+  {
+    "locale": "ko-KR",
+    "key": "{0}-finger swipe down",
+    "before": "{0}-손가락으로 아래로 스와이프",
+    "after": "손가락 {0}개로 아래로 스와이프"
+  },
+  {
+    "locale": "lb-LU",
+    "key": "On",
+    "before": "Um",
+    "after": "Un"
+  },
+  {
+    "locale": "lb-LU",
+    "key": "Clear label",
+    "before": "Kloer Label",
+    "after": "Markéierung ewechhuelen"
+  },
+  {
+    "locale": "lb-LU",
+    "key": "Clear labels",
+    "before": "Kloer Etiketten",
+    "after": "Markéierungen ewechhuelen"
+  },
+  {
+    "locale": "lo-LA",
+    "key": "On",
+    "before": "ສຸດ",
+    "after": "ເປີດ"
+  },
+  {
+    "locale": "lt-LT",
+    "key": "Clear label",
+    "before": "Aiški etiketė",
+    "after": "Pašalinti žymą"
+  },
+  {
+    "locale": "lt-LT",
+    "key": "Clear labels",
+    "before": "Išvalykite etiketes",
+    "after": "Pašalinti žymas"
+  },
+  {
+    "locale": "mi-NZ",
+    "key": "On",
+    "before": "Wewete",
+    "after": "Kā"
+  },
+  {
+    "locale": "mi-NZ",
+    "key": "Clear label",
+    "before": "Maama te tapanga",
+    "after": "Tango i te tapanga"
+  },
+  {
+    "locale": "mi-NZ",
+    "key": "Clear labels",
+    "before": "Maama nga tapanga",
+    "after": "Tango i ngā tapanga"
+  },
+  {
+    "locale": "mt-MT",
+    "key": "Clear label",
+    "before": "Tikketta ċara",
+    "after": "Neħħi t-tikketta"
+  },
+  {
+    "locale": "mt-MT",
+    "key": "Clear labels",
+    "before": "Tikketti ċari",
+    "after": "Neħħi t-tikketti"
+  },
+  {
+    "locale": "nb-NO",
+    "key": "Clear label",
+    "before": "Tøm etikett",
+    "after": "Fjern merking"
+  },
+  {
+    "locale": "nb-NO",
+    "key": "Clear labels",
+    "before": "Tydelige etiketter",
+    "after": "Fjern merking"
+  },
+  {
+    "locale": "nb-NO",
+    "key": "{0}-finger swipe left",
+    "before": "{0}-sveip til venstre",
+    "after": "Sveip til venstre med {0} fingre"
+  },
+  {
+    "locale": "nb-NO",
+    "key": "{0}-finger swipe right",
+    "before": "{0}-sveip til høyre",
+    "after": "Sveip til høyre med {0} fingre"
+  },
+  {
+    "locale": "nb-NO",
+    "key": "{0}-finger swipe up",
+    "before": "{0}-sveip opp med fingeren",
+    "after": "Sveip opp med {0} fingre"
+  },
+  {
+    "locale": "nb-NO",
+    "key": "{0}-finger swipe down",
+    "before": "{0}-sveip ned med fingeren",
+    "after": "Sveip ned med {0} fingre"
+  },
+  {
+    "locale": "nl-NL",
+    "key": "Clear label",
+    "before": "Duidelijk etiket",
+    "after": "Label verwijderen"
+  },
+  {
+    "locale": "nl-NL",
+    "key": "Clear labels",
+    "before": "Duidelijke etiketten",
+    "after": "Labels verwijderen"
+  },
+  {
+    "locale": "nn-NO",
+    "key": "{0}-finger swipe left",
+    "before": "{0}-sveip til venstre",
+    "after": "Sveip til venstre med {0} fingrar"
+  },
+  {
+    "locale": "nn-NO",
+    "key": "{0}-finger swipe right",
+    "before": "{0}-sveip til høyre",
+    "after": "Sveip til høgre med {0} fingrar"
+  },
+  {
+    "locale": "nn-NO",
+    "key": "{0}-finger swipe up",
+    "before": "{0}-sveip opp med fingeren",
+    "after": "Sveip opp med {0} fingrar"
+  },
+  {
+    "locale": "nn-NO",
+    "key": "{0}-finger swipe down",
+    "before": "{0}-sveip ned med fingeren",
+    "after": "Sveip ned med {0} fingrar"
+  },
+  {
+    "locale": "or-IN",
+    "key": "{0}-finger swipe down",
+    "before": "{0}- ଆଙ୍ଗୁଠି ସ୍ୱାଇପ୍ କରନ୍ତୁ |",
+    "after": "{0} ଆଙ୍ଗୁଠିରେ ତଳକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ"
+  },
+  {
+    "locale": "quz-PE",
+    "key": "Clear label",
+    "before": "Etiqueta chuya",
+    "after": "Etiquetata qichuy"
+  },
+  {
+    "locale": "quz-PE",
+    "key": "Clear labels",
+    "before": "Etiquetakunata chuyanchay",
+    "after": "Etiquetakunata qichuy"
+  },
+  {
+    "locale": "ro-RO",
+    "key": "Clear label",
+    "before": "Etichetă clară",
+    "after": "Elimină eticheta"
+  },
+  {
+    "locale": "ro-RO",
+    "key": "Clear labels",
+    "before": "Etichete clare",
+    "after": "Elimină etichetele"
+  },
+  {
+    "locale": "ru-RU",
+    "key": "Clear label",
+    "before": "Очистить этикетку",
+    "after": "Снять метку"
+  },
+  {
+    "locale": "ru-RU",
+    "key": "Clear labels",
+    "before": "Очистить ярлыки",
+    "after": "Снять метки"
+  },
+  {
+    "locale": "sk-SK",
+    "key": "Clear label",
+    "before": "Jasný štítok",
+    "after": "Odstrániť označenie"
+  },
+  {
+    "locale": "sk-SK",
+    "key": "Clear labels",
+    "before": "Jasné štítky",
+    "after": "Odstrániť označenia"
+  },
+  {
+    "locale": "sl-SI",
+    "key": "Clear label",
+    "before": "Počisti oznako",
+    "after": "Odstrani oznako"
+  },
+  {
+    "locale": "sl-SI",
+    "key": "Clear labels",
+    "before": "Jasne oznake",
+    "after": "Odstrani oznake"
+  },
+  {
+    "locale": "sr-Cyrl-BA",
+    "key": "On",
+    "before": "Uključeno",
+    "after": "Укључено"
+  },
+  {
+    "locale": "sr-Cyrl-BA",
+    "key": "Off",
+    "before": "Isključeno",
+    "after": "Искључено"
+  },
+  {
+    "locale": "sr-Cyrl-BA",
+    "key": "Clear label",
+    "before": "Цлеар лабел",
+    "after": "Уклони ознаку"
+  },
+  {
+    "locale": "sr-Cyrl-BA",
+    "key": "Clear labels",
+    "before": "Цлеар лабелс",
+    "after": "Уклони ознаке"
+  },
+  {
+    "locale": "sr-Cyrl-RS",
+    "key": "On",
+    "before": "Uključeno",
+    "after": "Укључено"
+  },
+  {
+    "locale": "sr-Cyrl-RS",
+    "key": "Off",
+    "before": "Isključeno",
+    "after": "Искључено"
+  },
+  {
+    "locale": "sr-Cyrl-RS",
+    "key": "Clear label",
+    "before": "Цлеар лабел",
+    "after": "Уклони ознаку"
+  },
+  {
+    "locale": "sr-Cyrl-RS",
+    "key": "Clear labels",
+    "before": "Цлеар лабелс",
+    "after": "Уклони ознаке"
+  },
+  {
+    "locale": "sr-Latn-RS",
+    "key": "Clear label",
+    "before": "Clear label",
+    "after": "Ukloni oznaku"
+  },
+  {
+    "locale": "sr-Latn-RS",
+    "key": "Clear labels",
+    "before": "Clear labels",
+    "after": "Ukloni oznake"
+  },
+  {
+    "locale": "sv-SE",
+    "key": "Clear label",
+    "before": "Tydlig etikett",
+    "after": "Ta bort etikett"
+  },
+  {
+    "locale": "sv-SE",
+    "key": "Clear labels",
+    "before": "Tydliga etiketter",
+    "after": "Ta bort etiketter"
+  },
+  {
+    "locale": "ta-IN",
+    "key": "Clear label",
+    "before": "தெளிவான லேபிள்",
+    "after": "லேபிளை அகற்று"
+  },
+  {
+    "locale": "ta-IN",
+    "key": "Clear labels",
+    "before": "லேபிள்களை அழி",
+    "after": "லேபிள்களை அகற்று"
+  },
+  {
+    "locale": "th-TH",
+    "key": "Clear label",
+    "before": "ป้ายชัดเจน",
+    "after": "ลบป้ายกำกับ"
+  },
+  {
+    "locale": "th-TH",
+    "key": "Clear labels",
+    "before": "ล้างฉลาก",
+    "after": "ลบป้ายกำกับ"
+  },
+  {
+    "locale": "ug-CN",
+    "key": "{0}-finger swipe down",
+    "before": "{0}- بارماق سىيرىلىدۇ",
+    "after": "{0} بارماق بىلەن تۆۋەنگە سىيرىش"
+  },
+  {
+    "locale": "zh-TW",
+    "key": "Clear label",
+    "before": "清晰的標籤",
+    "after": "撤銷標註"
+  },
+  {
+    "locale": "zh-TW",
+    "key": "Finger count not trained",
+    "before": "沒有訓練過手指計數",
+    "after": "尚未針對此指數量訓練"
+  },
+  {
+    "locale": "zh-TW",
+    "key": "Clear labels",
+    "before": "清晰的標籤",
+    "after": "撤銷標註"
+  },
+  {
+    "locale": "zh-TW",
+    "key": "{0}-finger swipe left",
+    "before": "{0}-手指向左滑動",
+    "after": "{0}指左滑"
+  },
+  {
+    "locale": "zh-TW",
+    "key": "{0}-finger swipe right",
+    "before": "{0}-手指向右滑動",
+    "after": "{0}指右滑"
+  },
+  {
+    "locale": "zh-TW",
+    "key": "{0}-finger swipe up",
+    "before": "{0}-手指向上滑動",
+    "after": "{0}指上滑"
+  },
+  {
+    "locale": "zh-TW",
+    "key": "{0}-finger swipe down",
+    "before": "{0}-手指向下滑動",
+    "after": "{0}指下滑"
+  }
+]

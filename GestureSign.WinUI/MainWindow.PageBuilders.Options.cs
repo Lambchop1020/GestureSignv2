@@ -12,6 +12,7 @@ public sealed partial class MainWindow
     {
         var root = NewSection();
         var options = _legacyData.Options;
+        root.Children.Add(NewAccessibilitySettings());
         root.Children.Add(NewIntentLearningSettings());
         root.Children.Add(NewSettingsGroup(L("视觉反馈", "Visual Feedback", "視覺回饋", "視覚フィードバック", "시각 피드백"),
         [
@@ -24,9 +25,8 @@ public sealed partial class MainWindow
         ]));
         root.Children.Add(NewSettingsGroup(L("输入设备", "Input Devices", "輸入裝置", "入力デバイス", "입력 장치"),
         [
-            NewToggleRow(L("启用鼠标手势", "Enable mouse gestures", "啟用滑鼠手勢", "マウスジェスチャを有効にする", "마우스 제스처 사용"), NormalizeDrawingButton(options.DrawingButton) != 0, "DrawingButton", NormalizeDrawingButton(options.DrawingButton, 2097152).ToString(CultureInfo.InvariantCulture), "0"),
             NewToggleRow(L("Edge 优先使用自带鼠标手势", "Prefer built-in Edge mouse gestures", "Edge 優先使用內建滑鼠手勢", "Edge 内蔵マウスジェスチャを優先", "Edge 기본 마우스 제스처 우선 사용"), options.PreferEdgeMouseGestures, "PreferEdgeMouseGestures"),
-            NewComboRow(L("绘制按钮", "Drawing button", "繪製按鈕", "描画ボタン", "그리기 버튼"), [L("右键", "Right button", "右鍵", "右ボタン", "오른쪽 버튼"), L("中键", "Middle button", "中鍵", "中央ボタン", "가운데 버튼"), "X1", "X2"], ["2097152", "4194304", "8388608", "16777216"], "DrawingButton", DrawingButtonIndex(NormalizeDrawingButton(options.DrawingButton, 2097152))),
+            NewMouseDrawingButtons(options.DrawingButton),
             NewToggleRow(L("启用触摸屏手势", "Enable touchscreen gestures", "啟用觸控螢幕手勢", "タッチスクリーンジェスチャを有効にする", "터치스크린 제스처 사용"), options.RegisterTouchScreen, "RegisterTouchScreen"),
             NewTouchScreenBlockedAreaRow(options),
             NewToggleRow(L("启用触控板手势", "Enable touchpad gestures", "啟用觸控板手勢", "タッチパッドジェスチャを有効にする", "터치패드 제스처 사용"), options.RegisterTouchPad, "RegisterTouchPad"),

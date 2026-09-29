@@ -176,8 +176,7 @@ namespace GestureSign.CorePlugins.ScreenBrightness
                     {
                         actionPoint?.Invoke(() =>
                         {
-                            if (!NativeBrightnessFlyout.TryShow())
-                                BrightnessOverlay.ShowBrightness(target);
+                            NativeBrightnessFlyout.TryShow();
                         });
                     }
                     catch { }

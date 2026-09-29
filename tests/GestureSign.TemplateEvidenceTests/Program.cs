@@ -25,3 +25,12 @@ int rejected=positives.Count(s=>TemplateTurnEvidence.MissingTurn(Points(s),templ
 Console.WriteLine($"Labeled intentional samples flagged: {rejected}/{positives.Length} (diagnostic, not held-out accuracy)");
 }
 Console.WriteLine("PASS template evidence checks");
+
+var diagonal = new[] { new System.Drawing.Point(0,0), new System.Drawing.Point(40,80), new System.Drawing.Point(43,84), new System.Drawing.Point(50,84), new System.Drawing.Point(90,170) };
+var deliberate = new[] { new System.Drawing.Point(0,0), new System.Drawing.Point(0,100), new System.Drawing.Point(100,100) };
+foreach (var count in new[] { 1, 2, 3, 4 })
+{
+    if (!TemplateTurnEvidence.MissingTurn(Enumerable.Repeat(diagonal,count).ToArray(), Enumerable.Repeat(deliberate,count).ToArray())) throw new Exception("Diagonal hook mistaken for sustained L turn.");
+    if (TemplateTurnEvidence.MissingTurn(Enumerable.Repeat(deliberate,count).ToArray(), Enumerable.Repeat(deliberate,count).ToArray())) throw new Exception("Deliberate L rejected.");
+}
+Console.WriteLine("PASS: diagonal-hook versus deliberate-L checks for 1–4 fingers.");

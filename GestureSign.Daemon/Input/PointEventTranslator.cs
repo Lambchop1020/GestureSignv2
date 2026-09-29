@@ -119,10 +119,10 @@ namespace GestureSign.Daemon.Input
             if (ShouldPassThroughGamingShellInput(mouseMessage.Point) && !_pressedMouseButton.Contains(button))
                 return;
 
-            if (IsCaptionButtonRegion(mouseMessage.Point) && button == AppConfig.DrawingButton && !_pressedMouseButton.Contains(button))
+            if (IsCaptionButtonRegion(mouseMessage.Point) && IsDrawingButton(button) && !_pressedMouseButton.Contains(button))
                 return;
 
-            if (ShouldPreferMouseGesturesAtPoint(mouseMessage.Point) && button != AppConfig.DrawingButton && !_pressedMouseButton.Contains(button))
+            if (ShouldPreferMouseGesturesAtPoint(mouseMessage.Point) && !IsDrawingButton(button) && !_pressedMouseButton.Contains(button))
                 return;
 
             if (_activeMouseDrawingButton != MouseActions.None && button == _activeMouseDrawingButton)
@@ -179,26 +179,26 @@ namespace GestureSign.Daemon.Input
 
             if (ShouldPassThroughGestureSignUi(mouseMessage.Point))
             {
-                if ((MouseActions)mouseMessage.Button == AppConfig.DrawingButton)
+                if (IsDrawingButton((MouseActions)mouseMessage.Button))
                     Logging.LogMessage($"Mouse gesture passed through. Reason=GestureSignUi, Button={(MouseActions)mouseMessage.Button}, Point={mouseMessage.Point.X},{mouseMessage.Point.Y}");
                 return;
             }
 
             if (ShouldPassThroughRemoteDesktopInput(mouseMessage.Point))
             {
-                if ((MouseActions)mouseMessage.Button == AppConfig.DrawingButton)
+                if (IsDrawingButton((MouseActions)mouseMessage.Button))
                     Logging.LogMessage($"Mouse gesture passed through. Reason=RemoteDesktop, Button={(MouseActions)mouseMessage.Button}, Point={mouseMessage.Point.X},{mouseMessage.Point.Y}");
                 return;
             }
 
             if (ShouldPassThroughGamingShellInput(mouseMessage.Point))
             {
-                if ((MouseActions)mouseMessage.Button == AppConfig.DrawingButton)
+                if (IsDrawingButton((MouseActions)mouseMessage.Button))
                     Logging.LogMessage($"Mouse gesture passed through. Reason=GamingShell, Button={(MouseActions)mouseMessage.Button}, Point={mouseMessage.Point.X},{mouseMessage.Point.Y}");
                 return;
             }
 
-            if (IsCaptionButtonRegion(mouseMessage.Point) && (MouseActions)mouseMessage.Button == AppConfig.DrawingButton)
+            if (IsCaptionButtonRegion(mouseMessage.Point) && IsDrawingButton((MouseActions)mouseMessage.Button))
             {
                 Logging.LogMessage($"Mouse gesture ignored. Reason=CaptionButtonRegion, Button={(MouseActions)mouseMessage.Button}, Point={mouseMessage.Point.X},{mouseMessage.Point.Y}");
                 return;
@@ -207,12 +207,13 @@ namespace GestureSign.Daemon.Input
             if (ShouldPreferMouseGesturesAtPoint(mouseMessage.Point))
                 return;
 
-            if ((MouseActions)mouseMessage.Button == AppConfig.DrawingButton && _pressedMouseButton.Count == 0)
+            if (IsDrawingButton((MouseActions)mouseMessage.Button) && _pressedMouseButton.Count == 0)
             {
                 Logging.LogMessage($"Mouse gesture button down. Button={(MouseActions)mouseMessage.Button}, DrawingButton={AppConfig.DrawingButton}, Point={mouseMessage.Point.X},{mouseMessage.Point.Y}");
                 var drawingButton = (MouseActions)mouseMessage.Button;
                 var args = new InputPointsEventArgs(new List<InputPoint>(new[] { new InputPoint(1, mouseMessage.Point) }), Devices.Mouse);
-                OnPointDown(args);
+                _activeMouseDrawingButton = drawingButton;
+OnPointDown(args);
                 // Mouse gestures own the complete button cycle immediately.
                 // Keep the capture provisional until movement is observed;
                 // PointCapture will re-inject a normal click on button-up when
@@ -226,7 +227,7 @@ namespace GestureSign.Daemon.Input
                 Logging.LogMessage($"Mouse gesture capture accepted. Button={drawingButton}, Point={mouseMessage.Point.X},{mouseMessage.Point.Y}");
             }
             _pressedMouseButton.Add((MouseActions)mouseMessage.Button);
-            if ((MouseActions)mouseMessage.Button == AppConfig.DrawingButton)
+            if (IsDrawingButton((MouseActions)mouseMessage.Button))
             {
                 _mousePollingFallbackActive = false;
                 _mousePollingObservedButtonDown = false;
@@ -289,7 +290,8 @@ namespace GestureSign.Daemon.Input
             ResetMouseGestureTracking();
         }
 
-        private MouseActions ActiveDrawingButton =>
+        private static bool IsDrawingButton(MouseActions button) => button != MouseActions.None && (AppConfig.DrawingButton & button) == button;
+        public MouseActions ActiveDrawingButton =>
             _activeMouseDrawingButton != MouseActions.None ? _activeMouseDrawingButton : AppConfig.DrawingButton;
 
         internal void CancelActiveMouseGesture(string reason)
@@ -354,7 +356,7 @@ namespace GestureSign.Daemon.Input
         {
             ResetTipTap();
             if (_activeMouseDrawingButton == MouseActions.None ||
-                _activeMouseDrawingButton == AppConfig.DrawingButton)
+                IsDrawingButton(_activeMouseDrawingButton))
                 return;
 
             Logging.LogMessage($"Mouse gesture capture reset after drawing button changed. Previous={_activeMouseDrawingButton}, Current={AppConfig.DrawingButton}");

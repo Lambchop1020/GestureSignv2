@@ -1,4 +1,4 @@
-﻿using GestureSign.Foundation.Intent;
+using GestureSign.Foundation.Intent;
 using GestureSign.IntentLearning;
 
 int checks = 0;
@@ -54,3 +54,34 @@ Check(!BackgroundLearningPolicy.HasEnoughLabels(Enumerable.Range(0, 100).Select(
 dataset[0].Label = IntentLabel.Scroll;
 Check(BackgroundLearningPolicy.Fingerprint(dataset) != fingerprint, "Correction failed to invalidate training fingerprint.");
 Console.WriteLine($"PASS: {checks} intent capture/training/validation checks. Synthetic data tests mechanics, not real-world accuracy.");
+
+foreach (int contacts in new[] { 1, 3, 4 })
+{
+    var multi = Sample(true, "multi");
+    multi.Frames = multi.Frames.Select(f => f with { Points = Enumerable.Range(1, contacts).Select(id => new IntentPoint(id, f.Points[0].X + id * 40, f.Points[0].Y)).ToArray() }).ToArray();
+    var capture = new IntentTrace(); foreach (var frame in multi.Frames) capture.Add(frame.Milliseconds, frame.Points);
+    Check(capture.Finish()?.All(f => f.Points.Length == contacts) == true, "Multi-finger capture lost contacts.");
+    Check(IntentFeatures.Extract(multi).All(float.IsFinite), "Multi-finger features invalid.");
+    Check(!model.Supports(contacts), "Two-finger model claims untrained finger coverage.");
+}
+Check(model.Supports(2), "Trained two-finger coverage missing.");
+var review = new IntentReviewSettings();
+Check(review.Includes(1, "Custom") && review.Includes(4, "L"), "Default drawing scope missing.");
+review.TwoFingers = false; Check(!review.Includes(2, "L"), "Disabled finger group reviewed.");
+review.ExcludedGestures = ["Custom"]; Check(!review.Includes(1, "custom"), "Gesture exclusion ignored.");
+Console.WriteLine($"PASS: {checks} total checks including multi-finger coverage and review exclusions.");
+
+foreach (int contacts in new[] { 1, 3, 4 })
+{
+    var corpus = new List<IntentSample>();
+    for (int session = 0; session < 5; session++) for (int i = 0; i < 12; i++) foreach (bool gesture in new[] { false, true })
+    {
+        var sample = Sample(gesture, (gesture ? "gesture" : "scroll") + session, i);
+        sample.Frames = sample.Frames.Select(f => f with { Points = Enumerable.Range(1, contacts).Select(id => new IntentPoint(id, f.Points[0].X + id * 40, f.Points[0].Y)).ToArray() }).ToArray();
+        corpus.Add(sample);
+    }
+    var trained = IntentModel.Train(corpus);
+    Check(trained.Supports(contacts) && !trained.Supports(2), "Training did not record the actual contact coverage.");
+    Check(trained.Score(IntentFeatures.Extract(corpus.First(s => s.Label == IntentLabel.Gesture))) > .85, "Multi-contact trained classifier failed synthetic positive.");
+}
+Console.WriteLine($"PASS: {checks} checks including per-contact training.");

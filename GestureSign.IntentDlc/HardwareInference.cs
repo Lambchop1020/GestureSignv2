@@ -140,6 +140,8 @@ internal sealed class HardwareInference : IDisposable
     private static SessionOptions Options(bool accelerated)
     {
         var options = new SessionOptions { EnableMemoryPattern = false, ExecutionMode = ExecutionMode.ORT_SEQUENTIAL, IntraOpNumThreads = 1, InterOpNumThreads = 1 };
+        options.AddSessionConfigEntry("session.intra_op.allow_spinning", "0");
+        options.AddSessionConfigEntry("session.inter_op.allow_spinning", "0");
         // Never report NPU/GPU when its unsupported operators silently ran on CPU.
         if (accelerated) options.AddSessionConfigEntry("session.disable_cpu_ep_fallback", "1");
         return options;

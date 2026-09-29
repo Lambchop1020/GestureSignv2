@@ -1,4 +1,4 @@
-﻿using GestureSign.Foundation.Intent;
+using GestureSign.Foundation.Intent;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -102,6 +102,8 @@ internal sealed class IntentComponentService
         using var pipe = new NamedPipeClientStream(".", IntentFiles.PipeName + ".control", PipeDirection.InOut, PipeOptions.Asynchronous);
         try { await pipe.ConnectAsync(timeout.Token); }
         catch (Exception ex) when (ex is IOException or OperationCanceledException) { throw new HostUnavailableException(ex); }
+        // Connecting and reading a full sample summary have separate budgets.
+        timeout.CancelAfter(TimeSpan.FromSeconds(5));
         using var reader = new StreamReader(pipe, leaveOpen: true); using var writer = new StreamWriter(pipe, leaveOpen: true) { AutoFlush = true };
         await writer.WriteLineAsync(JsonSerializer.Serialize(request).AsMemory(), timeout.Token);
         var line = await reader.ReadLineAsync(timeout.Token);

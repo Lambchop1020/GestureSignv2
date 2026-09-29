@@ -1,4 +1,4 @@
-﻿using GestureSign.Common;
+using GestureSign.Common;
 using GestureSign.Common.Applications;
 using GestureSign.Common.Configuration;
 using GestureSign.Common.Gestures;
@@ -48,6 +48,7 @@ namespace GestureSign.Daemon.Input
 
         // Create new Touch hook control to capture global input from Touch, and create an event translator to get formal events
         private readonly PointEventTranslator _pointEventTranslator;
+        private MouseActions _capturedMouseButton;
         private readonly InputProvider _inputProvider;
         private readonly PointerInputTargetWindow _pointerInputTargetWindow;
         private readonly List<IPointPattern> _pointPatternCache = new List<IPointPattern>();
@@ -651,6 +652,7 @@ namespace GestureSign.Daemon.Input
 
         protected void PointEventTranslator_PointDown(object sender, InputPointsEventArgs e)
         {
+            if (e.PointSource == Devices.Mouse) _capturedMouseButton = _pointEventTranslator.ActiveDrawingButton;
             if (e.PointSource == Devices.TouchPad && Mode == CaptureMode.Normal)
                 _intentDlc.Begin(e.InputPointList);
             else
@@ -846,10 +848,11 @@ namespace GestureSign.Daemon.Input
                         Logging.LogMessage($"Mouse gesture normal click reinjection failed. Error={error?.GetType().Name}: {error?.Message}");
                     });
 
+                    var replayButton = _capturedMouseButton;
                     var clickAsync = Task.Factory.StartNew(delegate
                     {
                         InputSimulator simulator = new InputSimulator();
-                        switch (AppConfig.DrawingButton)
+                        switch (replayButton)
                         {
                             case MouseActions.Left:
                                 simulator.Mouse.LeftButtonClick();
@@ -943,7 +946,7 @@ namespace GestureSign.Daemon.Input
                     else if (SourceDevice == Devices.Mouse)
                     {
                         InputSimulator simulator = new InputSimulator();
-                        switch (AppConfig.DrawingButton)
+                        switch (_capturedMouseButton)
                         {
                             case MouseActions.Left:
                                 simulator.Mouse.LeftButtonDown();
@@ -1118,10 +1121,11 @@ namespace GestureSign.Daemon.Input
             var recognizedGestureName = ResolveActionGestureName(GestureManager.Instance.GestureName, pointsInformation.Points);
             string templateEvidence = null;
             bool missingTemplateTurn = false;
-            if (SourceDevice == Devices.TouchPad && Mode == CaptureMode.Normal && IsSmartCloseGestureName(recognizedGestureName))
+            if (SourceDevice == Devices.TouchPad && Mode == CaptureMode.Normal && !string.IsNullOrEmpty(recognizedGestureName))
                 templateEvidence = GestureManager.Instance.GetTemplateEvidence(recognizedGestureName, pointsInformation.Points.Select(p => p.ToArray()).ToArray(), out missingTemplateTurn);
             if (SourceDevice == Devices.TouchPad && Mode == CaptureMode.Normal &&
-                _intentDlc.ShouldSuppress(recognizedGestureName, IsSmartCloseGestureName(recognizedGestureName), pointsInformation.Points.Count, templateEvidence, missingTemplateTurn))
+                _intentDlc.ShouldSuppress(recognizedGestureName, IsSmartCloseGestureName(recognizedGestureName), pointsInformation.Points.Count, templateEvidence, missingTemplateTurn, freeDraw: true,
+                    hasExecutableAction: !string.IsNullOrEmpty(recognizedGestureName) && ApplicationManager.Instance.GetRecognizedDefinedAction(recognizedGestureName)?.Any() == true))
             {
                 if (_intentDlc.LastAiVetoReason != null) TrayManager.Instance.ShowAiVeto(_intentDlc.LastAiVetoReason);
                 Logging.LogMessage($"Intent DLC suppressed traced action. Gesture={recognizedGestureName ?? "(none)"}");

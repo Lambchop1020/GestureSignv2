@@ -166,6 +166,8 @@ public sealed partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        Root.Loaded += (_, _) => ApplyAccessibleTree(Root);
+        InitializeAccessibilityEvents();
         AppDomain.CurrentDomain.UnhandledException += (_, args) => LogException(args.ExceptionObject as Exception ?? new Exception(args.ExceptionObject?.ToString() ?? "Unknown unhandled exception"));
         TaskScheduler.UnobservedTaskException += (_, args) =>
         {
@@ -230,6 +232,7 @@ public sealed partial class MainWindow : Window
 
     private void ApplyMicaDimmingOverlay()
     {
+        if (HighContrast) { Root.Background = SystemBrush("ApplicationPageBackgroundThemeBrush"); return; }
         var overlay = IsDark
             ? Color.FromArgb(DarkMicaDimmingOverlayAlpha, 48, 52, 58)
             : Color.FromArgb(LightMicaDimmingOverlayAlpha, 255, 255, 255);
@@ -913,7 +916,7 @@ public sealed partial class MainWindow : Window
             ShowPage(tag);
     }
 
-    private void ShowPage(string tag, bool recordHistory = true)
+    private void ShowPageCore(string tag, bool recordHistory = true)
     {
         if (!string.Equals(tag, _currentNavigationPage, StringComparison.Ordinal))
         {
@@ -1642,6 +1645,7 @@ public sealed partial class MainWindow : Window
 
     private SolidColorBrush CardBrush()
     {
+        if (HighContrast) return SystemBrush("ApplicationPageBackgroundThemeBrush");
         return IsDark
             ? new SolidColorBrush(Color.FromArgb(24, 255, 255, 255))
             : new SolidColorBrush(Color.FromArgb(235, 250, 252, 255));
@@ -1649,6 +1653,7 @@ public sealed partial class MainWindow : Window
 
     private SolidColorBrush SubtleBrush()
     {
+        if (HighContrast) return SystemBrush("ApplicationPageBackgroundThemeBrush");
         return IsDark
             ? new SolidColorBrush(Color.FromArgb(26, 255, 255, 255))
             : new SolidColorBrush(Color.FromArgb(255, 242, 246, 250));
@@ -1656,6 +1661,7 @@ public sealed partial class MainWindow : Window
 
     private SolidColorBrush SelectionBrush()
     {
+        if (HighContrast) return SystemBrush("SystemControlHighlightListLowBrush");
         return IsDark
             ? new SolidColorBrush(Color.FromArgb(42, 255, 255, 255))
             : new SolidColorBrush(Color.FromArgb(255, 228, 239, 249));
@@ -1663,6 +1669,7 @@ public sealed partial class MainWindow : Window
 
     private SolidColorBrush BorderBrush()
     {
+        if (HighContrast) return SystemBrush("SystemControlForegroundBaseHighBrush");
         return IsDark
             ? new SolidColorBrush(Color.FromArgb(48, 255, 255, 255))
             : new SolidColorBrush(Color.FromArgb(255, 224, 228, 233));
@@ -1897,11 +1904,13 @@ public sealed partial class MainWindow : Window
         var button = new Button
         {
             Content = text,
+            MinHeight = 32,
             CornerRadius = new CornerRadius(8),
             Padding = new Thickness(12, 7, 12, 7),
             VerticalAlignment = VerticalAlignment.Center
         };
 
+        button.UseSystemFocusVisuals = true;
         if (attachDefaultHandler)
             button.Click += (_, _) => HandleCommand(command);
         return button;
@@ -1910,11 +1919,9 @@ public sealed partial class MainWindow : Window
     private FrameworkElement NewInlineButtons(params (string Text, Func<Task> Action)[] buttons)
     {
         var panel = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 6, VerticalAlignment = VerticalAlignment.Center };
-        panel.BringIntoViewRequested += (_, args) => args.Handled = true;
         foreach (var item in buttons)
         {
             var button = NewPillButton(item.Text, false);
-            button.BringIntoViewRequested += (_, args) => args.Handled = true;
             button.Click += async (_, args) =>
             {
                 await RunUiActionAsync(item.Action);
@@ -1928,11 +1935,9 @@ public sealed partial class MainWindow : Window
     private FrameworkElement NewInlineButtonsWithContext(params (string Text, Func<Button, Task> Action)[] buttons)
     {
         var panel = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 6, VerticalAlignment = VerticalAlignment.Center };
-        panel.BringIntoViewRequested += (_, args) => args.Handled = true;
         foreach (var item in buttons)
         {
             var button = NewPillButton(item.Text, false);
-            button.BringIntoViewRequested += (_, args) => args.Handled = true;
             button.Click += async (_, args) =>
             {
                 await RunUiActionAsync(() => item.Action(button));
@@ -5367,6 +5372,8 @@ public sealed partial class MainWindow : Window
     {
         var canvas = new Canvas { Width = width, Height = height };
         DrawGestureLines(canvas, gesture.PointPatterns, width, height);
+        Microsoft.UI.Xaml.Automation.AutomationProperties.SetName(canvas, $"{DisplayName(gesture.Name)} · {gesture.FingerCount} " + IntentText("指手势预览", "finger gesture preview"));
+        Microsoft.UI.Xaml.Automation.AutomationProperties.SetAccessibilityView(canvas, Microsoft.UI.Xaml.Automation.Peers.AccessibilityView.Content);
         return canvas;
     }
 
@@ -5421,9 +5428,22 @@ public sealed partial class MainWindow : Window
             Color.FromArgb(255, 232, 17, 35)
         };
 
+        if (new Windows.UI.ViewManagement.AccessibilitySettings().HighContrast)
+        {
+            var foreground = new Windows.UI.ViewManagement.UISettings().GetColorValue(Windows.UI.ViewManagement.UIColorType.Foreground);
+            colors = new[] { foreground };
+        }
         for (var index = 0; index < pointPatterns.Count; index++)
         {
             var line = pointPatterns[index];
+            if (line.Count == 0) continue;
+            if (GestureSign.Foundation.Intent.AccessibilitySettings.Current.NumberTrails)
+            {
+                var start = NormalizePreviewPoint(line[0], minX, minY, scaleX, scaleY, offsetX, offsetY);
+                var label = new TextBlock { Text = (index + 1).ToString(), FontSize = 12, FontWeight = Microsoft.UI.Text.FontWeights.Bold };
+                Canvas.SetLeft(label, Math.Max(0, start.X - 12)); Canvas.SetTop(label, Math.Max(0, start.Y - 16));
+                canvas.Children.Add(label);
+            }
             if (line.Count == 1)
             {
                 var point = NormalizePreviewPoint(line[0], minX, minY, scaleX, scaleY, offsetX, offsetY);
@@ -5600,7 +5620,7 @@ public sealed partial class MainWindow : Window
 
             wrap.Children.Add(new Border
             {
-                Width = 188,
+                Width = Math.Max(250, 188 * new Windows.UI.ViewManagement.UISettings().TextScaleFactor),
                 MinHeight = 178,
                 Margin = new Thickness(0, 0, 8, 8),
                 Background = SubtleBrush(),
@@ -5713,6 +5733,7 @@ public sealed partial class MainWindow : Window
                     UpdateOptionAndReload("MouseGesturesDisabledByUser", toggle.IsOn ? "False" : "True");
             };
         }
+        Microsoft.UI.Xaml.Automation.AutomationProperties.SetName(toggle, title);
         return NewSettingRow(title, null, toggle);
     }
 
@@ -6583,6 +6604,7 @@ public sealed partial class MainWindow : Window
             Width = 220,
             MinWidth = 160
         };
+        Microsoft.UI.Xaml.Automation.AutomationProperties.SetName(slider, title);
         slider.ValueChanged += (_, args) =>
         {
             if (double.IsNaN(args.NewValue) || double.IsInfinity(args.NewValue))
@@ -6603,6 +6625,7 @@ public sealed partial class MainWindow : Window
         };
         foreach (var item in items)
             combo.Items.Add(item);
+        Microsoft.UI.Xaml.Automation.AutomationProperties.SetName(combo, title);
         combo.SelectedIndex = Math.Clamp(selectedIndex, 0, items.Length - 1);
         combo.SelectionChanged += async (_, _) =>
         {
@@ -6649,7 +6672,7 @@ public sealed partial class MainWindow : Window
 
         var text = NewCardPanel(2);
         text.VerticalAlignment = VerticalAlignment.Center;
-        text.Children.Add(new TextBlock { Text = title, Style = ResourceStyle("BodyTextBlockStyle") });
+        text.Children.Add(new TextBlock { Text = title, TextWrapping = TextWrapping.Wrap, Style = ResourceStyle("BodyTextBlockStyle") });
         if (!string.IsNullOrWhiteSpace(subtitle))
             text.Children.Add(new TextBlock { Text = subtitle, Opacity = 0.62, TextWrapping = TextWrapping.Wrap });
         grid.Children.Add(text);
@@ -6698,6 +6721,7 @@ public sealed partial class MainWindow : Window
             return L("未命名", "Unnamed", "未命名", "名前なし", "이름 없음");
 
         var trimmed = value.Trim();
+        if (DefaultGestureCaption(trimmed) is string gestureCaption) return gestureCaption;
         return trimmed.ToLowerInvariant() switch
         {
             "save" or "保存" => L("保存", "Save", "儲存", "保存", "저장"),
@@ -7126,7 +7150,7 @@ public sealed partial class MainWindow : Window
         };
 
     private static int NormalizeDrawingButton(int drawingButton, int fallback = 0)
-        => drawingButton is 2097152 or 4194304 or 8388608 or 16777216 ? drawingButton : fallback;
+        => (drawingButton & 32505856) != 0 ? drawingButton & 32505856 : fallback;
 
     private static int ParseInt(string value, int fallback)
         => int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out var result) ? result : fallback;

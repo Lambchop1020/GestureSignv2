@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -943,6 +943,8 @@ namespace GestureSign.Daemon
         private int _pendingAiVetoCount;
         private bool _aiNotificationVisible;
         private System.Windows.Forms.Timer _aiToastTimer;
+        private NotifyIcon _aiToastIcon;
+        private System.Windows.Forms.Timer _aiToastHideTimer;
         public void ShowAiVeto(string reason)
         {
             if (_trayMenu == null || _trayMenu.IsDisposed) return;
@@ -982,12 +984,37 @@ namespace GestureSign.Daemon
             _lastAiToast = now;
             _aiNotificationVisible = true;
             _updateReleaseUrl = null;
-            _trayIcon.BalloonTipTitle = "GestureSign V2";
-            _trayIcon.BalloonTipText = count == 1
-                ? "AI 已阻止 1 次智能关闭。点击通知查看或纠正判断。"
-                : $"最近 {seconds} 秒，AI 共阻止 {count} 次智能关闭。点击通知查看或纠正判断。";
-            _trayIcon.BalloonTipIcon = ToolTipIcon.Info;
-            _trayIcon.ShowBalloonTip(4000);
+            // NotifyIcon cannot deliver balloons when it is not registered with the shell.
+            // A transient notification icon keeps delivery independent of ShowTrayIcon.
+            if (_aiToastIcon == null)
+            {
+                _aiToastIcon = new NotifyIcon { Text = TrayTooltipText };
+                _aiToastHideTimer = new System.Windows.Forms.Timer { Interval = 20000 };
+                _aiToastHideTimer.Tick += (_, _) =>
+                {
+                    _aiToastHideTimer.Stop();
+                    _aiToastIcon.Visible = false;
+                };
+                _aiToastIcon.BalloonTipShown += (_, _) => Logging.LogMessage("AI veto notification: Windows reported balloon shown.");
+                _aiToastIcon.BalloonTipClosed += (_, _) =>
+                {
+                    Logging.LogMessage("AI veto notification: Windows reported balloon closed.");
+                    _aiToastHideTimer.Stop();
+                    _aiToastIcon.Visible = false;
+                };
+                _aiToastIcon.BalloonTipClicked += (_, _) => StartSettings("--intent-review");
+            }
+            _aiToastIcon.Icon = _currentTrayIcon;
+            _aiToastIcon.Visible = true;
+            _aiToastIcon.BalloonTipTitle = "GestureSign V2";
+            _aiToastIcon.BalloonTipText = count == 1
+                ? GestureSign.Foundation.Localization.IntentLocalization.Format(AppConfig.CultureName, "AI blocked one drawing gesture. Click to review or correct the decision.")
+                : GestureSign.Foundation.Localization.IntentLocalization.Format(AppConfig.CultureName, "AI blocked {1} drawing gestures in the last {0} seconds. Click to review or correct the decisions.", seconds, count);
+            _aiToastIcon.BalloonTipIcon = ToolTipIcon.Info;
+            _aiToastIcon.ShowBalloonTip(4000);
+            _aiToastHideTimer.Stop();
+            _aiToastHideTimer.Start();
+            System.Media.SystemSounds.Asterisk.Play();
             Logging.LogMessage($"AI veto notification submitted to Windows. Count={count}");
         }
 
@@ -1253,6 +1280,8 @@ namespace GestureSign.Daemon
             if (_touchTrayMenu != null && !_touchTrayMenu.IsDisposed) _touchTrayMenu.Dispose();
             _recognitionStateServer?.Dispose();
             _aiToastTimer?.Dispose();
+            _aiToastHideTimer?.Dispose();
+            _aiToastIcon?.Dispose();
             _updateChecker.Dispose();
             SystemEvents.UserPreferenceChanged -= SystemEvents_UserPreferenceChanged;
         }

@@ -179,3 +179,6 @@ installer/GestureSign-Setup.exe
 /store-deps/
 /store-nuget/
 /release-build/
+
+# Local release artifacts
+/outputs/

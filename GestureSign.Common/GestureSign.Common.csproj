@@ -13,6 +13,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GestureSign.Foundation\GestureSign.Foundation.csproj" />
     <ProjectReference Include="..\GestureSign.PointPatterns\GestureSign.PointPatterns.csproj" />
     <ProjectReference Include="..\ManagedWinapi\ManagedWinapi.csproj" />
     <ProjectReference Include="..\WindowsInput\WindowsInput.csproj" />

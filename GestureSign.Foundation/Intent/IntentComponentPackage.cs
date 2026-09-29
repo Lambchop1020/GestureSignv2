@@ -8,7 +8,7 @@ public sealed record IntentComponentManifest(int Protocol, string Version, strin
 
 public static class IntentComponentPackage
 {
-    public const string ComponentVersion = "18.2.9";
+    public const string ComponentVersion = "18.3.1";
     public const int Protocol = 2;
 
     // Archive digests come from the application-shipped catalog, not from the downloaded archive.

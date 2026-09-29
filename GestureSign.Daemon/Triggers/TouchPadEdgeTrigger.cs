@@ -307,8 +307,9 @@ namespace GestureSign.Daemon.Triggers
 
             var x = start.X - bounds.Left;
             var y = start.Y - bounds.Top;
-            var edgeWidth = Math.Max(1, bounds.Width * _edgePercent / 100);
-            var edgeHeight = Math.Max(1, bounds.Height * _edgePercent / 100);
+            var percent = _sourceDevice == Devices.TouchPad ? Math.Clamp(GestureSign.Foundation.Intent.AccessibilitySettings.Current.TouchpadEdgePercent, 3, 20) : _edgePercent;
+            var edgeWidth = Math.Max(1, bounds.Width * percent / 100);
+            var edgeHeight = Math.Max(1, bounds.Height * percent / 100);
 
             var top = y <= edgeHeight;
             var bottom = y >= bounds.Height - edgeHeight;

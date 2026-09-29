@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
@@ -15,6 +15,28 @@ namespace GestureSign.Common.Gestures
     {
         #region Private Variables
 
+        private GestureSign.Foundation.Intent.IntentGestureCorrection[] _intentCorrections = [];
+        private List<IGesture> _correctionTemplates;
+        private List<IGesture> WithCorrections(List<IGesture> source, int level)
+        {
+            if (source == null || level != 0) return source;
+            if (_correctionTemplates != null) return source.Concat(_correctionTemplates.Where(c => source.Any(g => g.Name == c.Name && g.PointPatterns?.Length == 1 && g.PointPatterns[0].Points.Length == c.PointPatterns[0].Points.Length))).ToList();
+            var extra = new List<IGesture>();
+            foreach (var c in _intentCorrections)
+            {
+                try
+                {
+                    int count = GestureSign.Foundation.Intent.IntentGestureCorrections.Contacts(c.Frames);
+                    if (!source.Any(g => g.Name == c.Gesture && g.PointPatterns?.Length == 1 && g.PointPatterns[0].Points.Length == count)) continue;
+                    var points = c.Frames[0].Points.Select(p => p.Contact).Select(id => c.Frames.Select(f => f.Points.First(p => p.Contact == id)).Select(p => new Point((int)Math.Round(p.X), (int)Math.Round(p.Y))).ToArray()).ToArray();
+                    extra.Add(new Gesture(c.Gesture, new[] { new PointPattern(points) }));
+                }
+                catch (Exception ex) { Log.Logging.LogException(ex); }
+            }
+            _correctionTemplates = extra;
+            return source.Concat(extra).ToList();
+        }
+        private string _lastLoggedLibrary;
         private const int ProbabilityThreshold = 80;
         private const int GestureStackTimeout = 800;
 
@@ -101,6 +123,8 @@ namespace GestureSign.Common.Gestures
             }
 
             var sourceGesture = _gestureLevel == 0 ? _Gestures : _gestureMatchResult;
+            if (pointCapture.SourceDevice == Devices.Mouse)
+                LogMouseMatchDiagnostics(e.Points.Select(l => l.ToArray()).ToArray(), sourceGesture, _gestureLevel);
             GestureName = GetGestureSetNameMatch(e.Points.Select(l => l.ToArray()).ToArray(), sourceGesture, _gestureLevel, out _gestureMatchResult);
 
             if (pointCapture.Mode != CaptureMode.Training)
@@ -148,6 +172,8 @@ namespace GestureSign.Common.Gestures
                     var gestures = LoadGesturesFromFile(file.FullName);
                     if (gestures != null)
                     {
+
+
                         _Gestures = gestures;
                         return true;
                     }
@@ -193,6 +219,10 @@ namespace GestureSign.Common.Gestures
                            if (!LoadBackup())
                                if (!LoadDefaults())
                                    _Gestures = new List<IGesture>();
+                       try { _intentCorrections = GestureSign.Foundation.Intent.IntentGestureCorrections.Read(GestureSign.Foundation.Intent.IntentFiles.Root); }
+                       catch (Exception ex) { _intentCorrections = []; Log.Logging.LogException(ex); }
+                       _correctionTemplates = null;
+                       WithCorrections(_Gestures, 0);
                        OnLoadGesturesCompleted?.Invoke(this, EventArgs.Empty);
                    };
 
@@ -205,6 +235,12 @@ namespace GestureSign.Common.Gestures
 
                     if (gestures != null)
                     {
+                        var signature = path + "|" + File.GetLastWriteTimeUtc(path).Ticks + "|" + gestures.Count;
+                        if (_lastLoggedLibrary != signature)
+                        {
+                            _lastLoggedLibrary = signature;
+                            Log.Logging.LogMessage($"Gesture library loaded. Path={path}, ModifiedUtc={File.GetLastWriteTimeUtc(path):O}, Count={gestures.Count}, Templates={string.Join(";", gestures.Select(g => g.Name + ":" + string.Join("/", g.PointPatterns?.Select(p => p.Points?.Length ?? 0) ?? Enumerable.Empty<int>())))}");
+                        }
                         if (gestures.Count == 0 || gestures[0].PointPatterns == null)
                         {
                             List<LegacyGesture> legacyGestures = FileManager.LoadObject<List<LegacyGesture>>(path, true);
@@ -342,7 +378,7 @@ namespace GestureSign.Common.Gestures
             // Update gesture analyzer with latest gestures and get gesture match from current points array
             // Comparison results are sorted descending from highest to lowest probability
             var gestures =
-                sourceGestures.Where(g =>
+                WithCorrections(sourceGestures, sourceGestureLevel).Where(g =>
                         g.PointPatterns != null && g.PointPatterns.Length > sourceGestureLevel &&
                         g.PointPatterns[sourceGestureLevel].Points != null &&
                         g.PointPatterns[sourceGestureLevel].Points.Length == points.Length).ToList();
@@ -379,10 +415,37 @@ namespace GestureSign.Common.Gestures
             return recognizedResult.Count == 0 ? null : recognizedResult.OrderByDescending(r => r.Value).First().Key;
         }
 
+        private void LogMouseMatchDiagnostics(Point[][] points, List<IGesture> source, int level)
+        {
+            // Only completed mouse captures are logged; never add work to every move.
+            try
+            {
+                var templates = WithCorrections(source, level)?.Where(g => g.PointPatterns != null &&
+                    g.PointPatterns.Length > level && g.PointPatterns[level].Points?.Length == points.Length).ToArray() ?? Array.Empty<IGesture>();
+                var analyzer = new PointPatternAnalyzer();
+                var scores = templates.Select(g => new {
+                    g.Name,
+                    Scores = points.Select((p, i) => analyzer.GetPointPatternMatchResult(
+                        new PointsPatternSet(g.Name, g.PointPatterns[level].Points[i]), new PointsPatternSet("capture", p)).Probability).ToArray()
+                }).OrderByDescending(x => x.Scores.Min()).Take(5);
+                Log.Logging.LogMessage($"Mouse match diagnostics. Level={level}, Library={_Gestures?.Count ?? 0}, Eligible={templates.Length}, Threshold=>{ProbabilityThreshold}, Top={string.Join("; ", scores.Select(x => x.Name + "=" + string.Join("/", x.Scores.Select(n => n.ToString("F2", System.Globalization.CultureInfo.InvariantCulture)))))}");
+                for (int i = 0; i < points.Length; i++)
+                {
+                    var stroke = points[i];
+                    if (stroke.Length == 0) continue;
+                    var origin = stroke[0];
+                    int logged = Math.Min(128, stroke.Length);
+                    var trace = Enumerable.Range(0, logged).Select(n => stroke[logged == 1 ? 0 : n * (stroke.Length - 1) / (logged - 1)]);
+                    Log.Logging.LogMessage($"Mouse captured trace. Stroke={i}, Points={stroke.Length}, Logged={logged}, RelativeXY={string.Join(";", trace.Select(p => (p.X - origin.X) + "," + (p.Y - origin.Y)))}");
+                }
+            }
+            catch (Exception ex) { Log.Logging.LogException(ex); }
+        }
+
         public string GetTemplateEvidence(string name, Point[][] points, out bool missingTurn)
         {
             missingTurn = false;
-            var source = _gestureLevel == 0 ? _Gestures : _gestureMatchResult;
+            var source = WithCorrections(_gestureLevel == 0 ? _Gestures : _gestureMatchResult, _gestureLevel);
             var templates = source?.Where(g => g.PointPatterns != null && g.PointPatterns.Length > _gestureLevel && g.PointPatterns[_gestureLevel].Points?.Length == points.Length).ToArray();
             if (templates == null) return "模板信息不可用";
             var analyzer = new PointPatternAnalyzer();

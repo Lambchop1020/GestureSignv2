@@ -77,6 +77,7 @@ internal sealed class TouchPadIntentBridge : IDisposable
             {
                 try
                 {
+                    AccessibilitySettings.Reload();
                     var path = Path.Combine(_dataRoot, "control.json");
                     Volatile.Write(ref _control, File.Exists(path) ? IntentFiles.Read<IntentControl>(path) ?? new() : new());
                     if (dataRoot == null && !_control.Active && DateTimeOffset.UtcNow >= _nextStart)
@@ -98,7 +99,7 @@ internal sealed class TouchPadIntentBridge : IDisposable
                     try
                     {
                         if (sample.Label == IntentLabel.Unknown && sample.Prediction == null)
-                            sample.Prediction = await PredictAsync(IntentFeatures.Extract(sample), 150, _stop.Token);
+                            sample.Prediction = await PredictAsync(IntentFeatures.Extract(sample), 150, _stop.Token, sample.Frames[0].Points.Length);
                         var samplesPath = Path.Combine(_dataRoot, "samples");
                         Directory.CreateDirectory(samplesPath);
                         // Background samples must not crowd out the user's confirmed labels.
@@ -184,7 +185,8 @@ internal sealed class TouchPadIntentBridge : IDisposable
             IntentFeatures.Extract(_sample);
             _sample.ContextReason = $"目标应用：{_application}；" + (_recentWheel ? "手势开始前检测到连续滚动输入（不代表页面已实际移动）。" : "未检测到近期连续滚动输入，结合双指轨迹判断。");
             if (_captureWindow != _windowContext()) _scrollContext.Reset();
-            else _scrollContinuation = _scrollContext.Add(_sample, _captureWindow, _started, _lastEnd, _recentWheel);
+            else if (frames[0].Points.Length == 2) _scrollContinuation = _scrollContext.Add(_sample, _captureWindow, _started, _lastEnd, _recentWheel);
+            else _scrollContext.Reset();
         }
         catch { _sample = null; _scrollContext.Reset(); }
     }
@@ -196,7 +198,7 @@ internal sealed class TouchPadIntentBridge : IDisposable
         if (_sample != null) { _sample.Blocked = true; _sample.AiVeto = true; _sample.ContextReason += " AI 否决：" + reason; }
         return true;
     }
-    public bool ShouldSuppress(string candidate, bool smartClose, int contacts, string templateEvidence = null, bool missingTemplateTurn = false)
+    public bool ShouldSuppress(string candidate, bool smartClose, int contacts, string templateEvidence = null, bool missingTemplateTurn = false, bool freeDraw = false, bool hasExecutableAction = true)
     {
         LastAiVetoReason = null;
         var current = Volatile.Read(ref _control);
@@ -205,14 +207,30 @@ internal sealed class TouchPadIntentBridge : IDisposable
         // Explicit, short recording sessions never execute traced actions.
         // Latch through release: the recording timer expiring mid-L must not close a window.
         if (_recordingCapture || current.Active && current.Recording) { if (_sample != null) _sample.Blocked = true; return true; }
-        if (!current.Active) return false;
-        if (_sample != null && templateEvidence != null) _sample.ContextReason += " " + templateEvidence;
-        if (smartClose && contacts == 2 && missingTemplateTurn)
+        if (!current.Active || string.IsNullOrWhiteSpace(candidate)) return false;
+        if (candidate.StartsWith("TouchPadTipTap.", StringComparison.Ordinal) || candidate.StartsWith("TouchPadEdge.", StringComparison.Ordinal) || candidate.StartsWith("TouchScreenEdge.", StringComparison.Ordinal)) return false;
+        // A candidate without a binding cannot be vetoed. Publish still scores its trace.
+        if (!hasExecutableAction)
         {
-            bool blocked = vetoEnabled && (_scrollContinuation || _recentWheel) && _captureWindow == _windowContext();
-            if (_sample != null) { _sample.ContextReason += " 双指均缺少模板要求的持续转向。"; _sample.Blocked = blocked; }
+            if (_sample != null)
+            {
+                _sample.Blocked = false;
+                _sample.AiVeto = false;
+                _sample.ContextReason += " 当前应用没有绑定可执行动作，仅记录样本与评分，不计为 AI 否决。";
+            }
+            Common.Log.Logging.LogMessage($"Intent review: Candidate={candidate}, Outcome=ScoreOnly, Reason=NoExecutableAction");
+            return false;
+        }
+        if (_sample != null && templateEvidence != null) _sample.ContextReason += " " + templateEvidence;
+        // Every completed drawing is reviewed, regardless of its bound action or legacy exclusions.
+        // Observe records scores asynchronously in Publish; only veto mode suppresses actions.
+        bool reviewDraw = freeDraw && current.Mode is IntentMode.ExperimentalVeto or IntentMode.Observe && contacts is >= 1 and <= 4;
+        if ((smartClose && contacts == 2 || reviewDraw) && missingTemplateTurn)
+        {
+            bool blocked = vetoEnabled && (reviewDraw || _scrollContinuation || _recentWheel) && _captureWindow == _windowContext();
+            if (_sample != null) { _sample.ContextReason += " 轨迹缺少模板要求的持续转向。"; _sample.Blocked = blocked; }
             Common.Log.Logging.LogMessage($"Intent template check: MissingSustainedTurn, {templateEvidence}, Mode={current.Mode}, Blocked={blocked}");
-            if (blocked) return Veto("连续滚动中，双指均缺少模板要求的持续转向");
+            if (blocked) return Veto("轨迹缺少候选模板要求的持续转向");
         }
         if (smartClose && contacts == 2 && _scrollContinuation && _captureWindow == _windowContext())
         {
@@ -221,14 +239,18 @@ internal sealed class TouchPadIntentBridge : IDisposable
             Common.Log.Logging.LogMessage($"Intent context: Reason=RapidScrollContinuation, Application={_application}, WheelEvidence={_recentWheel}, Candidate={candidate}, Mode={current.Mode}, Blocked={block}");
             if (block) return Veto("疑似连续快速滚动中的智能关闭误触");
         }
-        if (!vetoEnabled || !smartClose || contacts != 2) return false;
-        if (_sample == null || _captureControl?.Session != current.Session) return Veto("轨迹不完整，未执行智能关闭");
+        if (!vetoEnabled || !(smartClose && contacts == 2 || reviewDraw)) return false;
+        if (_sample == null || _captureControl?.Session != current.Session) return smartClose && Veto("轨迹不完整，未执行智能关闭");
         try
         {
-            _sample.Prediction = PredictAsync(IntentFeatures.Extract(_sample), 45, _stop.Token).GetAwaiter().GetResult();
-            _sample.Blocked = !_sample.Prediction.Allows;
+            var watch = Stopwatch.StartNew();
+            _sample.Prediction = PredictAsync(IntentFeatures.Extract(_sample), 45, _stop.Token, contacts).GetAwaiter().GetResult();
+            Common.Log.Logging.LogMessage($"Intent review: Candidate={candidate}, Contacts={contacts}, ElapsedMs={watch.Elapsed.TotalMilliseconds:F1}, Backend={_sample.Prediction.Backend}, Error={_sample.Prediction.Error}");
+            // Unsupported models and deadlines are not negative predictions. Close stays conservative.
+            _sample.Blocked = _sample.Prediction.Error == null ? !_sample.Prediction.Allows : smartClose;
+            if (_sample.Prediction.Error != null) _sample.ContextReason += " 未完成模型复核：" + _sample.Prediction.Error;
         }
-        catch { _sample.Blocked = true; }
+        catch { _sample.Blocked = smartClose; }
         return _sample.Blocked ? Veto(_sample.Prediction?.Error != null ? "推理暂不可用，未执行智能关闭" : $"模型认为可能是滚动（评分 {_sample.Prediction?.GestureScore:F3}）") : false;
     }
 
@@ -248,7 +270,7 @@ internal sealed class TouchPadIntentBridge : IDisposable
     private void DropTrace() { _trace = null; _sample = null; _scrollContinuation = false; _scrollContext.Reset(); }
     public void Cancel() { DropTrace(); _captureControl = null; _recordingCapture = false; }
 
-    private async Task<IntentPrediction> PredictAsync(float[] features, int timeoutMs, CancellationToken stop)
+    private async Task<IntentPrediction> PredictAsync(float[] features, int timeoutMs, CancellationToken stop, int contacts = 2)
     {
         using var timeout = CancellationTokenSource.CreateLinkedTokenSource(stop);
         timeout.CancelAfter(timeoutMs);
@@ -259,10 +281,13 @@ internal sealed class TouchPadIntentBridge : IDisposable
             await pipe.ConnectAsync(timeout.Token).ConfigureAwait(false);
             using var writer = new StreamWriter(pipe, leaveOpen: true) { AutoFlush = true };
             using var reader = new StreamReader(pipe, leaveOpen: true);
-            await writer.WriteLineAsync(JsonSerializer.Serialize(new IntentRequest(features)).AsMemory(), timeout.Token).ConfigureAwait(false);
+            await writer.WriteLineAsync(JsonSerializer.Serialize(new IntentRequest(features, contacts)).AsMemory(), timeout.Token).ConfigureAwait(false);
             var line = await reader.ReadLineAsync(timeout.Token).ConfigureAwait(false);
             if (line == null || line.Length > 8192) throw new IOException("Invalid DLC response.");
-            return JsonSerializer.Deserialize<IntentPrediction>(line) ?? throw new IOException("Empty DLC response.");
+            var prediction = JsonSerializer.Deserialize<IntentPrediction>(line) ?? throw new IOException("Empty DLC response.");
+            if (!float.IsFinite(prediction.GestureScore)) throw new IOException("Invalid model score.");
+            return contacts != 2 && prediction.ReviewProtocol < 3
+                ? new IntentPrediction(0, "Unavailable", "Update the learning component for multi-finger review") : prediction;
         }
         catch (Exception ex) { return new IntentPrediction(0, "Unavailable", ex is OperationCanceledException ? "Inference deadline exceeded" : ex.Message); }
     }

@@ -27,9 +27,9 @@ namespace GestureSign.PointPatterns
         }
         public static bool MissingTurn(Point[][] captured, Point[][] template)
         {
-            if (captured == null || template == null || captured.Length != 2 || template.Length != 2) return false;
-            // Require agreement from both fingers and a strong turn in both templates.
-            return Enumerable.Range(0,2).All(i => Turn(template[i]) >= 55 && Turn(template[i]) <= 125 && Turn(captured[i]) < 25);
+            if (captured == null || template == null || captured.Length is < 1 or > 4 || template.Length != captured.Length) return false;
+            // Require agreement from every captured finger and every corresponding template.
+            return Enumerable.Range(0,captured.Length).All(i => Turn(template[i]) >= 55 && Turn(template[i]) <= 125 && Turn(captured[i]) < 25);
         }
     }
 }

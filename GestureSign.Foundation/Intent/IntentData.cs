@@ -38,8 +38,8 @@ public sealed class IntentSample
     public bool Blocked { get; set; }
     public bool AiVeto { get; set; }
 }
-public sealed record IntentRequest(float[] Features);
-public sealed record IntentPrediction(float GestureScore, string Backend, string? Error = null)
+public sealed record IntentRequest(float[] Features, int Contacts = 2);
+public sealed record IntentPrediction(float GestureScore, string Backend, string? Error = null, int ReviewProtocol = 0)
 {
     // Scores are uncalibrated; never describe them as measured accuracy.
     public bool Allows => Error == null && float.IsFinite(GestureScore) && GestureScore >= 0.85f;
@@ -80,7 +80,7 @@ public sealed class IntentTrace
     public void Add(double milliseconds, IntentPoint[] points)
     {
         if (_overflow || !double.IsFinite(milliseconds) || milliseconds < 0 || points.Length == 0) return;
-        if (milliseconds > 5000 || points.Length > 2) { _overflow = true; return; }
+        if (milliseconds > 5000 || points.Length > 4) { _overflow = true; return; }
         if (_frames.Count > 0 && milliseconds - _frames[^1].Milliseconds < 4) return;
         if (_frames.Count >= 1251) { _overflow = true; return; }
         if (points.Any(p => !double.IsFinite(p.X) || !double.IsFinite(p.Y))) { _overflow = true; return; }
@@ -89,11 +89,12 @@ public sealed class IntentTrace
     public IntentFrame[]? Finish()
     {
         if (_overflow) return null;
-        var frames = _frames.Where(f => f.Points.Length == 2).ToArray();
+        var count = _frames.Count == 0 ? 0 : _frames.Max(f => f.Points.Length);
+        var frames = _frames.Where(f => f.Points.Length == count).ToArray();
         if (frames.Length < 6 || frames[^1].Milliseconds - frames[0].Milliseconds < 30) return null;
         // Changes of contact identity corrupt velocity and must not become training data.
         var ids = frames[0].Points.Select(p => p.Contact).Order().ToArray();
-        if (ids.Distinct().Count() != 2 || frames.Any(f => !f.Points.Select(p => p.Contact).Order().SequenceEqual(ids))) return null;
+        if (ids.Distinct().Count() != count || frames.Any(f => !f.Points.Select(p => p.Contact).Order().SequenceEqual(ids))) return null;
         return frames;
     }
 }
@@ -106,7 +107,7 @@ public static class IntentFeatures
     {
         if (sample.Version != 1 || sample.Frames.Length is < 6 or > 1251) throw new InvalidDataException("Unsupported or incomplete trace.");
         var f = sample.Frames;
-        if (f.Any(x => x.Points.Length != 2 || !double.IsFinite(x.Milliseconds) || x.Points.Any(p => !double.IsFinite(p.X) || !double.IsFinite(p.Y))))
+        if (f.Any(x => x.Points.Length != f[0].Points.Length || x.Points.Length is < 1 or > 4 || !double.IsFinite(x.Milliseconds) || x.Points.Any(p => !double.IsFinite(p.X) || !double.IsFinite(p.Y))))
             throw new InvalidDataException("Invalid trace.");
         var x = f.Select(v => v.Points.Average(p => p.X)).ToArray();
         var y = f.Select(v => v.Points.Average(p => p.Y)).ToArray();
@@ -134,7 +135,8 @@ public static class IntentFeatures
         }
         if (path < 1) throw new InvalidDataException("Stationary trace.");
         var mean = speeds.Average();
-        var distances = f.Select(v => Math.Sqrt(Math.Pow(v.Points[0].X - v.Points[1].X, 2) + Math.Pow(v.Points[0].Y - v.Points[1].Y, 2))).ToArray();
+        var distances = f.Select(v => v.Points.Length == 1 ? 0 :
+            v.Points.SelectMany((p, i) => v.Points.Skip(i + 1).Select(q => Math.Sqrt(Math.Pow(p.X - q.X, 2) + Math.Pow(p.Y - q.Y, 2)))).Average()).ToArray();
         double displacement = Math.Sqrt(Math.Pow(x[^1] - x[0], 2) + Math.Pow(y[^1] - y[0], 2));
         double[] values = [
             Math.Log(1 + duration / 100), Math.Min(w, h) / Math.Max(1, Math.Max(w, h)), displacement / path,
