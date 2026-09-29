@@ -229,5 +229,6 @@
   "°; captured ": "°; पकडले ",
   "Template information unavailable": "टेम्पलेट माहिती उपलब्ध नाही",
   "Candidate template unavailable": "उमेदवार टेम्पलेट अनुपलब्ध",
-  "{0} fingers": "{0} बोटे"
+  "{0} fingers": "{0} बोटे",
+  "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved.": "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved."
 }

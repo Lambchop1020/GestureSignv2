@@ -52,6 +52,7 @@ internal static class AmdNpuBackend
                 NativeLibrary.Load(Path.Combine(AppContext.BaseDirectory, "onnxruntime.dll"));
                 OrtEnv.Instance().RegisterExecutionProviderLibrary("VitisAIExecutionProvider", library);
                 Registered = true;
+                if (installedLibrary != null) IntentCache.Prune(Path.GetDirectoryName(dir)!, _providerKey);
             }
             catch (Exception ex) { HardwareInference.DiagnosticTrace?.Invoke("AMD registration failed: " + ex); }
         }
@@ -63,6 +64,7 @@ internal static class AmdNpuBackend
         string cache = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
             "GestureSign V2", "IntentDlc", "amd-cache", "hybrid-v1", _providerKey, key);
         Directory.CreateDirectory(cache); Directory.CreateDirectory(Path.Combine(cache, "compiled"));
+        IntentCache.Prune(Path.GetDirectoryName(cache)!, key);
         var shortPath = new System.Text.StringBuilder(1024); if (GetShortPathName(cache, shortPath, 1024) > 0) cache = shortPath.ToString(); string path = Path.Combine(cache, "linear.onnx");
         File.WriteAllBytes(path, bytes);
         using var options = new SessionOptions {

@@ -3,18 +3,22 @@ using System.Security.Cryptography;
 
 namespace GestureSign.Foundation.Intent;
 
-public sealed record IntentComponentAsset(string Architecture, string Version, string FileName, long Bytes, string Sha256, string Url);
-public sealed record IntentComponentManifest(int Protocol, string Version, string Architecture);
+public sealed record IntentComponentAsset(string Architecture, string Version, string FileName, long Bytes, string Sha256, string Url, string Backend = "Hardware");
+public sealed record IntentComponentManifest(int Protocol, string Version, string Architecture, string Backend = "Hardware");
 
 public static class IntentComponentPackage
 {
-    public const string ComponentVersion = "18.3.1";
+    public const string ComponentVersion = "18.3.2";
     public const int Protocol = 2;
+    public static bool IsCompatible(IntentComponentManifest? manifest, string architecture) =>
+        manifest is { Protocol: Protocol, Backend: "Cpu" or "Hardware" } &&
+        manifest.Architecture == architecture &&
+        (manifest.Version == ComponentVersion || manifest.Version == "18.3.1");
 
     // Archive digests come from the application-shipped catalog, not from the downloaded archive.
     public static void Install(string archivePath, IntentComponentAsset asset, string installDirectory, CancellationToken cancellationToken = default)
     {
-        if (asset.Version != ComponentVersion || asset.Architecture is not ("x64" or "arm64")) throw new InvalidDataException("不兼容的学习组件版本。");
+        if (asset.Version != ComponentVersion || asset.Architecture is not ("x64" or "arm64") || asset.Backend is not ("Cpu" or "Hardware")) throw new InvalidDataException("不兼容的学习组件版本。");
         using (var input = File.OpenRead(archivePath))
         {
             if (input.Length != asset.Bytes || !Convert.ToHexString(SHA256.HashData(input)).Equals(asset.Sha256, StringComparison.OrdinalIgnoreCase))
@@ -43,7 +47,7 @@ public static class IntentComponentPackage
                 }
             }
             var manifest = IntentFiles.Read<IntentComponentManifest>(Path.Combine(staging, "component.json"));
-            if (manifest is null || manifest.Protocol != Protocol || manifest.Version != asset.Version || manifest.Architecture != asset.Architecture) throw new InvalidDataException("组件协议或架构不匹配。");
+            if (manifest is null || manifest.Protocol != Protocol || manifest.Version != asset.Version || manifest.Architecture != asset.Architecture || manifest.Backend != asset.Backend) throw new InvalidDataException("组件协议或架构不匹配。");
             VerifyExecutable(Path.Combine(staging, "Runtime", "GestureSign.IntentDlc.exe"), asset.Architecture);
             cancellationToken.ThrowIfCancellationRequested();
             if (Directory.Exists(destination)) Directory.Move(destination, backup);

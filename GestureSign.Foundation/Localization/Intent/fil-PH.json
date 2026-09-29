@@ -229,5 +229,6 @@
   "°; captured ": "°; nakunan ",
   "Template information unavailable": "Hindi available ang impormasyon ng template",
   "Candidate template unavailable": "Hindi available ang template ng kandidato",
-  "{0} fingers": "{0} mga daliri"
+  "{0} fingers": "{0} mga daliri",
+  "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved.": "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved."
 }

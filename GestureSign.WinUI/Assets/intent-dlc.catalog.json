@@ -1,18 +1,38 @@
 [
   {
-    "Bytes": 62544717,
-    "Url": "https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.1/GestureSign-IntentDlc-18.3.1-win-x64.zip",
-    "Version": "18.3.1",
-    "FileName": "GestureSign-IntentDlc-18.3.1-win-x64.zip",
     "Architecture": "x64",
-    "Sha256": "AF13341456D1ACC8DABD44881542EA2E814E8CD8D26D7B63488D885AEB411CA1"
+    "Sha256": "91BEB59327538C8B4CA43388D0DA023435F80706A36AD396AA27DC64FFD66860",
+    "Backend": "Cpu",
+    "FileName": "GestureSign-IntentDlc-18.3.2-cpu-win-x64.zip",
+    "Bytes": 814641,
+    "Version": "18.3.2",
+    "Url": "https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.2/GestureSign-IntentDlc-18.3.2-cpu-win-x64.zip"
   },
   {
-    "Sha256": "CD2AEE35AFC503FF72D4F339AB18D529A21509558E14C2ADC57469605EA32937",
+    "Architecture": "x64",
+    "Sha256": "ECBE285186535483B89C56F2285C47F5FAEFCFF25F1A9D5F8AAAB7FDE08CA134",
+    "Backend": "Hardware",
+    "FileName": "GestureSign-IntentDlc-18.3.2-hardware-win-x64.zip",
+    "Bytes": 25681522,
+    "Version": "18.3.2",
+    "Url": "https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.2/GestureSign-IntentDlc-18.3.2-hardware-win-x64.zip"
+  },
+  {
     "Architecture": "arm64",
-    "Version": "18.3.1",
-    "FileName": "GestureSign-IntentDlc-18.3.1-win-arm64.zip",
-    "Url": "https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.1/GestureSign-IntentDlc-18.3.1-win-arm64.zip",
-    "Bytes": 60488604
+    "Sha256": "7F4481FA91FF650CE88CE34219AEFC98E837920A2E99CBA413C2B9B977392F5A",
+    "Backend": "Cpu",
+    "FileName": "GestureSign-IntentDlc-18.3.2-cpu-win-arm64.zip",
+    "Bytes": 802209,
+    "Version": "18.3.2",
+    "Url": "https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.2/GestureSign-IntentDlc-18.3.2-cpu-win-arm64.zip"
+  },
+  {
+    "Architecture": "arm64",
+    "Sha256": "70D4A24696CDC338335AEDD1BB9F19427C6D1AB3593A964009159FCAA773B37F",
+    "Backend": "Hardware",
+    "FileName": "GestureSign-IntentDlc-18.3.2-hardware-win-arm64.zip",
+    "Bytes": 25271219,
+    "Version": "18.3.2",
+    "Url": "https://github.com/Tomclanc/GestureSignv2/releases/download/v18.3.2/GestureSign-IntentDlc-18.3.2-hardware-win-arm64.zip"
   }
 ]

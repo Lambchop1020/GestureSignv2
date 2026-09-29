@@ -1,37 +1,36 @@
-# 18.2.9 可选 AI 组件
+﻿# 可选 AI 组件（18.3.2）
 
-18.2.9 重打包版的 MSI 和便携版不再内置本组件。请在选项中下载或导入匹配的 AI ZIP。普通手势无需安装 AI。组件可安装到用户目录或可写的程序目录，个人样本和模型仍保存在用户数据目录。
+默认使用轻量 CPU 版：包含本地采样、训练、评分、纠错和 AI 否决，不携带 ONNX Runtime、DirectML、Windows ML 或 Windows SDK 投影。模型仍是原来的 16 特征分类器，训练数据、模型格式和判断阈值不变。
 
-The repackaged 18.2.9 MSI and portable app exclude this optional AI engine. Download or import the matching ZIP from Options. Ordinary gestures work without AI.
+需要硬件加速时，在安装前选择 NPU / GPU / CPU 版。它保留 Windows ML 的 NPU → GPU → CPU 回退路径。Windows 提供程序仍按需下载；识别到设备不等于该模型能使用它。AMD 路径仍通过 CPU 参考分数保证判断一致。
 
-# GestureSign V2 · 开发者预览 0.4
+两版默认复用系统安装的对应架构 .NET 10 Runtime，不再单独附带一份运行时。MSI / 便携主程序要求的 .NET 10 Desktop Runtime 已满足同架构 AI 引擎的要求。商店版自身携带的 .NET 不等于系统已安装共享运行时：使用 AI 前仍需安装对应架构的 .NET 10 Runtime。ARM64 Windows 的 AI 引擎需要 ARM64 运行时，即使前端通过 x64 模拟运行。
 
-基于 18.2.8 的实验性预览，重点改进本地意图学习与双指智能关闭防误触。此 Pre-release 不替代稳定版。
+普通手势无需 AI。个人模型和训练样本只存于本机用户数据目录；卸载组件、更换 CPU / Hardware 包不删除这些数据。切换前先卸载组件，再选择后端并下载或导入匹配 ZIP。旧 18.3.1 已安装组件继续可用；新 18.3.2 包须搭配含新目录和校验值的前端，不能导入旧版前端。
 
-## 下载
-- Windows x64 便携版：`GestureSign-DeveloperPreview-0.4-win-x64-Portable.zip`。完整解压，退出旧版后台后运行 `GestureSign.WinUI.exe`。
-- AI 为可选 DLC：在选项中下载或导入本发布对应架构的 `GestureSign-IntentDlc-0.4.0-win-*.zip`。未安装 AI 仍可使用普通手势。旧 0.3 用户需要更新主程序和 DLC，卸载组件会保留训练数据。
-- ARM64 DLC 供 ARM64 配套构建使用，本次主程序仅发布 x64；ARM64 只做构建验证。
-- 不包含作者个人配置、训练样本或模型。与旧版本共用用户配置，试用前请自行备份。SHA256SUMS.txt 提供校验值。
+AMD 缓存仅清理生成的哈希目录，保留当前及最近一个旧版本，跳过链接和被占用的文件。不会清理样本、模型或 Windows 管理的系统提供程序。
 
-## 本次改进
-- 后台学习与 AI 否决拆成独立开关，可同时开启；按钮高亮反映实际状态。隐藏旧的验证门槛拦截入口。
-- 实验性 AI 否决在动作执行前判断双指智能关闭，结合近期滚动上下文、模板转向证据和本地模型；可人工纠正误拦截。仅用户确认标签参与训练。
-- 修复同步等待推理时异步回调依赖输入线程造成的死锁。
-- AI 否决通知标题为 GestureSign V2；通知可关闭，最多每 30 秒一次并合并次数，点击进入样本纠正区域。修复托盘窗口句柄未创建导致通知失败。
-- 样本支持多选、批量标注、列表/网格/磁贴视图，查看时保持列表位置，新样本手动刷新。明确区分零分、未评分、超时和推理失败。
-- 显示每类有效样本与独立采样次数、还差多少；训练以文字显示进度和结果。
-- 显示本机推理设备及预计 NPU → GPU → CPU 顺序，与实际后端分开展示。
-- 便携版/MSI 可选择将 AI DLC 安装在用户目录或程序目录；程序目录可能需要管理员权限。已安装组件需卸载后更换位置，训练数据不随组件移动。商店包固定使用用户目录，此预览未验证商店安装流程。
+## 构建与发布
 
-## 已知限制
-- AI 否决可能误拦截，仅针对触控板双指智能关闭，不会恢复已被捕获流程吞掉的滚动。训练和标注不会立即重算历史评分。
-- Intel NPU 已在本地预览验证；重启后可能需再次点击“准备 NPU / GPU 组件”才能注册并使用 NPU。
-- Ryzen AI Z2 Extreme 已能枚举 AMD VitisAI NPU，但当前模型在该设备上有节点要求 CPU 回退；本版禁止静默 CPU 回退，因此会选择 GPU。不要将“检测到 NPU”理解为已经在 NPU 上推理。
-- ARM64/Qualcomm NPU 未实机验证。硬件组件可能需要联网下载，受驱动、系统版本及模型支持情况影响。
-- 后台学习与观察评分本身不拦截动作；需要防误触时另外开启 AI 否决。个人训练在 CPU 上进行，样本和模型只保存在本机。
+需要 .NET 10 SDK。在 PowerShell 中运行：
+
+```powershell
+./installer/Build-IntentCatalog.ps1 -OutputDirectory ./publish/intent
+```
+
+该命令依次构建 x64 / ARM64 的 CPU / Hardware 四个包，并将各 ZIP 的实际长度及 SHA256 写入前端目录。输出目录必须全新；之后才构建前端。将同一次构建的四个 ZIP 与配套主程序发布到 v18.3.2，不能替换已发布 URL 下的不同内容。发布前下载地址返回 404 时，可导入配套离线包。
+
+单独构建：
+
+```powershell
+./installer/Build-IntentDlc.ps1 -Backend Cpu -Architecture x64 -OutputDirectory ./publish/cpu
+./installer/Build-IntentDlc.ps1 -Backend Hardware -Architecture x64 -OutputDirectory ./publish/hardware
+```
+
+特殊部署可添加 `-SelfContained` 生成带运行时的 `-standalone.zip`；须将其独立目录条目交付给对应前端，不能用它替换默认 ZIP。
+
+CPU 包须通过 `tools/Test-IntentPackage.ps1` 的依赖检查及 8 MiB 解压体积上限。x64 还运行实际发布引擎自测、训练及后台生命周期测试；ARM64 在 x64 CI 上只验证构建和包结构，不声称完成设备测试。
 
 ## English
-Developer Preview 0.4 adds independent background-learning and AI-veto switches, grouped optional veto notifications, bulk sample correction and hardware diagnostics. It fixes an input-thread inference deadlock. The x64 portable app does not bundle AI: download/import the matching 0.4.0 DLC separately. ARM64 DLC is build-tested only. AMD Ryzen AI Z2 Extreme is detected, but this model currently falls back to GPU because strict NPU execution rejects CPU-assigned nodes. Intel NPU may require preparing providers again after restart. This experimental release is not a replacement for stable 18.2.8.
 
-构建组件：installer/Build-IntentDlc.ps1。发布 catalog 必须使用 ZIP 实际长度与 SHA256，主程序需在更新 catalog 后构建。
+CPU is the default lightweight component and retains local training, scoring and AI veto. Select NPU / GPU / CPU before installation to retain hardware acceleration. Both packages require the matching architecture of the shared .NET 10 Runtime. Store users may need to install it separately; ARM64 engines require an ARM64 runtime. Existing 18.3.1 installations remain usable. To switch variants, uninstall the component and install the other package; samples and models are preserved. Build all four archives and regenerate the catalog before building the matching application. Do not overwrite released assets with new bytes.

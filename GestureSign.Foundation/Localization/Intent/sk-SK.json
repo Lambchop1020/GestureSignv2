@@ -229,5 +229,6 @@
   "°; captured ": "°; zajatý ",
   "Template information unavailable": "Informácie o šablóne nie sú k dispozícii",
   "Candidate template unavailable": "Šablóna kandidáta nie je k dispozícii",
-  "{0} fingers": "Prsty {0}"
+  "{0} fingers": "Prsty {0}",
+  "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved.": "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved."
 }

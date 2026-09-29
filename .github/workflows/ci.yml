@@ -45,7 +45,7 @@ jobs:
             if (Test-Path intent-host-failure.log) { Get-Content intent-host-failure.log }
             exit $hostTestExit
           }
-          dotnet build GestureSign.IntentDlc/GestureSign.IntentDlc.csproj -c Release
+          dotnet build GestureSign.IntentDlc/GestureSign.IntentDlc.csproj -c Release -p:IntentBackend=Hardware
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           dotnet GestureSign.IntentDlc/bin/Release/net10.0-windows10.0.26100.0/win-x64/GestureSign.IntentDlc.dll --self-test intent-runtime-test.json
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -56,6 +56,17 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           dotnet run --project tests/GestureSign.LocalizationTests/GestureSign.LocalizationTests.csproj -c Release -- .
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Build and validate slim AI packages
+        shell: pwsh
+        run: |
+          ./installer/Build-IntentCatalog.ps1 -OutputDirectory ./publish/intent
+          foreach ($architecture in @('x64', 'arm64')) {
+            foreach ($backend in @('Cpu', 'Hardware')) {
+              ./tools/Test-IntentPackage.ps1 -PackagePath "./publish/intent/GestureSign-IntentDlc-18.3.2-$($backend.ToLowerInvariant())-win-$architecture.zip" -Backend $backend
+            }
+          }
+          $engine = Start-Process ./publish/intent/x64-Cpu/Runtime/GestureSign.IntentDlc.exe -ArgumentList @('--self-test', "$env:RUNNER_TEMP/intent-cpu-test.json") -WindowStyle Hidden -PassThru -Wait
+          if ($engine.ExitCode -ne 0) { throw 'Published CPU engine self-test failed.' }
       - name: Compile ARM64 daemon and WinUI
         run: |
           dotnet restore GestureSign.Daemon/GestureSign.Daemon.csproj -p:RuntimeIdentifier=win-arm64 -p:RestoreLockedMode=false

@@ -229,5 +229,6 @@
   "°; captured ": "°;捕らえられた ",
   "Template information unavailable": "テンプレート情報が利用できません",
   "Candidate template unavailable": "候補テンプレートは使用できません",
-  "{0} fingers": "{0} 指"
+  "{0} fingers": "{0} 指",
+  "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved.": "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved."
 }

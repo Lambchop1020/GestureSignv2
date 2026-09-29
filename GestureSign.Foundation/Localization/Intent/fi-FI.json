@@ -229,5 +229,6 @@
   "°; captured ": "°; vangittu ",
   "Template information unavailable": "Mallin tiedot eivät ole saatavilla",
   "Candidate template unavailable": "Ehdokasmalli ei ole saatavilla",
-  "{0} fingers": "{0} sormet"
+  "{0} fingers": "{0} sormet",
+  "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved.": "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved."
 }

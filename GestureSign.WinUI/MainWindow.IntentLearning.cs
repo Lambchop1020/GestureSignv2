@@ -61,6 +61,13 @@ public sealed partial class MainWindow
         var status = new TextBlock { TextWrapping = TextWrapping.Wrap };
         var info = new TextBlock { TextWrapping = TextWrapping.Wrap, Opacity = .7, Text = IntentText("按需安装学习引擎。采样、训练和纠错都在这里完成，个人轨迹与模型只保存在本机。", "Install the optional learning engine. Record, train and correct labels here; personal traces and models stay on this PC.") };
         content.Children.Add(info); content.Children.Add(status);
+        var componentBackend = new ComboBox { Header = IntentText("推理后端", "Backend"), HorizontalAlignment = HorizontalAlignment.Stretch };
+        componentBackend.Items.Add("CPU");
+        componentBackend.Items.Add("NPU / GPU / CPU");
+        componentBackend.SelectedIndex = 0;
+        content.Children.Add(componentBackend);
+        content.Children.Add(new TextBlock { TextWrapping = TextWrapping.Wrap, Opacity = .7,
+            Text = IntentText("CPU 版包含完整学习和 AI 否决，占用更小；NPU / GPU 版另含硬件加速。两版均需要对应架构的 .NET 10 Runtime。切换版本请先卸载组件，样本和模型会保留。", "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved.") });
         var installLocation = new ComboBox { Header = IntentText("AI 组件安装位置", "AI component location"), HorizontalAlignment = HorizontalAlignment.Stretch };
         installLocation.Items.Add(IntentText("用户数据目录（推荐）", "User data folder (recommended)"));
         if (!IsPackagedInstallation()) installLocation.Items.Add(IntentText("程序目录（便携版 / MSI）", "Application folder (portable / MSI)"));
@@ -150,7 +157,8 @@ public sealed partial class MainWindow
         var hardwarePreview = new TextBlock { TextWrapping = TextWrapping.Wrap, Text = IntentText("本机推理设备：等待学习引擎检测…", "Inference devices: waiting for hardware detection…") }; settings.Children.Add(hardwarePreview);
         var backend = new TextBlock { TextWrapping = TextWrapping.Wrap, Opacity = .7 }; settings.Children.Add(backend);
         var hardware = NewPillButton(IntentText("准备 NPU / GPU 组件", "Prepare NPU / GPU providers"), false); settings.Children.Add(hardware);
-        settings.Children.Add(new TextBlock { TextWrapping = TextWrapping.Wrap, Opacity = .7, Text = IntentText("硬件组件按需联网下载。个性化训练使用 CPU，推理优先 NPU → GPU → CPU。AI评分仍执行原有动作；两指、三／四指及自定义绘制始终复核；不同指数量需相应训练样本。", "Hardware providers download on demand. Training uses CPU; inference prefers NPU → GPU → CPU. AI scoring still executes original actions. Two-, three/four-finger and custom drawings are always reviewed; each finger count needs training coverage.") });
+        var hardwareInfo = new TextBlock { TextWrapping = TextWrapping.Wrap, Opacity = .7, Text = IntentText("硬件组件按需联网下载。个性化训练使用 CPU，推理优先 NPU → GPU → CPU。AI评分仍执行原有动作；两指、三／四指及自定义绘制始终复核；不同指数量需相应训练样本。", "Hardware providers download on demand. Training uses CPU; inference prefers NPU → GPU → CPU. AI scoring still executes original actions. Two-, three/four-finger and custom drawings are always reviewed; each finger count needs training coverage.") };
+        settings.Children.Add(hardwareInfo);
         var samples = new ListView { Height = 320, SelectionMode = ListViewSelectionMode.Multiple, HorizontalContentAlignment = HorizontalAlignment.Stretch };
         var samplePanel = NewCardPanel(8);
         var review = new Expander { Header = IntentText("待确认样本与纠错", "Review samples and corrections"), Content = samplePanel, HorizontalAlignment = HorizontalAlignment.Stretch, HorizontalContentAlignment = HorizontalAlignment.Stretch };
@@ -334,6 +342,10 @@ public sealed partial class MainWindow
         void InstalledState()
         {
             bool installed = _intentComponent.Installed;
+            componentBackend.IsEnabled = !installed && !transfer;
+            if (installed) componentBackend.SelectedIndex = _intentComponent.HardwareInstalled ? 1 : 0;
+            hardware.Visibility = _intentComponent.HardwareInstalled ? Visibility.Visible : Visibility.Collapsed;
+            hardwareInfo.Visibility = hardware.Visibility;
             installLocation.IsEnabled = !installed && !transfer;
             installPath.Text = IntentComponentService.InstallDirectory;
             settings.Visibility = installed ? Visibility.Visible : Visibility.Collapsed;
@@ -569,15 +581,16 @@ public sealed partial class MainWindow
             }
             catch (OperationCanceledException) { status.Text = IntentText("已取消。", "Canceled."); }
             catch (Exception ex) { status.Text = IntentMessage(ex.Message); }
-            finally { transfer = false; installLocation.IsEnabled = !_intentComponent.Installed; download.IsEnabled = import.IsEnabled = remove.IsEnabled = true; cancel.Visibility = progress.Visibility = Visibility.Collapsed; await Refresh(); }
+            finally { transfer = false; componentBackend.IsEnabled = installLocation.IsEnabled = !_intentComponent.Installed; download.IsEnabled = import.IsEnabled = remove.IsEnabled = true; cancel.Visibility = progress.Visibility = Visibility.Collapsed; await Refresh(); }
         }
         download.Click += async (_, _) => await Install(false); import.Click += async (_, _) => await Install(true); cancel.Click += (_, _) => cancellation.Cancel();
+        componentBackend.SelectionChanged += (_, _) => { _intentComponent.Backend = componentBackend.SelectedIndex == 1 ? "Hardware" : "Cpu"; InstalledState(); };
         remove.Click += async (_, _) =>
         {
             if (transfer) return; transfer = true; installLocation.IsEnabled = false;
             try { await _intentComponent.UninstallAsync(); InstalledState(); }
             catch (Exception ex) { status.Text = IntentMessage(ex.Message); }
-            finally { transfer = false; installLocation.IsEnabled = !_intentComponent.Installed; download.IsEnabled = import.IsEnabled = remove.IsEnabled = true; }
+            finally { transfer = false; componentBackend.IsEnabled = installLocation.IsEnabled = !_intentComponent.Installed; download.IsEnabled = import.IsEnabled = remove.IsEnabled = true; }
         };
         content.Loaded += async (_, _) => { loaded = true; ApplyAccessibleTree(Root); timer.Start(); await Refresh(); };
         content.Unloaded += (_, _) => { loaded = false; timer.Stop(); trainingTimer.Stop(); cancellation.Cancel(); };

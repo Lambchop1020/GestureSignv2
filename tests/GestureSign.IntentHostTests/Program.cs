@@ -118,4 +118,16 @@ using (var restarted = new IntentHost(root, pipeName, () => false))
     Check(IntentFiles.Read<IntentPreferences>(Path.Combine(root, "preferences.json"))?.AiVeto == false, "Explicit stop must clear persisted veto.");
     await Send(new("stop")); await run.WaitAsync(TimeSpan.FromSeconds(3));
 }
+var cacheRoot = Path.Combine(root, "cache-test");
+foreach (var key in new[] { "0000000000000000", "1111111111111111", "2222222222222222", "samples" })
+{
+    var directory = Directory.CreateDirectory(Path.Combine(cacheRoot, key));
+    File.WriteAllText(Path.Combine(directory.FullName, "sentinel"), key);
+    directory.LastWriteTimeUtc = DateTime.UtcNow.AddDays(key[0] == '0' ? -3 : -1);
+}
+IntentCache.Prune(cacheRoot, "2222222222222222");
+Check(!Directory.Exists(Path.Combine(cacheRoot, "0000000000000000")) &&
+    Directory.Exists(Path.Combine(cacheRoot, "1111111111111111")) &&
+    Directory.Exists(Path.Combine(cacheRoot, "2222222222222222")) &&
+    File.Exists(Path.Combine(cacheRoot, "samples", "sentinel")), "Cache cleanup removed active, recent or non-cache data.");
 Console.WriteLine($"PASS: {checks} headless host, integrated settings protocol, lease and lifecycle checks.");
