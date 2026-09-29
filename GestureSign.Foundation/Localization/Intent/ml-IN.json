@@ -229,5 +229,6 @@
   "°; captured ": "°; പിടികൂടി ",
   "Template information unavailable": "ടെംപ്ലേറ്റ് വിവരങ്ങൾ ലഭ്യമല്ല",
   "Candidate template unavailable": "കാൻഡിഡേറ്റ് ടെംപ്ലേറ്റ് ലഭ്യമല്ല",
-  "{0} fingers": "{0} വിരലുകൾ"
+  "{0} fingers": "{0} വിരലുകൾ",
+  "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved.": "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved."
 }

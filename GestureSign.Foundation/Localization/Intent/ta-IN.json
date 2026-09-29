@@ -229,5 +229,6 @@
   "°; captured ": "°; கைப்பற்றப்பட்டது ",
   "Template information unavailable": "டெம்ப்ளேட் தகவல் கிடைக்கவில்லை",
   "Candidate template unavailable": "வேட்பாளர் டெம்ப்ளேட் கிடைக்கவில்லை",
-  "{0} fingers": "{0} விரல்கள்"
+  "{0} fingers": "{0} விரல்கள்",
+  "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved.": "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved."
 }

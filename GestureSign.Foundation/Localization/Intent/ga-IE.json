@@ -229,5 +229,6 @@
   "°; captured ": "°; gafa ",
   "Template information unavailable": "Níl faisnéis teimpléid ar fáil",
   "Candidate template unavailable": "Níl teimpléad an iarrthóra ar fáil",
-  "{0} fingers": "{0} mhéara"
+  "{0} fingers": "{0} mhéara",
+  "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved.": "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved."
 }

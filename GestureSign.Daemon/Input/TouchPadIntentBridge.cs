@@ -127,13 +127,15 @@ internal sealed class TouchPadIntentBridge : IDisposable
         if (settings == null || (!settings.BackgroundLearning && !settings.AiVeto)) return;
         var component = IntentComponentLocation.Resolve(AppContext.BaseDirectory);
         var manifest = Path.Combine(component, "component.json");
-        if (!File.Exists(manifest) || IntentFiles.Read<IntentComponentManifest>(manifest)?.Version != IntentComponentPackage.ComponentVersion) return;
+        var architecture = System.Runtime.InteropServices.RuntimeInformation.OSArchitecture == System.Runtime.InteropServices.Architecture.Arm64 ? "arm64" : "x64";
+        if (!File.Exists(manifest) || !IntentComponentPackage.IsCompatible(IntentFiles.Read<IntentComponentManifest>(manifest), architecture)) return;
         // A live host holds this lock. Launch only when the previous process has exited.
         try { using var lease = new FileStream(Path.Combine(_dataRoot, "host.lock"), FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None); }
         catch (IOException) { return; }
         var executable = Path.Combine(component, "Runtime", "GestureSign.IntentDlc.exe");
         if (!File.Exists(executable)) return;
         var info = new ProcessStartInfo(executable) { UseShellExecute = false, CreateNoWindow = true, WorkingDirectory = Path.GetDirectoryName(executable) };
+        info.Environment["DOTNET_DISABLE_GUI_ERRORS"] = "1";
         info.ArgumentList.Add("--serve"); info.ArgumentList.Add("--daemon-pid"); info.ArgumentList.Add(Environment.ProcessId.ToString());
         using var process = Process.Start(info);
     }

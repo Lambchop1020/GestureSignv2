@@ -11,7 +11,7 @@ internal static class Program
 {
     private static async Task<int> Main(string[] args)
     {
-        Directory.CreateDirectory(IntentFiles.Root); Environment.CurrentDirectory = IntentFiles.Root; if (args.Contains("--self-test"))
+        if (args.Contains("--self-test"))
         {
             try { await RuntimeSelfTest.RunAsync(args); return 0; }
             catch (Exception ex) { try { File.WriteAllText(args.Last(), ex.ToString()); } catch { } return 1; }
@@ -21,6 +21,7 @@ internal static class Program
         int index = Array.IndexOf(args, "--daemon-pid");
         if (index < 0 || index + 1 >= args.Length || !int.TryParse(args[index + 1], out int pid)) return 2;
         Directory.CreateDirectory(IntentFiles.Root);
+        Environment.CurrentDirectory = IntentFiles.Root;
         FileStream singleton;
         try { singleton = new FileStream(Path.Combine(IntentFiles.Root, "host.lock"), FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None); }
         catch (IOException) { return 0; }

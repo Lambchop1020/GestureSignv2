@@ -23,17 +23,22 @@ internal sealed class IntentComponentService
     private Process? _host;
     public static string InstallDirectory => IntentComponentLocation.Resolve(AppContext.BaseDirectory);
     public static string Executable => Path.Combine(InstallDirectory, "Runtime", "GestureSign.IntentDlc.exe");
+    public string Backend { get; set; } = "Cpu";
+    public bool HardwareInstalled
+    {
+        get { try { return IntentFiles.Read<IntentComponentManifest>(Path.Combine(InstallDirectory, "component.json"))?.Backend == "Hardware"; } catch { return false; } }
+    }
     public bool Installed
     {
         get
         {
-            try { var marker = IntentFiles.Read<IntentComponentManifest>(Path.Combine(InstallDirectory, "component.json")); return File.Exists(Executable) && marker?.Protocol == 2 && marker.Version == IntentComponentPackage.ComponentVersion && marker.Architecture == Architecture; }
+            try { return File.Exists(Executable) && IntentComponentPackage.IsCompatible(IntentFiles.Read<IntentComponentManifest>(Path.Combine(InstallDirectory, "component.json")), Architecture); }
             catch { return false; }
         }
     }
     public static string Architecture => RuntimeInformation.OSArchitecture == System.Runtime.InteropServices.Architecture.Arm64 ? "arm64" : "x64";
     public IntentComponentAsset Asset => _asset ?? (IntentFiles.Read<IntentComponentAsset[]>(Path.Combine(AppContext.BaseDirectory, "Assets", "intent-dlc.catalog.json")) ?? [])
-        .FirstOrDefault(a => a.Architecture == Architecture) ?? throw new InvalidDataException("此版本尚未提供匹配的组件下载目录。");
+        .FirstOrDefault(a => a.Architecture == Architecture && a.Backend == Backend && a.Version == IntentComponentPackage.ComponentVersion) ?? throw new InvalidDataException("此版本尚未提供匹配的组件下载目录。");
 
     public async Task DownloadAsync(IProgress<double> progress, CancellationToken cancellationToken)
     {
@@ -88,10 +93,15 @@ internal sealed class IntentComponentService
                     using var daemon = Process.GetProcessesByName("GestureSign").FirstOrDefault(p => p.SessionId == Process.GetCurrentProcess().SessionId)
                         ?? throw new InvalidOperationException("请先启动 GestureSign 手势后台。");
                     var info = new ProcessStartInfo(Executable) { UseShellExecute = false, CreateNoWindow = true, WindowStyle = ProcessWindowStyle.Hidden, WorkingDirectory = Path.GetDirectoryName(Executable)! };
+                    info.Environment["DOTNET_DISABLE_GUI_ERRORS"] = "1";
                     info.ArgumentList.Add("--serve"); info.ArgumentList.Add("--daemon-pid"); info.ArgumentList.Add(daemon.Id.ToString());
                     _host?.Dispose(); _host = Process.Start(info);
                 }
-                return await ExchangeAsync(request, 5000);
+                try { return await ExchangeAsync(request, 5000); }
+                catch (HostUnavailableException) when (_host?.HasExited == true)
+                {
+                    throw new IOException($"Learning engine exited ({_host.ExitCode}). Install .NET 10 Runtime ({Architecture}) and check the component installation.");
+                }
             }
         }
         finally { _requests.Release(); }

@@ -1,14 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Version>18.3.0</Version><OutputType>WinExe</OutputType><TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
-    <SupportedOSPlatformVersion>10.0.18362.0</SupportedOSPlatformVersion>
+    <Version>18.3.2</Version><OutputType>WinExe</OutputType>
+    <IntentBackend Condition="'$(IntentBackend)' == ''">Cpu</IntentBackend>
+    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework Condition="'$(IntentBackend)' == 'Hardware'">net10.0-windows10.0.26100.0</TargetFramework>
+    <SupportedOSPlatformVersion Condition="'$(IntentBackend)' == 'Hardware'">10.0.18362.0</SupportedOSPlatformVersion>
+    <DefineConstants Condition="'$(IntentBackend)' == 'Hardware'">$(DefineConstants);INTENT_HARDWARE</DefineConstants>
     <ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable>
     <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
     <ApplicationManifest>app.manifest</ApplicationManifest><NoWarn>$(NoWarn);WFO1000</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../GestureSign.IntentLearning/GestureSign.IntentLearning.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(IntentBackend)' == 'Hardware'">
     <PackageReference Include="Microsoft.Windows.AI.MachineLearning" Version="2.3.42" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.27.1" />
+    <Compile Remove="CpuInference.cs" />
   </ItemGroup>
+  <ItemGroup Condition="'$(IntentBackend)' != 'Hardware'">
+    <Compile Remove="HardwareInference.cs;AmdNpuBackend.cs;AmdNpuOnnx.cs" />
+  </ItemGroup>
+  <Target Name="ValidateIntentBackend" BeforeTargets="PrepareForBuild">
+    <Error Condition="'$(IntentBackend)' != 'Cpu' and '$(IntentBackend)' != 'Hardware'" Text="IntentBackend must be Cpu or Hardware." />
+  </Target>
 </Project>

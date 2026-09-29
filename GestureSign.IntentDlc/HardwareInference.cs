@@ -6,7 +6,7 @@ using Microsoft.Windows.AI.MachineLearning;
 
 namespace GestureSign.IntentDlc;
 
-internal sealed class HardwareInference : IDisposable
+internal sealed partial class HardwareInference : IDisposable
 {
     internal static Action<string>? DiagnosticTrace { get; set; }
     private readonly object _sync = new();
@@ -17,9 +17,6 @@ internal sealed class HardwareInference : IDisposable
     private readonly Queue<(string Name, bool Hybrid, Func<InferenceSession> Create)> _fallbacks = new();
     public string Status { get { lock (_sync) return _backend + Environment.NewLine + string.Join(Environment.NewLine, _diagnostics); } }
     public bool Eligible { get { lock (_sync) return _model?.EligibleForProtection == true; } }
-    internal static bool IsSupportedGpu(uint vendorId, string? vendor) =>
-        vendorId is 0x10de or 0x1002 or 0x8086 or 0x5143 or 0x17cb ||
-        new[] { "NVIDIA", "Advanced Micro Devices", "AMD", "Intel", "Qualcomm" }.Any(name => vendor?.Contains(name, StringComparison.OrdinalIgnoreCase) == true);
 
     private volatile string _hardwarePreview = "正在检测本机推理设备…";
     public string HardwarePreview => _hardwarePreview;

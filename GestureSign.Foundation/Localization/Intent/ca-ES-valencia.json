@@ -229,5 +229,6 @@
   "°; captured ": "°; capturat ",
   "Template information unavailable": "La informació de la plantilla no està disponible",
   "Candidate template unavailable": "La plantilla del candidat no està disponible",
-  "{0} fingers": "{0} dits"
+  "{0} fingers": "{0} dits",
+  "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved.": "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved."
 }

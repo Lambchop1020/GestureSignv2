@@ -229,5 +229,6 @@
   "°; captured ": "°; বন্দী ",
   "Template information unavailable": "টেমপ্লেট তথ্য অনুপলব্ধ",
   "Candidate template unavailable": "প্রার্থী টেমপ্লেট অনুপলব্ধ",
-  "{0} fingers": "{0} আঙ্গুল"
+  "{0} fingers": "{0} আঙ্গুল",
+  "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved.": "CPU includes learning and AI veto with a smaller download. NPU / GPU adds hardware acceleration. Both require .NET 10 Runtime for the matching architecture. Uninstall the component to switch versions; samples and models are preserved."
 }
